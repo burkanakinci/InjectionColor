@@ -1,18 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Injector : MonoBehaviour
+namespace Game.Object
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Injector : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
