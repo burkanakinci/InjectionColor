@@ -1,15 +1,13 @@
 using UnityEngine;
+using Game.Utilities.Constants;
 
 namespace Game.Manager
 {
     public class JsonConverter : IManager
     {
-        private string m_TempJsonData;
-        private PlayerData m_PlayerData;
         public void InitializeManager()
         {
             LoadPlayerData();
-            Debug.Log(m_PlayerData.PlayerCoin);
         }
 
         public void LoadPlayerData()
@@ -19,23 +17,26 @@ namespace Game.Manager
             if (string.IsNullOrEmpty(data))
             {
 
-                m_PlayerData = new PlayerData
+                var _playerData = new PlayerData
                 {
                     PlayerLevel = 1,
                     PlayerCoin = 100,
                 };
 
-                SavePlayerData(m_PlayerData);
+                SavePlayerData(_playerData);
             }
-            else
-            {
-                m_PlayerData = JsonUtility.FromJson<PlayerData>(data);
-            }
+        }
+
+        public PlayerData GetSavedPlayerData()
+        {
+            var data = PlayerPrefs.GetString(Constant.PLAYER_DATA);
+            return JsonUtility.FromJson<PlayerData>(data);
         }
         public void SavePlayerData(PlayerData _playerData)
         {
-            m_TempJsonData = JsonUtility.ToJson(_playerData);
-            PlayerPrefs.SetString((Constant.PLAYER_DATA), (m_TempJsonData));
+            string _tempJsonData;
+            _tempJsonData = JsonUtility.ToJson(_playerData);
+            PlayerPrefs.SetString((Constant.PLAYER_DATA), (_tempJsonData));
             PlayerPrefs.Save();
         }
     }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using DG.Tweening;
+using Game.Utilities.Constants;
 
 namespace Game.Manager
 {
@@ -31,6 +32,27 @@ namespace Game.Manager
             {
                 m_ManagerFields[i].InitializeManager();
             }
+        }
+
+        public T GetManager<T>() where T : IManager
+        {
+            ManagerType managerType = GetManagerType<T>();
+
+            return (T)m_ManagerFields[(int)managerType];
+        }
+
+        private ManagerType GetManagerType<T>() where T : IManager
+        {
+            if (typeof(T) == typeof(JsonConverter))
+            {
+                return ManagerType.JSONConverter;
+            }
+            else if (typeof(T) == typeof(PlayerManager))
+            {
+                return ManagerType.PlayerManager;
+            }
+
+            throw new ArgumentException($"Manager type not supported: {typeof(T)}");
         }
     }
 }
