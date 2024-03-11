@@ -9,19 +9,9 @@ public struct Constant
 }
 public struct PooledObjectTags
 {
-    public const string GRID_NODE = "GridNode";
-    public const string COLORFUL_GRID_NODE = "ColorfulGridNode";
-    public const string JELLY = "Jelly";
-    public const string  JELLY_ON_UI="JellyOnUI";
-    public const string JELLY_IMAGE_ON_UI = "JellyImageOnUI";
-    public const string JELLY_SCATTER = "JellyScatter";
-    public const string TARGET_JELLY_ROW = "TargetJellyRow";
-    public const string JELLY_SCATTER_PARTICLE = "JellyScatterParticle";
-    public const string FRACTURE_NODE = "FractureNode";
 }
 public struct ObjectTags
 {
-    public const string GRID_NODE = "GridNode";
 }
 public enum PlayerStates
 {
@@ -34,7 +24,6 @@ public enum PlayerStates
 public enum ObjectsLayer
 {
     Default = 0,
-    GridNode = 6,
 }
 public enum UIPanelType
 {
@@ -49,37 +38,27 @@ public enum FinishAreaType
 }
 public enum HudAreaType
 {
-    JellyOnUIArea = 0,
-    TargetJellyArea = 1,
 }
 public enum ActiveParents
 {
-    GridNodeParent = 0,
-    ColorfulGridNodeParent = 1,
-    JellyParents = 2,
-    JellyScatter = 3,
-    JellyScatterParticle = 4,
-    FractureNode = 5,
 }
 public enum DeactiveParents
 {
-    GridNodeParent = 0,
-    ColorfulGridNodeParent = 1,
-    JellyParents = 2,
-    JellyOnUI = 3,
-    JellyImageOnUI = 4,
-    JellyScatter = 5,
-    TargetJellyRow=6,
-    JellyScatterParticle = 7,
-    FractureNode =8,
+}
+public enum ListOperations
+{
+    Adding = 0,
+    Removing = 1,
+    Clear = 2,
 }
 
 public enum SceneObjectType
 {
-    JellyGrid = 0,
+    
 }
-public enum ListOperations
+
+public enum ManagerType
 {
-    Adding,
-    Removing,
+    JSONConverter = 0,
+    PlayerManager = 1,
 }
