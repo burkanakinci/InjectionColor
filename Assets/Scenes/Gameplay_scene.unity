@@ -543,27 +543,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ManagerFields:
-  - rid: 7148561970925142021
-  - rid: 7148561970925142023
-  - rid: 7148561970925142024
-  - rid: 7148561970925142025
+  - rid: 7148561995980079104
+  - rid: 7148561995980079105
+  - rid: 7148561995980079106
+  - rid: 7148561995980079107
+  - rid: 7148561995980079108
+  - rid: 7148561995980079109
   references:
     version: 2
     RefIds:
-    - rid: 7148561970925142021
+    - rid: 7148561995980079104
       type: {class: JsonConverter, ns: Game.Manager, asm: Assembly-CSharp}
       data: 
-    - rid: 7148561970925142023
+    - rid: 7148561995980079105
       type: {class: PlayerManager, ns: Game.Manager, asm: Assembly-CSharp}
       data:
         Player: {fileID: 686492633}
-    - rid: 7148561970925142024
+    - rid: 7148561995980079106
       type: {class: InputManager, ns: Game.Manager, asm: Assembly-CSharp}
       data: 
-    - rid: 7148561970925142025
+    - rid: 7148561995980079107
       type: {class: UIManager, ns: Game.Manager, asm: Assembly-CSharp}
       data:
         m_UIPanels: []
+    - rid: 7148561995980079108
+      type: {class: ObjectPool, ns: Game.PoolSystem, asm: Assembly-CSharp}
+      data:
+        m_Pools:
+        - m_PooledObjectType: 0
+          m_PooledObjectPrefab: {fileID: 4429765027046571113, guid: 6533f5f0d44833446ae99622f5bbca42, type: 3}
+          m_SpawnedSize: 45
+          m_DeactiveParent: 0
+    - rid: 7148561995980079109
+      type: {class: Entities, ns: Game.Manager, asm: Assembly-CSharp}
+      data:
+        m_DeactiveParents: []
+        m_ActiveParents: []
+        m_SceneObjects: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

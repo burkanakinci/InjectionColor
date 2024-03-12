@@ -6,7 +6,7 @@ namespace Game.Object
     public abstract class PooledObject : CustomBehaviour
     {
         private DeactiveParents m_DeactiveParent;
-        public string PooledObjectTag { get; private set; }
+        public PooledObjectType PooledObjectTag { get; private set; }
 
         public override void Initialize()
         {
@@ -25,19 +25,14 @@ namespace Game.Object
             //this.gameObject.SetActive(false);
         }
 
-        public CustomBehaviour GetGameObject()
-        {
-            return this;
-        }
-
         public void SetDeactiveParent(DeactiveParents _deactiveParent)
         {
             m_DeactiveParent = _deactiveParent;
         }
 
-        public void SetPooledObjectTag(string _tag)
+        public void SetPooledObjectType(PooledObjectType _type)
         {
-            PooledObjectTag = _tag;
+            PooledObjectTag = _type;
         }
 
         protected virtual void OnDestroy()

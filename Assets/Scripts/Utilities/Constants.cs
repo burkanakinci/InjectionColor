@@ -11,7 +11,7 @@ namespace Game.Utilities.Constants
         public const string PLAYER_DATA = "PlayerSavedData";
     }
 
-    public struct PooledObjectTags
+    public enum PooledObjectType
     {
     }
 
@@ -74,6 +74,10 @@ namespace Game.Utilities.Constants
     {
         JSONConverter = 0,
         PlayerManager = 1,
+        InputManager = 2,
+        UIManager = 3,
+        ObjectPool = 4,
+        Entities = 5,
     }
 
 }
