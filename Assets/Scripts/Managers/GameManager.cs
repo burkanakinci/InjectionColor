@@ -36,9 +36,9 @@ namespace Game.Manager
 
         public T GetManager<T>() where T : class, IManager
         {
-            foreach (IManager manager in m_ManagerFields)
+            foreach (IManager _manager in m_ManagerFields)
             {
-                if (manager is T typedManager)
+                if (_manager is T typedManager)
                 {
                     return typedManager;
                 }
