@@ -577,6 +577,7 @@ MonoBehaviour:
   - rid: 7148561995980079107
   - rid: 7148561995980079108
   - rid: 7148561995980079109
+  - rid: 7148562062104330240
   references:
     version: 2
     RefIds:
@@ -604,6 +605,10 @@ MonoBehaviour:
         m_DeactiveParents: []
         m_ActiveParents: []
         m_SceneObjects: []
+    - rid: 7148562062104330240
+      type: {class: LevelManager, ns: Game.Manager, asm: Assembly-CSharp}
+      data:
+        m_LevelAssetGroup: {fileID: 11400000, guid: 8bedc97c9080ffd46a60984031d9a471, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

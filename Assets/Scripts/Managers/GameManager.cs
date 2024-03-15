@@ -17,6 +17,7 @@ namespace Game.Manager
 
         public void Awake()
         {
+            DontDestroyOnLoad(transform.parent.gameObject);
             Instance = this;
 
             Application.targetFrameRate = 60;
