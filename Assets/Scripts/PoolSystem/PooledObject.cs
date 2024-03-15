@@ -8,18 +8,21 @@ namespace Game.Object
         private DeactiveParents m_DeactiveParent;
         public PooledObjectType PooledObjectTag { get; private set; }
 
+        private LevelManager m_LevelManager;
+
         public override void Initialize()
         {
+            m_LevelManager = GameManager.Instance.GetManager<LevelManager>();
         }
 
         public virtual void OnObjectSpawn()
         {
-            //GameManager.Instance.GetManager<LevelManager>().OnCleanSceneObject += OnObjectDeactive;
+            m_LevelManager.OnCleanSceneObject += OnObjectDeactive;
         }
 
         public virtual void OnObjectDeactive()
         {
-            //GameManager.Instance.LevelManager.OnCleanSceneObject -= OnObjectDeactive;
+            m_LevelManager.OnCleanSceneObject -= OnObjectDeactive;
             //GameManager.Instance.ObjectPool.AddObjectPool(PooledObjectTag, this);
             //this.transform.SetParent(GameManager.Instance.Entities.GetDeactiveParent(m_DeactiveParent));
             //this.gameObject.SetActive(false);
@@ -37,7 +40,7 @@ namespace Game.Object
 
         protected virtual void OnDestroy()
         {
-            //GameManager.Instance.LevelManager.OnCleanSceneObject -= OnObjectDeactive;
+            m_LevelManager.OnCleanSceneObject -= OnObjectDeactive;
         }
     }
 }

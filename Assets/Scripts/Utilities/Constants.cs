@@ -78,6 +78,7 @@ namespace Game.Utilities.Constants
         UIManager = 3,
         ObjectPool = 4,
         Entities = 5,
+        LevelManager = 6,
     }
 
 }

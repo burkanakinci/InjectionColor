@@ -40,9 +40,12 @@ namespace Game.PoolSystem
         [SerializeField] private List<PooledObjectPair> m_Pools;
         private List<PoolPair> m_PooledLists;
 
+        private Entities m_Entities;
+
         public void InitializeManager()
         {
             CreatePool();
+            m_Entities = GameManager.Instance.GetManager<Entities>();
         }
         
         private PooledObject m_TempSpawned;
@@ -63,7 +66,7 @@ namespace Game.PoolSystem
                 for (int j = 0; j < m_Pools[i].SpawnedSize; j++)
                 {
                     m_TempSpawned = GameObject.Instantiate(m_Pools[i].PooledObjectPrefab
-                        , GameManager.Instance.GetManager<Entities>().GetDeactiveParent(m_Pools[i].DeactiveParent)
+                        , m_Entities.GetDeactiveParent(m_Pools[i].DeactiveParent)
                     ).GetComponent<PooledObject>();
                     m_TempSpawned.gameObject.SetActive(false);
                     m_TempSpawned.Initialize();
@@ -98,7 +101,7 @@ namespace Game.PoolSystem
                 var _spawnedPair = m_Pools.Find(x => x.PooledObjectType == _pooledObjectType);
                 m_TempSpawned = GameObject.Instantiate(
                     m_Pools.Find(x => x.PooledObjectType == _pooledObjectType).PooledObjectPrefab
-                    , GameManager.Instance.GetManager<Entities>().GetDeactiveParent(_spawnedPair.DeactiveParent)
+                    ,m_Entities.GetDeactiveParent(_spawnedPair.DeactiveParent)
                 ).GetComponent<PooledObject>();
                 m_TempSpawned.Initialize();
                 m_TempSpawned.SetDeactiveParent(_spawnedPair.DeactiveParent);
