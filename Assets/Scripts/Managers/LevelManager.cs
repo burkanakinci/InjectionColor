@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using Game.Object;
+using Game.Utilities.Constants;
 using Sirenix.OdinInspector;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.SceneManagement;
 
 namespace Game.Manager
 {
@@ -16,6 +18,9 @@ namespace Game.Manager
          private int m_CurrentLevelNumber;
          private int m_ActiveLevelDataNumber;
          private int m_MaxLevelDataCount;
+         private JsonConverter m_JsonConverter;
+         private AsyncOperationHandle<GameObject> m_LevelPrefabHandle;
+         [SerializeField] private AddressableAssetGroup m_LevelAssetGroup;
     
         #endregion
     
@@ -25,20 +30,10 @@ namespace Game.Manager
     
         #endregion
 
-        #region AddressableLevelSpawn
-        
-
-        private AsyncOperationHandle<GameObject> levelPrefabHandle;
-        [SerializeField] private AddressableAssetGroup m_LevelAssetGroup;
-        
         public void InitializeManager()
         {
+            m_JsonConverter = GameManager.Instance.GetManager<JsonConverter>();
             m_MaxLevelDataCount = m_LevelAssetGroup.entries.Count;
-            // m_MaxLevelDataCount = Resources.LoadAll("LevelDatas", typeof(LevelData)).Length;
-            // HudPanel _hudPanel = GameManager.Instance.UIManager.GetPanel(UIPanelType.RunPanel) as HudPanel;
-            // m_JellyOnUIArea =_hudPanel.GetArea<HudAreaType>(HudAreaType.JellyOnUIArea) as JellyOnUIArea;
-            // m_TargetJellyArea = _hudPanel.GetArea<HudAreaType>(HudAreaType.TargetJellyArea) as TargetJellyArea;
-            // m_JellyGrid = GameManager.Instance.Entities.GetSceneObject(SceneObjectType.JellyGrid) as JellyGrid;
         }
 
         private void LoadLevelPrefab()
@@ -50,12 +45,8 @@ namespace Game.Manager
         {
             if (obj.Status == AsyncOperationStatus.Succeeded)
             {
-                levelPrefabHandle = obj;
+                m_LevelPrefabHandle = obj;
                 SpawnLevelPrefab(obj.Result.gameObject);
-            }
-            else
-            {
-                Debug.LogError("Failed to load level prefab: " + obj.OperationException);
             }
         }
 
@@ -68,15 +59,15 @@ namespace Game.Manager
 
         private void UnloadLevelPrefab()
         {
-            if (levelPrefabHandle.IsValid())
+            if (m_LevelPrefabHandle.IsValid())
             {
-                Addressables.ReleaseInstance(levelPrefabHandle);
+                Addressables.ReleaseInstance(m_LevelPrefabHandle);
             }
         }
 
         private string GetLevelPrefabPath()
         {
-            SetLevelNumber(GameManager.Instance.GetManager<JsonConverter>().GetSavedPlayerData().PlayerLevel);
+            SetLevelNumber(m_JsonConverter.SavedPlayerData.PlayerLevel);
             return "Assets/Prefabs/Levels/Level"+m_ActiveLevelDataNumber+".prefab";
         }
         
@@ -96,27 +87,15 @@ namespace Game.Manager
             LoadLevelPrefab();
         }
 
-        #endregion
-
-        public void CreateLevel()
+        [Button]
+        public void SceneLoad()
         {
-            CleanSceneObject();
-            GetLevelData();
-            StartSpawnSceneObjects();
+            SceneManager.LoadScene("Gameplay_scene 1");
         }
-    
+        
         public void CleanSceneObject()
         {
             OnCleanSceneObject?.Invoke();
         }
-    
-        public void GetLevelData()
-        {
-            //CurrentLevelData = Resources.Load<LevelData>("LevelDatas/" + m_ActiveLevelDataNumber + "LevelData");
-        }
-        private void StartSpawnSceneObjects()
-        {
-        }
-        
     }
 }

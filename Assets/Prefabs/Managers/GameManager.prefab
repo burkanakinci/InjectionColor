@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2744005677503783101}
-  - component: {fileID: 3961234253210229225}
-  - component: {fileID: 6158224119013272430}
+  - component: {fileID: 2614077703203001534}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -33,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3961234253210229225
+--- !u!114 &2614077703203001534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,24 +41,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 3851384277961849781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dedb8e29fa2ef824687b9460146d6a26, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f16a4a0629b60646bd055c5f598933b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6158224119013272430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3851384277961849781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 3961234253210229225}
-  _identifier: 
-  _useSceneContext: 1
-  _context: {fileID: 0}
-  _bindType: 3
+  m_ManagerFields:
+  - rid: 7148561995980079104
+  - rid: 7148561995980079105
+  - rid: 7148561995980079106
+  - rid: 7148561995980079107
+  - rid: 7148561995980079108
+  - rid: 7148561995980079109
+  - rid: 7148562062104330240
+  references:
+    version: 2
+    RefIds:
+    - rid: 7148561995980079104
+      type: {class: JsonConverter, ns: Game.Manager, asm: Assembly-CSharp}
+      data: 
+    - rid: 7148561995980079105
+      type: {class: PlayerManager, ns: Game.Manager, asm: Assembly-CSharp}
+      data:
+        Player: {fileID: 0}
+    - rid: 7148561995980079106
+      type: {class: InputManager, ns: Game.Manager, asm: Assembly-CSharp}
+      data: 
+    - rid: 7148561995980079107
+      type: {class: UIManager, ns: Game.Manager, asm: Assembly-CSharp}
+      data:
+        m_UIPanels: []
+    - rid: 7148561995980079108
+      type: {class: ObjectPool, ns: Game.PoolSystem, asm: Assembly-CSharp}
+      data:
+        m_Pools: []
+    - rid: 7148561995980079109
+      type: {class: Entities, ns: Game.Manager, asm: Assembly-CSharp}
+      data:
+        m_DeactiveParents: []
+        m_ActiveParents: []
+        m_SceneObjects: []
+    - rid: 7148562062104330240
+      type: {class: LevelManager, ns: Game.Manager, asm: Assembly-CSharp}
+      data:
+        m_LevelAssetGroup: {fileID: 11400000, guid: 8bedc97c9080ffd46a60984031d9a471, type: 2}

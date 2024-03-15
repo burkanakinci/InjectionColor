@@ -5,6 +5,7 @@ namespace Game.Manager
 {
     public class JsonConverter : IManager
     {
+        public PlayerData SavedPlayerData { get; private set; }
         public void InitializeManager()
         {
             LoadPlayerData();
@@ -25,9 +26,10 @@ namespace Game.Manager
 
                 SavePlayerData(_playerData);
             }
+            SavedPlayerData = GetSavedPlayerData();
         }
 
-        public PlayerData GetSavedPlayerData()
+        private PlayerData GetSavedPlayerData()
         {
             var data = PlayerPrefs.GetString(Constant.PLAYER_DATA);
             return JsonUtility.FromJson<PlayerData>(data);
@@ -38,6 +40,7 @@ namespace Game.Manager
             _tempJsonData = JsonUtility.ToJson(_playerData);
             PlayerPrefs.SetString((Constant.PLAYER_DATA), (_tempJsonData));
             PlayerPrefs.Save();
+            SavedPlayerData = _playerData;
         }
     }
 }

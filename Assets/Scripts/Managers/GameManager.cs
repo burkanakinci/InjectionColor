@@ -17,11 +17,12 @@ namespace Game.Manager
 
         public void Awake()
         {
-            DontDestroyOnLoad(transform.parent.gameObject);
             Instance = this;
 
             Application.targetFrameRate = 60;
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            
+            DontDestroyOnLoad(gameObject);
 
             InitializeManager();
         }
