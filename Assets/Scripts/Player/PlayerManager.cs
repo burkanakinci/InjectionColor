@@ -12,6 +12,7 @@ namespace Game.Manager
 
         public void InitializeManager()
         {
+            Player.Initialize();
         }
     }
 }

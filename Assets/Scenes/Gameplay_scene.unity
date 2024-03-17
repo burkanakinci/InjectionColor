@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[7148561995980079105].Player
+      value: 
+      objectReference: {fileID: 1428329611}
     - target: {fileID: 2744005677503783101, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -440,6 +444,17 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1428329611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 665040319536945350, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
+  m_PrefabInstance: {fileID: 4518093593759071875}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fcee157c2154b4ead04699e3d686f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4518093593759071875
 PrefabInstance:
   m_ObjectHideFlags: 0
