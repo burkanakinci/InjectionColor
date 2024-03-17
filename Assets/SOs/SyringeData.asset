@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyringeUpperMovementDuration: 0
   m_SyringeUpperMovementEase: 0
+  m_OnMoveToColoredTargetDistanceMultiply: 1
+  m_OnMoveToColoredJumpPower: 1
+  m_OnMoveToColoredJumpDuration: 1
+  m_OnMoveToColoredJumpEase: 18
