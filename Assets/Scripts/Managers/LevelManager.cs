@@ -81,7 +81,7 @@ namespace Game.Manager
         }
         
         [Button]
-        public void Asd()
+        public void LoadLevel()
         {
             UnloadLevelPrefab();
             LoadLevelPrefab();
