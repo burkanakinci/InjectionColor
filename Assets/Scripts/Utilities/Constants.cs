@@ -31,6 +31,7 @@ namespace Game.Utilities.Constants
     public enum ObjectsLayer
     {
         Default = 0,
+        Colored = 6,
     }
 
     public enum UIPanelType

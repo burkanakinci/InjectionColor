@@ -27,6 +27,8 @@ namespace Game.StateMachine
 
             m_CurrentState = GetPlayerState(PlayerStates.RunState);
             m_GeneralState = GetPlayerState(PlayerStates.GeneralState);
+            
+            ChangeStateTo(PlayerStates.RunState,true);
         }
 
         public bool CompareState(PlayerStates _state)
