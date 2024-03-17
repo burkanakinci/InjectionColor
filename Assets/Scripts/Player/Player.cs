@@ -1,6 +1,6 @@
 using Game.Object;
 
-namespace Game.Player
+namespace Game.GamePlayer
 {
     public class Player : CustomBehaviour
     {

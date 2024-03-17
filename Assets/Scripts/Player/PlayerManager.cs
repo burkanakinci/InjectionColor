@@ -1,10 +1,12 @@
+using Game.GamePlayer;
+
 namespace Game.Manager
 {
     public class PlayerManager : IManager
     {
         #region Fields
 
-        public Player.Player Player;
+        public Player Player;
 
         #endregion
 
