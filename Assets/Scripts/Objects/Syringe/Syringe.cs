@@ -29,8 +29,12 @@ namespace Game.Object
             JumpTween(m_ColoredTarget, 
                     m_SyringeData.OnMoveToColoredJumpPower + transform.position.y,
                     m_SyringeData.OnMoveToColoredJumpDuration)
-                .SetEase(m_SyringeData.OnMoveToColoredJumpEase);
-            _colored.DeinjectColor();
+                .SetEase(m_SyringeData.OnMoveToColoredJumpEase)
+                .OnComplete(() =>
+                {
+                    m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
+                    _colored.DeinjectColor();
+                });
         }
 
         #region Tween
@@ -53,6 +57,7 @@ namespace Game.Object
 
         public void KillAllTween()
         {
+            m_SyringeVisual.KillAllTween();
             m_MoveTween?.Kill();
         }
 

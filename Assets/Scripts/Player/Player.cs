@@ -1,5 +1,3 @@
-using System;
-using Game.Manager;
 using Game.Object;
 using Game.StateMachine;
 using Sirenix.OdinInspector;
@@ -11,7 +9,7 @@ namespace Game.GamePlayer
     {
         #region Player Fields
 
-        [ShowInInspector] public PlayerStateMachine PlayerStateMachine { get; private set; }
+        [ShowInInspector]public PlayerStateMachine PlayerStateMachine { get; private set; }
 
         #endregion
 
@@ -21,11 +19,13 @@ namespace Game.GamePlayer
         public Syringe PlayerSyringe => m_Syringe;
 
         #endregion
+
         public override void Initialize()
         {
             PlayerStateMachine = new PlayerStateMachine(this);
             m_Syringe.Initialize();
         }
+
         private void FixedUpdate()
         {
             PlayerStateMachine.PhysicalUpdate();
