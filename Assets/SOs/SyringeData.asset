@@ -18,6 +18,11 @@ MonoBehaviour:
   m_OnMoveToColoredJumpPower: 1
   m_OnMoveToColoredJumpDuration: 1
   m_OnMoveToColoredJumpEase: 18
+  m_OnMoveToColoredRotateDuration: 0.9
+  m_OnMoveToColoredRotateEase: 1
+  m_MovementToColoredFlipPair:
+    m_OnMoveToColoredFlipDuration: 0.75
+    m_OnMoveToColoredFlipEase: 1
   m_DeinjectShakingPair:
     m_OnDeinjectShakeMinDuration: 1
     m_OnDeinjectShakeMaxDuration: 1.5
@@ -25,10 +30,10 @@ MonoBehaviour:
     m_OnDeinjectShakeMaxStrength: 15
     m_OnDeinjectShakeMinVibration: 5
     m_OnDeinjectShakeMaxVibration: 10
-    m_OnDeinjectShakeMinRandomness: -360
-    m_OnDeinjectShakeMaxRandomness: 360
+    m_OnDeinjectShakeMinRandomness: -45
+    m_OnDeinjectShakeMaxRandomness: 45
     m_OnDeinjectShakeIsFadeOut: 1
-    m_OnDeinjectShakeEase: 1
+    m_OnDeinjectShakeEase: 18
   m_DeinjectShakingBackPair:
     m_OnDeinjectShakeBackMinDuration: 0.4
     m_OnDeinjectShakeBackMaxDuration: 0.6

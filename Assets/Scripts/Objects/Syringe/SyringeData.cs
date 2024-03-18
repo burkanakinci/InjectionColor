@@ -32,20 +32,28 @@ namespace Game.Object
         private float m_OnMoveToColoredJumpDuration;
         [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField]
         private Ease m_OnMoveToColoredJumpEase;
+        [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField]
+        private float m_OnMoveToColoredRotateDuration;
+        [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField]
+        private Ease m_OnMoveToColoredRotateEase;
+        [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField]
+        private MovementToColoredFlipPair m_MovementToColoredFlipPair;
 
         #endregion
 
         #region On Deinject Shaking
 
         [Header("On Deinject Shaking")] 
-        [SerializeField] private DeinjectShakingPair m_DeinjectShakingPair;
+        [FoldoutGroup("On Deinject Shaking")][SerializeField] 
+        private DeinjectShakingPair m_DeinjectShakingPair;
 
         #endregion
 
         #region On Deinject Shaking Back
 
         [Header("On Deinject Shaking Back")] 
-        [SerializeField] private DeinjectShakingBackPair m_DeinjectShakingBackPair;
+        [FoldoutGroup("On Deinject Shaking Back")][SerializeField] 
+        private DeinjectShakingBackPair m_DeinjectShakingBackPair;
 
         #endregion
 
@@ -66,6 +74,9 @@ namespace Game.Object
         public float OnMoveToColoredJumpPower => m_OnMoveToColoredJumpPower;
         public float OnMoveToColoredJumpDuration => m_OnMoveToColoredJumpDuration;
         public Ease OnMoveToColoredJumpEase => m_OnMoveToColoredJumpEase;
+        public float OnMoveToColoredRotateDuration => m_OnMoveToColoredRotateDuration;
+        public Ease OnMoveToColoredRotateEase => m_OnMoveToColoredRotateEase;
+        public MovementToColoredFlipPair MovementToColoredFlipPair => m_MovementToColoredFlipPair;
 
         #endregion
         
@@ -137,6 +148,24 @@ namespace Game.Object
 
         public float OnDeinjectShakeBackDuration => Random.Range(m_OnDeinjectShakeBackMinDuration,m_OnDeinjectShakeBackMaxDuration);
         public Ease  OnDeinjectShakeBackEase => m_OnDeinjectShakeBackEase;
+
+        #endregion
+    }
+
+    [Serializable]
+    public struct MovementToColoredFlipPair
+    {
+        #region Datas
+
+        [SerializeField] private float m_OnMoveToColoredFlipDuration;
+        [SerializeField] private Ease m_OnMoveToColoredFlipEase;
+
+        #endregion
+
+        #region ExternalAccess
+
+        public float OnMoveToColoredFlipDuration => m_OnMoveToColoredFlipDuration;
+        public Ease OnMoveToColoredFlipEase => m_OnMoveToColoredFlipEase;
 
         #endregion
     }

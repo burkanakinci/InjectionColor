@@ -8,7 +8,7 @@ namespace Game.Object
         [SerializeField] private ColoredData m_ColoredData;
         [SerializeField] private Transform m_SyringeParent;
 
-        public Vector3 SyringeTargetPos => m_SyringeParent.position;
+        public Transform SyringeTargetPos => m_SyringeParent;
         public override void Initialize()
         {
             m_ColoredVisual.Initialize(this);

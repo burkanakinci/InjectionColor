@@ -10,7 +10,8 @@ namespace Game.Object
             base.Initialize(_cachedComponent);
         }
 
-        public void StartDeinjectShaking(DeinjectShakingPair _deinjectShakingPair,DeinjectShakingBackPair _deinjectShakingBackPair)
+        public void StartDeinjectShaking(DeinjectShakingPair _deinjectShakingPair,
+            DeinjectShakingBackPair _deinjectShakingBackPair)
         {
             ShakeRotationTween(_deinjectShakingPair)
                 .SetEase(_deinjectShakingPair.OnDeinjectShakeEase)
@@ -20,6 +21,15 @@ namespace Game.Object
                         .SetEase(_deinjectShakingBackPair.OnDeinjectShakeBackEase);
                 });
         }
+
+        public void FlipSyringe(MovementToColoredFlipPair _flipPair)
+        {
+            m_StartFlipAngleX = transform.localEulerAngles.x;
+            FlipTween(_flipPair.OnMoveToColoredFlipDuration)
+                .SetEase(_flipPair.OnMoveToColoredFlipEase);
+        }
+
+        #region Tweens
 
         private Tween m_RotateTween;
 
@@ -32,14 +42,24 @@ namespace Game.Object
                 _deinjectShakingPair.m_OnDeinjectShakeVibration,
                 _deinjectShakingPair.m_OnDeinjectShakeRandomness,
                 _deinjectShakingPair.OnDeinjectShakeIsFadeOut
-                );
+            );
             return m_RotateTween;
         }
 
-        private Tween LocalRotateTween(Vector3 _target,float _duration)
+        private float m_StartFlipAngleX;
+
+        private Tween FlipTween(float _duration)
         {
             m_RotateTween?.Kill();
-            m_RotateTween = transform.DOLocalRotateQuaternion(Quaternion.Euler(_target),_duration);
+            m_RotateTween = DOTween.To(() => m_StartFlipAngleX,
+                _value => transform.localRotation = Quaternion.Euler(_value * Vector3.right), 360.0f, _duration);
+            return m_RotateTween;
+        }
+
+        private Tween LocalRotateTween(Vector3 _target, float _duration)
+        {
+            m_RotateTween?.Kill();
+            m_RotateTween = transform.DOLocalRotateQuaternion(Quaternion.Euler(_target), _duration);
             return m_RotateTween;
         }
 
@@ -47,5 +67,7 @@ namespace Game.Object
         {
             m_RotateTween?.Kill();
         }
+
+        #endregion
     }
 }

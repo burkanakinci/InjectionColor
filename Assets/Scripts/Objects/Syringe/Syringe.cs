@@ -23,7 +23,7 @@ namespace Game.Object
         public void StartDeinjectColored(Colored _colored)
         {
             m_CurrentColored = _colored;
-            m_ColoredTarget = (m_CurrentColored.SyringeTargetPos - m_CurrentCamera.transform.position) *
+            m_ColoredTarget = (m_CurrentColored.SyringeTargetPos.position - m_CurrentCamera.transform.position) *
                               m_SyringeData.OnMoveToColoredTargetDistanceMultiply;
             m_ColoredTarget = m_CurrentCamera.transform.position + m_ColoredTarget;
             JumpTween(m_ColoredTarget, 
@@ -35,11 +35,15 @@ namespace Game.Object
                     m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
                     _colored.DeinjectColor();
                 });
+            //m_SyringeVisual.FlipSyringe(m_SyringeData.MovementToColoredFlipPair);
+            RotateTween(m_CurrentColored.SyringeTargetPos.eulerAngles,m_SyringeData.OnMoveToColoredRotateDuration)
+                .SetEase(m_SyringeData.OnMoveToColoredRotateEase);
         }
 
         #region Tween
 
         private Tween m_MoveTween;
+        private Tween m_RotateTween;
 
         private Tween MoveTween(Vector3 _target, float _duration)
         {
@@ -55,10 +59,18 @@ namespace Game.Object
             return m_MoveTween;
         }
 
+        private Tween RotateTween(Vector3 _target, float _duration)
+        {
+            m_RotateTween?.Kill();
+            m_RotateTween = transform.DORotateQuaternion(Quaternion.Euler(_target),_duration);
+            return m_RotateTween;
+        }
+
         public void KillAllTween()
         {
             m_SyringeVisual.KillAllTween();
             m_MoveTween?.Kill();
+            m_RotateTween?.Kill();
         }
 
         #endregion

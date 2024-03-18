@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ShrinkingPieceData
   m_EditorClassIdentifier: 
   m_OnShrinkingDuration: 1
-  m_OnShrinkingEase: 1
+  m_OnShrinkingEase: 18
