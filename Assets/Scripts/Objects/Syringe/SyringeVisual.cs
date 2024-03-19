@@ -5,6 +5,8 @@ namespace Game.Object
 {
     public class SyringeVisual : CustomBehaviour<Syringe>
     {
+        [SerializeField] private Transform m_SyringeUpperParent;
+        
         public override void Initialize(Syringe _cachedComponent)
         {
             base.Initialize(_cachedComponent);
@@ -29,9 +31,18 @@ namespace Game.Object
                 .SetEase(_flipPair.OnMoveToColoredFlipEase);
         }
 
+        public void SyringeUp(DeinjectMovementUpPair _deinjectMovementUpPair)
+        {
+            SyringeUpperParentLocalMove(
+                Vector3.up*_deinjectMovementUpPair.MoveUpDistance,
+                _deinjectMovementUpPair.MoveUpDuration
+            ).SetEase(_deinjectMovementUpPair.MoveUpEase);
+        }
+
         #region Tweens
 
         private Tween m_RotateTween;
+        private Tween m_UpperMovementTween;
 
         private Tween ShakeRotationTween(DeinjectShakingPair _deinjectShakingPair)
         {
@@ -63,8 +74,16 @@ namespace Game.Object
             return m_RotateTween;
         }
 
+        private Tween SyringeUpperParentLocalMove(Vector3 _target, float _duration)
+        {
+            m_UpperMovementTween?.Kill();
+            m_UpperMovementTween = m_SyringeUpperParent.DOLocalMove(_target,_duration);
+            return m_UpperMovementTween;
+        }
+
         public void KillAllTween()
         {
+            m_UpperMovementTween?.Kill();
             m_RotateTween?.Kill();
         }
 

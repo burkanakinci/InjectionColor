@@ -32,10 +32,10 @@ namespace Game.Object
                 .SetEase(m_SyringeData.OnMoveToColoredJumpEase)
                 .OnComplete(() =>
                 {
+                    m_SyringeVisual.SyringeUp(m_SyringeData.DeinjectMovementUpPair);
                     m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
                     _colored.DeinjectColor();
                 });
-            //m_SyringeVisual.FlipSyringe(m_SyringeData.MovementToColoredFlipPair);
             RotateTween(m_CurrentColored.SyringeTargetPos.eulerAngles,m_SyringeData.OnMoveToColoredRotateDuration)
                 .SetEase(m_SyringeData.OnMoveToColoredRotateEase);
         }
