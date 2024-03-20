@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_OnShrinkingDuration: 1
   m_OnShrinkingEase: 18
+  m_OnChangeColorlessDuration: 0.8
+  m_OnChangeColorlessEase: 1

@@ -1,3 +1,6 @@
+using System;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.Object
@@ -6,14 +9,18 @@ namespace Game.Object
     public class ColoredData : ScriptableObject
     {
         #region Datas
-        
 
+        #region On Change Material Colorless
+
+
+
+        #endregion
 
         #endregion
 
         #region ExternalAccess
 
-
+        
 
         #endregion
     }

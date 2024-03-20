@@ -1,3 +1,5 @@
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.Object
@@ -19,6 +21,14 @@ namespace Game.Object
             for (int i = 0; i < m_ShrinkingPiece.Length; i++)
             {
                 m_ShrinkingPiece[i].ShrinkObject();
+            }
+        }
+
+        public void ChangeColorless()
+        {
+            for (int i = 0; i < m_ShrinkingPiece.Length; i++)
+            {
+                m_ShrinkingPiece[i].ChangeColorless();
             }
         }
     }

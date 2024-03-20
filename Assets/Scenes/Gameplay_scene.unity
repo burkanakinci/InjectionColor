@@ -144,6 +144,10 @@ PrefabInstance:
       value: Assembly-CSharp Game.Manager.CameraManager
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[7148561995980079109].Asd
+      value: -235
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148561995980079105].Player
       value: 
       objectReference: {fileID: 1428329611}
@@ -151,6 +155,18 @@ PrefabInstance:
       propertyPath: managedReferences[7148562108352036864].m_CurrentCamera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[7148562062104330240].m_StartRandomLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[7148561995980079109].m_ColoredObjectsMaterials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[7148561995980079109].m_ColoredObjectsMaterials.Array.data[0].m_ColoredObjectMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: b8bbd67da598f6a42a6c9e8e30db5b36, type: 2}
     - target: {fileID: 2744005677503783101, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

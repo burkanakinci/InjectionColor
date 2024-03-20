@@ -10,13 +10,7 @@ namespace Game.Manager
 {
     public class Entities : IManager
     {
-        [Serializable]
-        public struct SceneObjectPair
-        {
-            public SceneObjectType SceneObjectType;
-            public CustomBehaviour SceneObject;
-        }
-
+        public int Asd;
         #region Parent Objects
 
         [Header("Parent Objects")] 
@@ -24,18 +18,27 @@ namespace Game.Manager
         [SerializeField] private Transform[] m_ActiveParents;
 
         #endregion
-
-
+        
         #region SceneObjects
 
         [Space(10)] [Header("Scene Objects")] 
-        [SerializeField] private List<SceneObjectPair> m_SceneObjects;
+        [SerializeField] private SceneObjectPair[] m_SceneObjects;
+
+        #endregion
+
+        #region Colored Objects Materials
+
+        [Header("Colored Objects Materials")] 
+        [SerializeField] private ColoredObjectsMaterial[] m_ColoredObjectsMaterials;
 
         #endregion
 
         public void InitializeManager()
         {
-            m_SceneObjects.ForEach(_object => { _object.SceneObject.Initialize(); });
+            for (int i = 0; i < m_SceneObjects.Length; i++)
+            {
+                m_SceneObjects[i].SceneObject.Initialize();
+            }
         }
 
         #region Getter
@@ -52,8 +55,45 @@ namespace Game.Manager
 
         public CustomBehaviour GetSceneObject(SceneObjectType _objectType)
         {
-            return m_SceneObjects.FirstOrDefault(x => x.SceneObjectType == _objectType).SceneObject;
+            return m_SceneObjects[(int)_objectType].SceneObject;
         }
+
+        public Material GetColoredObjectsMaterial(ColoredObjectMaterialType _coloredType)
+        {
+            return m_ColoredObjectsMaterials[(int)_coloredType].ColoredObjectMaterial;
+        }
+
+        #endregion
+    }
+    [Serializable]
+    public struct SceneObjectPair
+    {
+        #region Datas
+
+        [SerializeField] private CustomBehaviour m_SceneObject;
+
+        #endregion
+
+        #region ExternalAccess
+
+        public CustomBehaviour SceneObject => m_SceneObject;
+
+        #endregion
+
+    }
+
+    [Serializable]
+    public struct ColoredObjectsMaterial
+    {
+        #region Datas
+
+        [SerializeField] private Material m_ColoredObjectMaterial;
+
+        #endregion
+
+        #region ExternalAccess
+
+        public Material ColoredObjectMaterial => m_ColoredObjectMaterial;
 
         #endregion
     }

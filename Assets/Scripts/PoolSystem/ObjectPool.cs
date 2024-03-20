@@ -39,7 +39,6 @@ namespace Game.PoolSystem
 
         [SerializeField] private List<PooledObjectPair> m_Pools;
         private List<PoolPair> m_PooledLists;
-
         private Entities m_Entities;
 
         public void InitializeManager()

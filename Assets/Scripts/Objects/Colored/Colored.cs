@@ -16,6 +16,7 @@ namespace Game.Object
 
         public void DeinjectColor()
         {
+            m_ColoredVisual.ChangeColorless();
             m_ColoredVisual.DeinjectColoredVisual();
         }
     }

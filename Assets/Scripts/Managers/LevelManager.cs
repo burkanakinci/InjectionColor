@@ -14,20 +14,21 @@ namespace Game.Manager
     public class LevelManager : IManager
     {
         #region Fields
-    
-         private int m_CurrentLevelNumber;
-         private int m_ActiveLevelDataNumber;
-         private int m_MaxLevelDataCount;
-         private JsonConverter m_JsonConverter;
-         private AsyncOperationHandle<GameObject> m_LevelPrefabHandle;
-         [SerializeField] private AddressableAssetGroup m_LevelAssetGroup;
-    
+
+        private int m_CurrentLevelNumber;
+        private int m_ActiveLevelDataNumber;
+        private int m_MaxLevelDataCount;
+        private JsonConverter m_JsonConverter;
+        private AsyncOperationHandle<GameObject> m_LevelPrefabHandle;
+        [SerializeField] private AddressableAssetGroup m_LevelAssetGroup;
+        [SerializeField] private int m_StartRandomLevel;
+
         #endregion
-    
+
         #region Actions
-    
+
         public event Action OnCleanSceneObject;
-    
+
         #endregion
 
         public void InitializeManager()
@@ -52,9 +53,8 @@ namespace Game.Manager
 
         private void SpawnLevelPrefab(GameObject prefab)
         {
-            GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            prefab.GetComponent<LevelBase>().Initialize();
-            prefab.GetComponent<LevelBase>().OnSpawnLevel();
+            var spawnedLevel = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
+            spawnedLevel.GetComponent<ILevel>()?.OnSpawnLevel();
         }
 
         private void UnloadLevelPrefab()
@@ -68,18 +68,17 @@ namespace Game.Manager
         private string GetLevelPrefabPath()
         {
             SetLevelNumber(m_JsonConverter.SavedPlayerData.PlayerLevel);
-            return "Assets/Prefabs/Levels/Level"+m_ActiveLevelDataNumber+".prefab";
+            return "Assets/Prefabs/Levels/Level" + m_ActiveLevelDataNumber + ".prefab";
         }
-        
+
         public void SetLevelNumber(int _levelNumber)
         {
-            
             m_CurrentLevelNumber = _levelNumber;
             m_ActiveLevelDataNumber = (m_CurrentLevelNumber <= m_MaxLevelDataCount)
                 ? (m_CurrentLevelNumber)
-                : ((int)(UnityEngine.Random.Range(1, (m_MaxLevelDataCount + 1))));
+                : ((int)(UnityEngine.Random.Range(m_StartRandomLevel, (m_MaxLevelDataCount + 1))));
         }
-        
+
         [Button]
         public void LoadLevel()
         {
@@ -92,7 +91,7 @@ namespace Game.Manager
         {
             SceneManager.LoadScene("Gameplay_scene 1");
         }
-        
+
         public void CleanSceneObject()
         {
             OnCleanSceneObject?.Invoke();
