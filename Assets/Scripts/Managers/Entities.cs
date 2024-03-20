@@ -10,7 +10,6 @@ namespace Game.Manager
 {
     public class Entities : IManager
     {
-        public int Asd;
         #region Parent Objects
 
         [Header("Parent Objects")] 

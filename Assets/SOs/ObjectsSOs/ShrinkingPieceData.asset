@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4cd633b217d4ec6ab1ae5ce4bd1f726, type: 3}
   m_Name: ShrinkingPieceData
   m_EditorClassIdentifier: 
-  m_OnShrinkingDuration: 1
+  m_OnShrinkingDuration: 2
   m_OnShrinkingEase: 18
+  m_OnShrinkingMinBackDilationStartValue: 40
+  m_OnShrinkingMaxBackDilationStartValue: 60
+  m_OnShrinkingMinBackDilationValue: 5
+  m_OnShrinkingMaxBackDilationValue: 10
+  m_OnShrinkingMinBackDilationDuration: 0.2
+  m_OnShrinkingMaxBackDilationDuration: 0.3
+  m_OnShrinkingBackDilationEase: 1
+  m_UseBackDilation: 1
   m_OnChangeColorlessDuration: 0.8
   m_OnChangeColorlessEase: 1

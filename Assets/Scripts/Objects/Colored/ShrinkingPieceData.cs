@@ -16,6 +16,22 @@ namespace Game.Object
         private float m_OnShrinkingDuration;
         [FoldoutGroup("On Shrinking")][SerializeField] 
         private Ease m_OnShrinkingEase;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private float m_OnShrinkingMinBackDilationStartValue;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private float m_OnShrinkingMaxBackDilationStartValue;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private float m_OnShrinkingMinBackDilationValue;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private float m_OnShrinkingMaxBackDilationValue;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private float m_OnShrinkingMinBackDilationDuration;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private float m_OnShrinkingMaxBackDilationDuration;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private Ease m_OnShrinkingBackDilationEase;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private bool m_UseBackDilation;
 
         #endregion
 
@@ -38,7 +54,12 @@ namespace Game.Object
         
         public float OnShrinkingDuration => m_OnShrinkingDuration;
         public Ease OnShrinkingEase => m_OnShrinkingEase;
-        
+        public float OnShrinkingBackDilationStartValue => Random.Range(m_OnShrinkingMinBackDilationStartValue,m_OnShrinkingMaxBackDilationStartValue);
+        public float OnShrinkingBackDilationValue => Random.Range(m_OnShrinkingMinBackDilationValue,m_OnShrinkingMaxBackDilationValue);
+        public float OnShrinkingBackDilationDuration => Random.Range(m_OnShrinkingMinBackDilationDuration,m_OnShrinkingMaxBackDilationDuration);
+        public Ease OnShrinkingBackDilationEase => m_OnShrinkingBackDilationEase;
+        public bool UseBackDilation => m_UseBackDilation;
+
         #endregion
         
         #region On Change Colorless
