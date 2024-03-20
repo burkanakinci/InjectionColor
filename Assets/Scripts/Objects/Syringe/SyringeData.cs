@@ -73,6 +73,20 @@ namespace Game.Object
 
         #endregion
 
+        #region On Syringe Pouring Movement
+
+        [Header("On Syringe Pouring Movement")] 
+        [FoldoutGroup("On Syringe Pouring Movement")][SerializeField] 
+        private float m_OnSyringePourMovementStartDelay;
+        [FoldoutGroup("On Syringe Pouring Movement")][SerializeField] 
+        private float m_OnSyringePourMovementJumpPower;
+        [FoldoutGroup("On Syringe Pouring Movement")][SerializeField] 
+        private float m_OnSyringePourMovementJumpDuration;
+        [FoldoutGroup("On Syringe Pouring Movement")][SerializeField] 
+        private Ease m_OnSyringePourMovementJumpEase;
+
+        #endregion
+
         #endregion
 
         #region ExternalAccess
@@ -117,6 +131,15 @@ namespace Game.Object
         #region On Liquid Up Pair
         
         public DeinjectLiquidUpPair DeinjectLiquidUpPair => m_DeinjectLiquidUpPair;
+
+        #endregion
+        
+        #region On Syringe Pouring Movement
+
+        public float OnSyringePourMovementStartDelay => m_OnSyringePourMovementStartDelay;
+        public float OnSyringePourMovementJumpPower => m_OnSyringePourMovementJumpPower;
+        public float OnSyringePourMovementJumpDuration => m_OnSyringePourMovementJumpDuration;
+        public Ease OnSyringePourMovementJumpEase => m_OnSyringePourMovementJumpEase;
 
         #endregion
 

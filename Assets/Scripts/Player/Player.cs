@@ -16,7 +16,9 @@ namespace Game.GamePlayer
         #region Player Objects
 
         [SerializeField] private Syringe m_Syringe;
+        [SerializeField] private PouringCup m_PouringCup;
         public Syringe PlayerSyringe => m_Syringe;
+        public PouringCup PouringCup => m_PouringCup;
 
         #endregion
 
@@ -24,6 +26,7 @@ namespace Game.GamePlayer
         {
             PlayerStateMachine = new PlayerStateMachine(this);
             m_Syringe.Initialize();
+            m_PouringCup.Initialize();
         }
 
         private void FixedUpdate()
