@@ -32,7 +32,9 @@ namespace Game.Object
                 .SetEase(m_SyringeData.OnMoveToColoredJumpEase)
                 .OnComplete(() =>
                 {
+                    m_SyringeVisual.SetSyringeLiquidColor(_colored.ObjectColor);
                     m_SyringeVisual.SyringeUp(m_SyringeData.DeinjectMovementUpPair);
+                    m_SyringeVisual.SyringeLiquidUp(m_SyringeData.DeinjectLiquidUpPair);
                     m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
                     _colored.DeinjectColor();
                 });

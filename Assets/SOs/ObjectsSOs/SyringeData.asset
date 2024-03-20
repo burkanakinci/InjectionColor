@@ -42,3 +42,6 @@ MonoBehaviour:
     m_MoveUpDuration: 0.8
     m_MoveUpDistance: 0.784
     m_MoveUpEase: 1
+  m_DeinjectLiquidUpPair:
+    m_LiquidUpDuration: 1.2
+    m_LiquidUpEase: 1

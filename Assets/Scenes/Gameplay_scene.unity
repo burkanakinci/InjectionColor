@@ -539,6 +539,11 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!23 &976271561 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5113758257696161174, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
+  m_PrefabInstance: {fileID: 4518093593759071875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1428329611 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 665040319536945350, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
@@ -568,6 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SyringeUpperParent: {fileID: 4518093593759071876}
+  m_SyringeLiquidMaterial: {fileID: 976271561}
 --- !u!1 &2038324092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2859538610177087162, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
@@ -786,7 +792,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d6081d694204f0f4b91a844f79894fb5, type: 2}
     - target: {fileID: 3770621629777890632, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.802
       objectReference: {fileID: 0}
     - target: {fileID: 4259618860760523066, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -827,7 +833,7 @@ PrefabInstance:
     - target: {fileID: 5113758257696161174, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6081d694204f0f4b91a844f79894fb5, type: 2}
+      objectReference: {fileID: 2100000, guid: 098d1e1802d9f214c8f96a5e5f4abd76, type: 2}
     - target: {fileID: 5422150911112079428, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

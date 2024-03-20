@@ -11,6 +11,13 @@ namespace Game.Utilities.Constants
         public const string PLAYER_DATA = "PlayerSavedData";
     }
 
+    public struct SyringeLiquidMaterial
+    {
+        public const string SyringeLiquidFulness = "_FillAmount"; 
+        public const string SyringeLiquidTopColor = "_TopColor"; 
+        public const string SyringeLiquidSideColor = "_SideColor"; 
+    }
+
     public enum PooledObjectType
     {
     }

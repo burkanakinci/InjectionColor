@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Game.Utilities.Constants;
 using UnityEngine;
 
 namespace Game.Object
@@ -6,10 +7,13 @@ namespace Game.Object
     public class SyringeVisual : CustomBehaviour<Syringe>
     {
         [SerializeField] private Transform m_SyringeUpperParent;
-        
+        [SerializeField] private MeshRenderer m_SyringeLiquidMaterial;
+
         public override void Initialize(Syringe _cachedComponent)
         {
             base.Initialize(_cachedComponent);
+            m_SyringeUpperParent.localPosition = Vector3.zero;
+            m_SyringeLiquidMaterial.material.SetFloat(SyringeLiquidMaterial.SyringeLiquidFulness,0.0f);
         }
 
         public void StartDeinjectShaking(DeinjectShakingPair _deinjectShakingPair,
@@ -39,10 +43,22 @@ namespace Game.Object
             ).SetEase(_deinjectMovementUpPair.MoveUpEase);
         }
 
+        public void SetSyringeLiquidColor(Color _baseColor)
+        {
+            m_SyringeLiquidMaterial.material.SetColor(SyringeLiquidMaterial.SyringeLiquidTopColor,_baseColor);
+            m_SyringeLiquidMaterial.material.SetColor(SyringeLiquidMaterial.SyringeLiquidSideColor,_baseColor);
+        }
+        public void SyringeLiquidUp(DeinjectLiquidUpPair _liquidUpPair)
+        {
+            m_StartLiquidFulnessValue = m_SyringeLiquidMaterial.material.GetFloat(SyringeLiquidMaterial.SyringeLiquidFulness);
+            SyringeLiquidFulnessTween(1.0f,_liquidUpPair.LiquidUpDuration).SetEase(_liquidUpPair.LiquidUpEase);
+        }
+
         #region Tweens
 
         private Tween m_RotateTween;
         private Tween m_UpperMovementTween;
+        private Tween m_LiquidFulnessTween;
 
         private Tween ShakeRotationTween(DeinjectShakingPair _deinjectShakingPair)
         {
@@ -81,8 +97,25 @@ namespace Game.Object
             return m_UpperMovementTween;
         }
 
+        private float m_StartLiquidFulnessValue;
+        private Tween SyringeLiquidFulnessTween(float _target, float _duration)
+        {
+            m_LiquidFulnessTween?.Kill();
+            m_LiquidFulnessTween = DOTween.To(() => m_StartLiquidFulnessValue,
+                _value =>SetLiquidFulness(_value) ,
+                _target,
+                _duration);
+            return m_LiquidFulnessTween;
+        }
+
+        private void SetLiquidFulness(float _fulness)
+        {
+            m_SyringeLiquidMaterial.material.SetFloat(SyringeLiquidMaterial.SyringeLiquidFulness,_fulness);
+        }
+
         public void KillAllTween()
         {
+            m_LiquidFulnessTween?.Kill();
             m_UpperMovementTween?.Kill();
             m_RotateTween?.Kill();
         }
