@@ -13,7 +13,7 @@ namespace Game.Object
         {
             base.Initialize(_cachedComponent);
             m_SyringeUpperParent.localPosition = Vector3.zero;
-            m_SyringeLiquidMaterial.material.SetFloat(SyringeLiquidMaterial.SyringeLiquidFulness,0.0f);
+            m_SyringeLiquidMaterial.material.SetFloat(SyringeLiquidMaterial.FULNESS,0.0f);
         }
 
         public void StartDeinjectShaking(DeinjectShakingPair _deinjectShakingPair,
@@ -45,12 +45,12 @@ namespace Game.Object
 
         public void SetSyringeLiquidColor(Color _baseColor)
         {
-            m_SyringeLiquidMaterial.material.SetColor(SyringeLiquidMaterial.SyringeLiquidTopColor,_baseColor);
-            m_SyringeLiquidMaterial.material.SetColor(SyringeLiquidMaterial.SyringeLiquidSideColor,_baseColor);
+            m_SyringeLiquidMaterial.material.SetColor(SyringeLiquidMaterial.TOP_COLOR,_baseColor);
+            m_SyringeLiquidMaterial.material.SetColor(SyringeLiquidMaterial.SIDE_COLOR,_baseColor);
         }
         public void SyringeLiquidUp(DeinjectLiquidUpPair _liquidUpPair)
         {
-            m_StartLiquidFulnessValue = m_SyringeLiquidMaterial.material.GetFloat(SyringeLiquidMaterial.SyringeLiquidFulness);
+            m_StartLiquidFulnessValue = m_SyringeLiquidMaterial.material.GetFloat(SyringeLiquidMaterial.FULNESS);
             SyringeLiquidFulnessTween(1.0f,_liquidUpPair.LiquidUpDuration).SetEase(_liquidUpPair.LiquidUpEase);
         }
 
@@ -110,7 +110,7 @@ namespace Game.Object
 
         private void SetLiquidFulness(float _fulness)
         {
-            m_SyringeLiquidMaterial.material.SetFloat(SyringeLiquidMaterial.SyringeLiquidFulness,_fulness);
+            m_SyringeLiquidMaterial.material.SetFloat(SyringeLiquidMaterial.FULNESS,_fulness);
         }
 
         public void KillAllTween()

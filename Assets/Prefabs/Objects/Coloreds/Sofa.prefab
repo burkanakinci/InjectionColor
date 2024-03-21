@@ -50,6 +50,7 @@ MonoBehaviour:
   m_ColoredVisual: {fileID: 2672076637508285009}
   m_ColoredData: {fileID: 11400000, guid: aad475099f1b7bc468b53136cd9704ca, type: 2}
   m_SyringeParent: {fileID: 3134396169511347948}
+  m_ObjectColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &119159874830496382
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -180,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 8246215945536543651}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1550709, y: 0.11483213, z: -0.020952072}
+  m_LocalPosition: {x: 0.02215298, y: 0.01640459, z: -0.002993153}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -264,15 +265,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3351fb3aafcc9114898d91d4286d0b25, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13.500002
+      value: 94.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3351fb3aafcc9114898d91d4286d0b25, type: 3}
       propertyPath: m_LocalScale.y
-      value: 13.500001
+      value: 94.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3351fb3aafcc9114898d91d4286d0b25, type: 3}
       propertyPath: m_LocalScale.z
-      value: 13.500002
+      value: 94.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3351fb3aafcc9114898d91d4286d0b25, type: 3}
       propertyPath: m_LocalPosition.x

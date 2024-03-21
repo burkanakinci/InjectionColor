@@ -13,9 +13,17 @@ namespace Game.Utilities.Constants
 
     public struct SyringeLiquidMaterial
     {
-        public const string SyringeLiquidFulness = "_FillAmount"; 
-        public const string SyringeLiquidTopColor = "_TopColor"; 
-        public const string SyringeLiquidSideColor = "_SideColor"; 
+        public const string FULNESS = "_FillAmount"; 
+        public const string TOP_COLOR = "_TopColor"; 
+        public const string SIDE_COLOR = "_SideColor"; 
+    }
+
+    public struct PouringLiquidMaterial
+    {
+        public const string VORONOI_DENSITY = "_VoronoiDensity";
+        public const string VORONOI_AGITATION = "_VoronoiAgitation";
+        public const string BASE_COLOR = "_BaseColor";
+        public const string NORMAL_SPEED = "_NormalSpeed";
     }
 
     public enum PooledObjectType
