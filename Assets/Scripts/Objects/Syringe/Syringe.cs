@@ -17,6 +17,7 @@ namespace Game.Object
             m_SyringeVisual.Initialize(this);
             m_CurrentCamera = GameManager.Instance.GetManager<CameraManager>().CurrentCamera;
             m_PouringCup = GameManager.Instance.GetManager<PlayerManager>().Player.PouringCup;
+            transform.position = m_PouringCup.SyringePouringParent.position;
         }
 
         private Vector3 m_ColoredTarget;
@@ -36,23 +37,28 @@ namespace Game.Object
                 .OnComplete(() =>
                 {
                     m_SyringeVisual.SetSyringeLiquidColor(_colored.ObjectColor);
-                    m_SyringeVisual.SyringeUp(m_SyringeData.DeinjectMovementUpPair);
-                    m_SyringeVisual.SyringeLiquidUp(m_SyringeData.DeinjectLiquidUpPair);
-                    m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
-                    _colored.DeinjectColor();
-                    JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
-                        () =>
-                        {
-                            JumpTween(
-                                    m_PouringCup.SyringePouringParent.position,
-                                    m_SyringeData.OnSyringePourMovementJumpPower + transform.position.y,
-                                    m_SyringeData.OnSyringePourMovementJumpDuration)
-                                .SetEase(m_SyringeData.OnSyringePourMovementJumpEase)
-                                .OnComplete(() =>
-                                {
-                                    m_SyringeVisual.SyringeDown(m_SyringeData.DeinjectMovementDownPair);
-                                });
-                        });
+                     m_SyringeVisual.SyringeUp(m_SyringeData.DeinjectMovementUpPair);
+                    // m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
+                    // _colored.DeinjectColor();
+                    // JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
+                    //     () =>
+                    //     {
+                    //         JumpTween(
+                    //                 m_PouringCup.SyringePouringParent.position,
+                    //                 m_SyringeData.OnSyringePourMovementJumpPower + transform.position.y,
+                    //                 m_SyringeData.OnSyringePourMovementJumpDuration)
+                    //             .SetEase(m_SyringeData.OnSyringePourMovementJumpEase)
+                    //             .OnComplete(() =>
+                    //             {
+                    //                 SyringeUpperMovementDownDelayCall(m_SyringeData.DeinjectMovementDownPair.MoveDownStartDelay,
+                    //                     () =>
+                    //                     {
+                    //                         m_SyringeVisual.SyringeDown(m_SyringeData.DeinjectMovementDownPair);
+                    //                         m_SyringeVisual.SyringeLiquidDown(m_SyringeData.DeinjectLiquidDownPair);
+                    //                         m_PouringCup.SetColorOnDeinject(m_CurrentColored.ObjectColor);
+                    //                     });
+                    //             });
+                    //     });
                 });
             RotateTween(m_CurrentColored.SyringeTargetPos.eulerAngles,m_SyringeData.OnMoveToColoredRotateDuration)
                 .SetEase(m_SyringeData.OnMoveToColoredRotateEase);
@@ -63,6 +69,7 @@ namespace Game.Object
         private Tween m_MoveTween;
         private Tween m_RotateTween;
         private Tween m_JumpDelayedTween;
+        private Tween m_SyringeUpperMovementDownDelayCall;
 
         private Tween MoveTween(Vector3 _target, float _duration)
         {
@@ -93,9 +100,19 @@ namespace Game.Object
                 _jumpTween?.Invoke();
             });
         }
+        private void SyringeUpperMovementDownDelayCall(float _delay, Action _onComplete)
+        {
+            m_SyringeUpperMovementDownDelayCall?.Kill();
+            m_SyringeUpperMovementDownDelayCall = DOVirtual.DelayedCall(_delay, () =>
+            {
+                _onComplete?.Invoke();
+            });
+
+        }
 
         public void KillAllTween()
         {
+            m_SyringeUpperMovementDownDelayCall?.Kill();
             m_JumpDelayedTween?.Kill();
             m_SyringeVisual.KillAllTween();
             m_MoveTween?.Kill();

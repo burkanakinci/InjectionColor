@@ -80,6 +80,14 @@ namespace Game.Object
         private DeinjectLiquidUpPair m_DeinjectLiquidUpPair;
 
         #endregion
+        
+        #region On Liquid Down Pair
+
+        [Header("On Liquid Down Pair")] 
+        [FoldoutGroup("On Liquid Down Pair")][SerializeField] 
+        private DeinjectLiquidDownPair m_DeinjectLiquidDownPair;
+
+        #endregion
 
         #region On Syringe Pouring Movement
 
@@ -145,6 +153,12 @@ namespace Game.Object
         #region On Liquid Up Pair
         
         public DeinjectLiquidUpPair DeinjectLiquidUpPair => m_DeinjectLiquidUpPair;
+
+        #endregion
+        
+        #region On Liquid Down Pair
+        
+        public DeinjectLiquidDownPair DeinjectLiquidDownPair => m_DeinjectLiquidDownPair;
 
         #endregion
         
@@ -289,6 +303,23 @@ namespace Game.Object
         
         public float LiquidUpDuration => m_LiquidUpDuration;
         public Ease LiquidUpEase => m_LiquidUpEase;
+
+        #endregion
+    }
+    [Serializable]
+    public struct DeinjectLiquidDownPair
+    {
+        #region Datas
+        
+        [SerializeField] private float m_LiquidDownDuration;
+        [SerializeField] private Ease m_LiquidDownEase;
+
+        #endregion
+
+        #region ExternalAccess
+        
+        public float LiquidDownDuration => m_LiquidDownDuration;
+        public Ease LiquidDownEase => m_LiquidDownEase;
 
         #endregion
     }

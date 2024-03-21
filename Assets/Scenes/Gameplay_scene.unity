@@ -868,6 +868,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1322648257239936212, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
+      propertyPath: m_PouringCupData
+      value: 
+      objectReference: {fileID: 11400000, guid: a6a680311f195214ca729d4d9a2e393a, type: 2}
+    - target: {fileID: 1322648257239936212, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
       propertyPath: m_PouringCupVisual
       value: 
       objectReference: {fileID: 969230608}

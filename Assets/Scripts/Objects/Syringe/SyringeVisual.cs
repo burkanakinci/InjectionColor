@@ -39,21 +39,17 @@ namespace Game.Object
         public void SyringeUp(DeinjectMovementUpPair _deinjectMovementUpPair)
         {
             SyringeUpperParentLocalMove(
-                Vector3.up*_deinjectMovementUpPair.MoveUpDistance,
+                Vector3.up * _deinjectMovementUpPair.MoveUpDistance,
                 _deinjectMovementUpPair.MoveUpDuration
             ).SetEase(_deinjectMovementUpPair.MoveUpEase);
         }
         
         public void SyringeDown(DeinjectMovementDownPair _deinjectMovementDownPair)
         {
-            SyringeUpperMovementDownDelayCall(_deinjectMovementDownPair.MoveDownStartDelay,
-                () =>
-                {
-                    SyringeUpperParentLocalMove(
-                        Vector3.zero,
-                        _deinjectMovementDownPair.MoveDownDuration
-                    ).SetEase(_deinjectMovementDownPair.MoveDownEase);
-                });
+            SyringeUpperParentLocalMove(
+                Vector3.zero,
+                _deinjectMovementDownPair.MoveDownDuration
+            ).SetEase(_deinjectMovementDownPair.MoveDownEase);
         }
 
         public void SetSyringeLiquidColor(Color _baseColor)
@@ -66,13 +62,17 @@ namespace Game.Object
             m_StartLiquidFulnessValue = m_SyringeLiquidMaterial.material.GetFloat(SyringeLiquidMaterial.FULNESS);
             SyringeLiquidFulnessTween(1.0f,_liquidUpPair.LiquidUpDuration).SetEase(_liquidUpPair.LiquidUpEase);
         }
+        public void SyringeLiquidDown(DeinjectLiquidDownPair _liquidDownPair)
+        {
+            m_StartLiquidFulnessValue = m_SyringeLiquidMaterial.material.GetFloat(SyringeLiquidMaterial.FULNESS);
+            SyringeLiquidFulnessTween(0.0f,_liquidDownPair.LiquidDownDuration).SetEase(_liquidDownPair.LiquidDownEase);
+        }
 
         #region Tweens
 
         private Tween m_RotateTween;
         private Tween m_UpperMovementTween;
         private Tween m_LiquidFulnessTween;
-        private Tween m_SyringeUpperMovementDownDelayCall;
 
         private Tween ShakeRotationTween(DeinjectShakingPair _deinjectShakingPair)
         {
@@ -104,7 +104,7 @@ namespace Game.Object
             return m_RotateTween;
         }
 
-        private Tween SyringeUpperParentLocalMove(Vector3 _target, float _duration)
+        private Tween SyringeUpperParentLocalMove(Vector3 _target,float _duration)
         {
             m_UpperMovementTween?.Kill();
             m_UpperMovementTween = m_SyringeUpperParent.DOLocalMove(_target,_duration);
@@ -127,19 +127,8 @@ namespace Game.Object
             m_SyringeLiquidMaterial.material.SetFloat(SyringeLiquidMaterial.FULNESS,_fulness);
         }
 
-        private void SyringeUpperMovementDownDelayCall(float _delay, Action _onComplete)
-        {
-            m_SyringeUpperMovementDownDelayCall?.Kill();
-            m_SyringeUpperMovementDownDelayCall = DOVirtual.DelayedCall(_delay, () =>
-            {
-                _onComplete?.Invoke();
-            });
-
-        }
-
         public void KillAllTween()
         {
-            m_SyringeUpperMovementDownDelayCall?.Kill();
             m_LiquidFulnessTween?.Kill();
             m_UpperMovementTween?.Kill();
             m_RotateTween?.Kill();
