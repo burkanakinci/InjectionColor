@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Game.Utilities.Constants;
 using UnityEngine;
@@ -42,6 +43,18 @@ namespace Game.Object
                 _deinjectMovementUpPair.MoveUpDuration
             ).SetEase(_deinjectMovementUpPair.MoveUpEase);
         }
+        
+        public void SyringeDown(DeinjectMovementDownPair _deinjectMovementDownPair)
+        {
+            SyringeUpperMovementDownDelayCall(_deinjectMovementDownPair.MoveDownStartDelay,
+                () =>
+                {
+                    SyringeUpperParentLocalMove(
+                        Vector3.zero,
+                        _deinjectMovementDownPair.MoveDownDuration
+                    ).SetEase(_deinjectMovementDownPair.MoveDownEase);
+                });
+        }
 
         public void SetSyringeLiquidColor(Color _baseColor)
         {
@@ -59,6 +72,7 @@ namespace Game.Object
         private Tween m_RotateTween;
         private Tween m_UpperMovementTween;
         private Tween m_LiquidFulnessTween;
+        private Tween m_SyringeUpperMovementDownDelayCall;
 
         private Tween ShakeRotationTween(DeinjectShakingPair _deinjectShakingPair)
         {
@@ -113,8 +127,19 @@ namespace Game.Object
             m_SyringeLiquidMaterial.material.SetFloat(SyringeLiquidMaterial.FULNESS,_fulness);
         }
 
+        private void SyringeUpperMovementDownDelayCall(float _delay, Action _onComplete)
+        {
+            m_SyringeUpperMovementDownDelayCall?.Kill();
+            m_SyringeUpperMovementDownDelayCall = DOVirtual.DelayedCall(_delay, () =>
+            {
+                _onComplete?.Invoke();
+            });
+
+        }
+
         public void KillAllTween()
         {
+            m_SyringeUpperMovementDownDelayCall?.Kill();
             m_LiquidFulnessTween?.Kill();
             m_UpperMovementTween?.Kill();
             m_RotateTween?.Kill();

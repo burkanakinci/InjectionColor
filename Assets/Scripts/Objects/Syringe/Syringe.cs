@@ -47,7 +47,11 @@ namespace Game.Object
                                     m_PouringCup.SyringePouringParent.position,
                                     m_SyringeData.OnSyringePourMovementJumpPower + transform.position.y,
                                     m_SyringeData.OnSyringePourMovementJumpDuration)
-                                .SetEase(m_SyringeData.OnSyringePourMovementJumpEase);
+                                .SetEase(m_SyringeData.OnSyringePourMovementJumpEase)
+                                .OnComplete(() =>
+                                {
+                                    m_SyringeVisual.SyringeDown(m_SyringeData.DeinjectMovementDownPair);
+                                });
                         });
                 });
             RotateTween(m_CurrentColored.SyringeTargetPos.eulerAngles,m_SyringeData.OnMoveToColoredRotateDuration)
