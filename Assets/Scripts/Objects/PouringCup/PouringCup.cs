@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -19,6 +20,16 @@ namespace Game.Object
         {
             m_PouringCupVisual.PouringCupLiquid.SetTargetColorOnDeinject(_addedColor);
             m_PouringCupVisual.PouringCupLiquid.StartColorChangeTween(m_PouringCupData.ChangePouringLiquidColorPair);
+        }
+
+        public void SetPouringLiquidNormalSpeedUp()
+        {
+            m_PouringCupVisual.PouringCupLiquid.SetLiquidNormalSpeed(m_PouringCupData.UpNormalSpeedPourLiquidPair)
+                .OnComplete(() =>
+                {
+                    m_PouringCupVisual.PouringCupLiquid.SetLiquidNormalSpeed(m_PouringCupData
+                        .DownNormalSpeedPourLiquidPair);
+                });
         }
     }
 }
