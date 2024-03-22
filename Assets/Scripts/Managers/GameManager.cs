@@ -22,8 +22,6 @@ namespace Game.Manager
             Application.targetFrameRate = 60;
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
             
-            DontDestroyOnLoad(gameObject);
-
             InitializeManager();
         }
 

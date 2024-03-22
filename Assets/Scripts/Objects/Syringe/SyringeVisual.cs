@@ -36,9 +36,9 @@ namespace Game.Object
                 .SetEase(_flipPair.OnMoveToColoredFlipEase);
         }
 
-        public void SyringeUp(DeinjectMovementUpPair _deinjectMovementUpPair)
+        public Tween SyringeUp(DeinjectMovementUpPair _deinjectMovementUpPair)
         {
-            SyringeUpperParentLocalMove(
+            return SyringeUpperParentLocalMove(
                 Vector3.up * _deinjectMovementUpPair.MoveUpDistance,
                 _deinjectMovementUpPair.MoveUpDuration
             ).SetEase(_deinjectMovementUpPair.MoveUpEase);
@@ -57,10 +57,10 @@ namespace Game.Object
             m_SyringeLiquidMaterial.material.SetColor(SyringeLiquidMaterial.TOP_COLOR,_baseColor);
             m_SyringeLiquidMaterial.material.SetColor(SyringeLiquidMaterial.SIDE_COLOR,_baseColor);
         }
-        public void SyringeLiquidUp(DeinjectLiquidUpPair _liquidUpPair)
+        public Tween SyringeLiquidUp(DeinjectLiquidUpPair _liquidUpPair)
         {
             m_StartLiquidFulnessValue = m_SyringeLiquidMaterial.material.GetFloat(SyringeLiquidMaterial.FULNESS);
-            SyringeLiquidFulnessTween(1.0f,_liquidUpPair.LiquidUpDuration).SetEase(_liquidUpPair.LiquidUpEase);
+            return SyringeLiquidFulnessTween(1.0f,_liquidUpPair.LiquidUpDuration).SetEase(_liquidUpPair.LiquidUpEase);
         }
         public void SyringeLiquidDown(DeinjectLiquidDownPair _liquidDownPair)
         {

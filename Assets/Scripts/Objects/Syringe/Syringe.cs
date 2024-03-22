@@ -36,32 +36,46 @@ namespace Game.Object
                 .SetEase(m_SyringeData.OnMoveToColoredJumpEase)
                 .OnComplete(() =>
                 {
+                    _colored.DeinjectColor();
                     m_SyringeVisual.SetSyringeLiquidColor(_colored.ObjectColor);
-                     m_SyringeVisual.SyringeUp(m_SyringeData.DeinjectMovementUpPair);
-                    // m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
-                    // _colored.DeinjectColor();
-                    // JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
-                    //     () =>
-                    //     {
-                    //         JumpTween(
-                    //                 m_PouringCup.SyringePouringParent.position,
-                    //                 m_SyringeData.OnSyringePourMovementJumpPower + transform.position.y,
-                    //                 m_SyringeData.OnSyringePourMovementJumpDuration)
-                    //             .SetEase(m_SyringeData.OnSyringePourMovementJumpEase)
-                    //             .OnComplete(() =>
-                    //             {
-                    //                 SyringeUpperMovementDownDelayCall(m_SyringeData.DeinjectMovementDownPair.MoveDownStartDelay,
-                    //                     () =>
-                    //                     {
-                    //                         m_SyringeVisual.SyringeDown(m_SyringeData.DeinjectMovementDownPair);
-                    //                         m_SyringeVisual.SyringeLiquidDown(m_SyringeData.DeinjectLiquidDownPair);
-                    //                         m_PouringCup.SetColorOnDeinject(m_CurrentColored.ObjectColor);
-                    //                     });
-                    //             });
-                    //     });
+                    m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
+                    m_SyringeVisual.SyringeUp(m_SyringeData.DeinjectMovementUpPair);
+                    m_SyringeVisual.SyringeLiquidUp(m_SyringeData.DeinjectLiquidUpPair)
+                        .OnComplete(() =>
+                        {
+                            CompleteColoredDeinject();
+                        });
                 });
             RotateTween(m_CurrentColored.SyringeTargetPos.eulerAngles,m_SyringeData.OnMoveToColoredRotateDuration)
                 .SetEase(m_SyringeData.OnMoveToColoredRotateEase);
+        }
+
+        private void CompleteColoredDeinject()
+        {
+            JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
+                () =>
+                {
+                    JumpTween(
+                            m_PouringCup.SyringePouringParent.position,
+                            m_SyringeData.OnSyringePourMovementJumpPower + transform.position.y,
+                            m_SyringeData.OnSyringePourMovementJumpDuration)
+                        .SetEase(m_SyringeData.OnSyringePourMovementJumpEase)
+                        .OnComplete(() =>
+                        {
+                            CompleteSyringePourJump();
+                        });
+                });
+        }
+
+        private void CompleteSyringePourJump()
+        {
+            SyringeUpperMovementDownDelayCall(m_SyringeData.DeinjectMovementDownPair.MoveDownStartDelay,
+                () =>
+                {
+                    m_SyringeVisual.SyringeDown(m_SyringeData.DeinjectMovementDownPair);
+                    m_SyringeVisual.SyringeLiquidDown(m_SyringeData.DeinjectLiquidDownPair);
+                    m_PouringCup.SetColorOnDeinject(m_CurrentColored.ObjectColor);
+                });
         }
 
         #region Tween

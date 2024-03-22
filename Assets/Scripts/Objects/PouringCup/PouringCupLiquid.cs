@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Game.Utilities.Constants;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.Object
@@ -18,15 +19,30 @@ namespace Game.Object
         private Color m_AddedColor;
         private Color m_TargetColor;
         private Color m_StartColor;
+        private float m_TargetColorMultiply;
+        [Button]
         public void SetTargetColorOnDeinject(Color _addedColor)
         {
             ++m_MixedCount;
             m_AddedColor = _addedColor;
-            m_AddedColor /= m_MixedCount;
-            m_TargetColor *= ((m_MixedCount - 1) / m_MixedCount);
-            m_TargetColor += m_AddedColor;
-        }
+            m_AddedColor.r /= m_MixedCount;
+            m_AddedColor.g /= m_MixedCount;
+            m_AddedColor.b /= m_MixedCount;
+            m_AddedColor.a = 1.0f;
 
+            m_TargetColorMultiply = m_MixedCount - 1;
+            m_TargetColorMultiply /= m_MixedCount;
+            m_TargetColor.r *= m_TargetColorMultiply;
+            m_TargetColor.g *= m_TargetColorMultiply;
+            m_TargetColor.b *= m_TargetColorMultiply;
+            
+            m_TargetColor.r += m_AddedColor.r;
+            m_TargetColor.g += m_AddedColor.g;
+            m_TargetColor.b += m_AddedColor.b;
+            m_TargetColor.a = 1.0f;
+        }
+        
+        [Button]
         public void StartColorChangeTween(ChangePouringLiquidColorPair _changePouringLiquidColorPair)
         {
             m_StartColor = m_PouringLiquidRenderer.material.GetColor(PouringLiquidMaterial.BASE_COLOR);
