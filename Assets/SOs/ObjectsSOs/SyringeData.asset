@@ -52,7 +52,7 @@ MonoBehaviour:
   m_DeinjectLiquidDownPair:
     m_LiquidDownDuration: 0.5
     m_LiquidDownEase: 1
-  m_OnSyringePourMovementStartDelay: 2
+  m_OnSyringePourMovementStartDelay: 0.25
   m_OnSyringePourMovementJumpPower: 1
   m_OnSyringePourMovementJumpDuration: 1
   m_OnSyringePourMovementJumpEase: 0

@@ -55,6 +55,7 @@ namespace Game.Object
             JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
                 () =>
                 {
+                    m_CurrentColored.DilationColored();
                     JumpTween(
                             m_PouringCup.SyringePouringParent.position,
                             m_SyringeData.OnSyringePourMovementJumpPower + transform.position.y,

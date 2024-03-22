@@ -21,5 +21,10 @@ namespace Game.Object
             m_ColoredVisual.ChangeColorless();
             m_ColoredVisual.DeinjectColoredVisual();
         }
+
+        public void DilationColored()
+        {
+            m_ColoredVisual.DilationColoredVisual();
+        }
     }
 }

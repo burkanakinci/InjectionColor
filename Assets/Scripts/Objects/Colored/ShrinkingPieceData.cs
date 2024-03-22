@@ -31,7 +31,7 @@ namespace Game.Object
         [FoldoutGroup("On Shrinking")][SerializeField] 
         private Ease m_OnShrinkingBackDilationEase;
         [FoldoutGroup("On Shrinking")][SerializeField] 
-        private bool m_UseBackDilation;
+        private bool m_OnShrinkingUseBackDilation;
 
         #endregion
 
@@ -42,6 +42,49 @@ namespace Game.Object
         private float m_OnChangeColorlessDuration;
         [FoldoutGroup("On Change Colorless")][SerializeField] 
         private Ease m_OnChangeColorlessEase;
+
+
+        #endregion
+
+        #region On Dilation
+
+        [Header("On Dilation")]
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private float m_OnDilationMinStartDelay;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private float m_OnDilationMaxStartDelay;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private float m_OnDilationMinDuration;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private float m_OnDilationMaxDuration;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private Ease m_OnDilationEase;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private float m_OnDilationMinBackDilationStartValue;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private float m_OnDilationMaxBackDilationStartValue;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private float m_OnDilationMinBackDilationValue;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private float m_OnDilationMaxBackDilationValue;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private float m_OnDilationMinBackDilationDuration;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private float m_OnDilationMaxBackDilationDuration;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private Ease m_OnDilationBackDilationEase;
+        [FoldoutGroup("On Dilation")][SerializeField] 
+        private bool m_OnDilationUseBackDilation;
+
+        #endregion
+        
+        #region On Change Coloful
+
+        [Header("On Change Coloful")]
+        [FoldoutGroup("On Change Coloful")][SerializeField]
+        private float m_OnChangeColofulDuration;
+        [FoldoutGroup("On Change Coloful")][SerializeField] 
+        private Ease m_OnChangeColofulEase;
 
 
         #endregion
@@ -58,7 +101,7 @@ namespace Game.Object
         public float OnShrinkingBackDilationValue => Random.Range(m_OnShrinkingMinBackDilationValue,m_OnShrinkingMaxBackDilationValue);
         public float OnShrinkingBackDilationDuration => Random.Range(m_OnShrinkingMinBackDilationDuration,m_OnShrinkingMaxBackDilationDuration);
         public Ease OnShrinkingBackDilationEase => m_OnShrinkingBackDilationEase;
-        public bool UseBackDilation => m_UseBackDilation;
+        public bool OnShrinkingUseBackDilation => m_OnShrinkingUseBackDilation;
 
         #endregion
         
@@ -66,6 +109,26 @@ namespace Game.Object
         
         public float OnChangeColorlessDuration => m_OnChangeColorlessDuration;
         public Ease OnChangeColorlessEase => m_OnChangeColorlessEase;
+        
+        #endregion
+
+        #region On Dilation
+        
+        public float OnDilationStartDelay => Random.Range(m_OnDilationMinStartDelay,m_OnDilationMaxStartDelay);
+        public float OnDilationDuration => Random.Range(m_OnDilationMinDuration,m_OnDilationMaxDuration);
+        public Ease OnDilationEase => m_OnDilationEase;
+        public float OnDilationBackDilationStartValue => Random.Range(m_OnDilationMinBackDilationStartValue,m_OnDilationMaxBackDilationStartValue);
+        public float OnDilationBackDilationValue => Random.Range(m_OnDilationMinBackDilationValue,m_OnDilationMaxBackDilationValue);
+        public float OnDilationBackDilationDuration => Random.Range(m_OnDilationMinBackDilationDuration,m_OnDilationMaxBackDilationDuration);
+        public Ease OnDilationBackDilationEase => m_OnDilationBackDilationEase;
+        public bool OnDilationUseBackDilation => m_OnDilationUseBackDilation;
+
+        #endregion
+
+        #region On Change Coloful
+
+        public float OnChangeColofulDuration => m_OnChangeColofulDuration;
+        public Ease OnChangeColofulEase => m_OnChangeColofulEase;
         
         #endregion
 
