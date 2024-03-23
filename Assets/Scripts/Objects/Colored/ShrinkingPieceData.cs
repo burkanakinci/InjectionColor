@@ -13,7 +13,13 @@ namespace Game.Object
 
         [Header("On Shrinking")]
         [FoldoutGroup("On Shrinking")][SerializeField] 
-        private float m_OnShrinkingDuration;
+        private float m_OnShrinkingMinStartDelay;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private float m_OnShrinkingMaxStartDelay;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private float m_OnShrinkingMinDuration;
+        [FoldoutGroup("On Shrinking")][SerializeField] 
+        private float m_OnShrinkingMaxDuration;
         [FoldoutGroup("On Shrinking")][SerializeField] 
         private Ease m_OnShrinkingEase;
         [FoldoutGroup("On Shrinking")][SerializeField] 
@@ -94,8 +100,9 @@ namespace Game.Object
         #region ExternalAccess
         
         #region On Shrinking
-        
-        public float OnShrinkingDuration => m_OnShrinkingDuration;
+
+        public float OnShrinkingStartDelay => Random.Range(m_OnShrinkingMinStartDelay, m_OnShrinkingMaxStartDelay);
+        public float OnShrinkingDuration => Random.Range(m_OnShrinkingMinDuration,m_OnShrinkingMaxDuration);
         public Ease OnShrinkingEase => m_OnShrinkingEase;
         public float OnShrinkingBackDilationStartValue => Random.Range(m_OnShrinkingMinBackDilationStartValue,m_OnShrinkingMaxBackDilationStartValue);
         public float OnShrinkingBackDilationValue => Random.Range(m_OnShrinkingMinBackDilationValue,m_OnShrinkingMaxBackDilationValue);

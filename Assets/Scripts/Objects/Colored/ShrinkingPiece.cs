@@ -20,66 +20,95 @@ namespace Game.Object
             m_Entities = GameManager.Instance.GetManager<Entities>();
         }
 
-        public void ShrinkObject()
+        private float m_TempDilationStartValue;
+        private float m_TempDilationDuration;
+        private float m_FirstShrinkDuration;
+        private float m_RemainingShrinkDuration;
+        [Button]
+        private void ShrinkObject()
         {
-            float _tempDilationValue = m_ShrinkingPieceData.OnShrinkingBackDilationStartValue;
-            m_StartShrinkingBlendShapeValue =m_ShrinkingPieceRenderer.GetBlendShapeWeight(0);
-            ShrinkingBlendShapeTween(100.0f,
-                    m_ShrinkingPieceData.OnShrinkingDuration)
-                .SetEase(m_ShrinkingPieceData.OnShrinkingEase)
-                .OnUpdate(() =>
-                {
-                    if (m_ShrinkingPieceRenderer.GetBlendShapeWeight(0) >= _tempDilationValue &&
-                        m_ShrinkingPieceData.OnShrinkingUseBackDilation)
+            if (m_ShrinkingPieceData.OnShrinkingUseBackDilation)
+            {
+                m_TempDilationStartValue = m_ShrinkingPieceData.OnShrinkingBackDilationStartValue;
+                m_TempDilationDuration = m_ShrinkingPieceData.OnShrinkingBackDilationDuration;
+                m_FirstShrinkDuration = m_TempDilationStartValue / 100.0f;
+                m_FirstShrinkDuration *= m_ShrinkingPieceData.OnShrinkingDuration;
+                m_RemainingShrinkDuration = m_ShrinkingPieceData.OnShrinkingDuration - m_FirstShrinkDuration - m_TempDilationDuration;
+                ShrinkingBlendShapeTween(m_TempDilationStartValue,
+                        m_FirstShrinkDuration)
+                    .SetEase(m_ShrinkingPieceData.OnShrinkingBackDilationEase)
+                    .OnComplete(() =>
                     {
                         ShrinkingBlendShapeTween(
-                                m_ShrinkingPieceRenderer.GetBlendShapeWeight(0) -
-                                m_ShrinkingPieceData.OnShrinkingBackDilationValue,
-                                m_ShrinkingPieceData.OnShrinkingBackDilationDuration)
+                                m_TempDilationStartValue - m_ShrinkingPieceData.OnShrinkingBackDilationValue,
+                                m_TempDilationDuration)
                             .SetEase(m_ShrinkingPieceData.OnShrinkingBackDilationEase)
                             .OnComplete(() =>
                             {
-                                float _remainingShrinkDuration =
-                                    (100.0f - m_ShrinkingPieceRenderer.GetBlendShapeWeight(0)) * 0.01f;
-                                _remainingShrinkDuration =
-                                    m_ShrinkingPieceData.OnShrinkingDuration * _remainingShrinkDuration;
                                 ShrinkingBlendShapeTween(100.0f,
-                                        _remainingShrinkDuration)
+                                        m_RemainingShrinkDuration)
                                     .SetEase(m_ShrinkingPieceData.OnShrinkingEase);
                             });
-                    }
-                });
+                    });
+            }
+            else
+            {
+                ShrinkingBlendShapeTween(100.0f,
+                        m_ShrinkingPieceData.OnShrinkingDuration)
+                    .SetEase(m_ShrinkingPieceData.OnShrinkingEase);
+            }
         }
 
         private void DilationObject()
         {
-            float _tempDilationValue = m_ShrinkingPieceData.OnDilationBackDilationStartValue;
-            m_StartShrinkingBlendShapeValue =m_ShrinkingPieceRenderer.GetBlendShapeWeight(0);
-            ShrinkingBlendShapeTween(0.0f,
-                    m_ShrinkingPieceData.OnDilationDuration)
-                .SetEase(m_ShrinkingPieceData.OnDilationEase)
-                .OnUpdate(() =>
-                {
-                    if (m_ShrinkingPieceRenderer.GetBlendShapeWeight(0) >= _tempDilationValue &&
-                        m_ShrinkingPieceData.OnDilationUseBackDilation)
+            if (m_ShrinkingPieceData.OnDilationUseBackDilation)
+            {
+                m_TempDilationStartValue = m_ShrinkingPieceData.OnDilationBackDilationStartValue;
+                m_TempDilationDuration = m_ShrinkingPieceData.OnDilationBackDilationDuration;
+                m_FirstShrinkDuration = 100.0f - m_TempDilationStartValue ;
+                m_FirstShrinkDuration /= 100.0f;
+                m_FirstShrinkDuration *= m_ShrinkingPieceData.OnDilationDuration;
+                m_RemainingShrinkDuration = m_ShrinkingPieceData.OnDilationDuration - m_FirstShrinkDuration - m_TempDilationDuration;
+                ShrinkingBlendShapeTween(m_TempDilationStartValue,
+                        m_FirstShrinkDuration)
+                    .SetEase(m_ShrinkingPieceData.OnDilationBackDilationEase)
+                    .OnComplete(() =>
                     {
                         ShrinkingBlendShapeTween(
-                                m_ShrinkingPieceRenderer.GetBlendShapeWeight(0) -
-                                m_ShrinkingPieceData.OnDilationBackDilationValue,
-                                m_ShrinkingPieceData.OnDilationBackDilationDuration)
+                                m_TempDilationStartValue + m_ShrinkingPieceData.OnDilationBackDilationValue,
+                                m_TempDilationDuration)
                             .SetEase(m_ShrinkingPieceData.OnDilationBackDilationEase)
                             .OnComplete(() =>
                             {
-                                float _remainingShrinkDuration =
-                                    (100.0f - m_ShrinkingPieceRenderer.GetBlendShapeWeight(0)) * 0.01f;
-                                _remainingShrinkDuration =
-                                    m_ShrinkingPieceData.OnDilationDuration * _remainingShrinkDuration;
-                                ShrinkingBlendShapeTween(100.0f,
-                                        _remainingShrinkDuration)
+                                ShrinkingBlendShapeTween(0.0f,
+                                        m_RemainingShrinkDuration)
                                     .SetEase(m_ShrinkingPieceData.OnDilationEase);
                             });
-                    }
-                });
+                    });
+            }
+            else
+            {
+                ShrinkingBlendShapeTween(0.0f,
+                        m_ShrinkingPieceData.OnShrinkingDuration)
+                    .SetEase(m_ShrinkingPieceData.OnShrinkingEase);
+            }
+        }
+
+        public void Shrink()
+        {
+            ShrinkingDelayCallTween(m_ShrinkingPieceData.OnShrinkingStartDelay, () =>
+            {
+                ShrinkObject();
+            });
+        }
+
+        public void Dilation()
+        {
+            ShrinkingDelayCallTween(m_ShrinkingPieceData.OnDilationStartDelay, () =>
+            {
+                ChangeColorful();
+                DilationObject();
+            });
         }
 
         public void ChangeColorless()
@@ -100,12 +129,13 @@ namespace Game.Object
 
         #region Tweens
 
-        private Tween m_DilationDelayCallTween;
+        private Tween m_ShrinkingDelayCallTween;
         private Tween m_ShrinhkingBlendShapeTween;
         private float m_StartShrinkingBlendShapeValue;
 
         private Tween ShrinkingBlendShapeTween(float _target, float _duration)
         {
+            m_StartShrinkingBlendShapeValue =m_ShrinkingPieceRenderer.GetBlendShapeWeight(0);
             m_ShrinhkingBlendShapeTween?.Kill();
             m_ShrinhkingBlendShapeTween = DOTween.To(() => m_StartShrinkingBlendShapeValue,
                 _value =>SetShrinkBlendShape(_value) ,
@@ -138,21 +168,20 @@ namespace Game.Object
             m_ShrinkingPieceRenderer.material.Lerp(m_StartTweenMaterial, m_TargetTweenMaterial, _lerp);
         }
 
-        public Tween DilationDelayCallTween()
+        public Tween ShrinkingDelayCallTween(float _delay,Action _onComplete)
         {
-            m_DilationDelayCallTween?.Kill();
-            m_DilationDelayCallTween = DOVirtual.DelayedCall(m_ShrinkingPieceData.OnDilationStartDelay,
+            m_ShrinkingDelayCallTween?.Kill();
+            m_ShrinkingDelayCallTween = DOVirtual.DelayedCall(_delay,
                 () =>
                 {
-                    ChangeColorful();
-                    DilationObject();
+                    _onComplete?.Invoke();
                 });
-            return m_DilationDelayCallTween;
+            return m_ShrinkingDelayCallTween;
         }
 
         public void KillAllTween()
         {
-            m_DilationDelayCallTween?.Kill();
+            m_ShrinkingDelayCallTween?.Kill();
             m_ShrinhkingBlendShapeTween?.Kill();
             m_ChangeMaterialTween?.Kill();
         }

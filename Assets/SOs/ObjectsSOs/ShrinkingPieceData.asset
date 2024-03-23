@@ -12,30 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4cd633b217d4ec6ab1ae5ce4bd1f726, type: 3}
   m_Name: ShrinkingPieceData
   m_EditorClassIdentifier: 
-  m_OnShrinkingDuration: 2
+  m_OnShrinkingMinStartDelay: 0.2
+  m_OnShrinkingMaxStartDelay: 0.3
+  m_OnShrinkingMinDuration: 0.9
+  m_OnShrinkingMaxDuration: 1.1
   m_OnShrinkingEase: 18
-  m_OnShrinkingMinBackDilationStartValue: 40
-  m_OnShrinkingMaxBackDilationStartValue: 60
+  m_OnShrinkingMinBackDilationStartValue: 20
+  m_OnShrinkingMaxBackDilationStartValue: 30
   m_OnShrinkingMinBackDilationValue: 5
   m_OnShrinkingMaxBackDilationValue: 10
-  m_OnShrinkingMinBackDilationDuration: 0.2
-  m_OnShrinkingMaxBackDilationDuration: 0.3
+  m_OnShrinkingMinBackDilationDuration: 0.15
+  m_OnShrinkingMaxBackDilationDuration: 0.2
   m_OnShrinkingBackDilationEase: 1
   m_OnShrinkingUseBackDilation: 1
   m_OnChangeColorlessDuration: 0.8
   m_OnChangeColorlessEase: 1
-  m_OnDilationMinStartDelay: 0.1
-  m_OnDilationMaxStartDelay: 0.25
-  m_OnDilationMinDuration: 0.75
-  m_OnDilationMaxDuration: 1
+  m_OnDilationMinStartDelay: 0.5
+  m_OnDilationMaxStartDelay: 0.6
+  m_OnDilationMinDuration: 1
+  m_OnDilationMaxDuration: 1.1
   m_OnDilationEase: 18
   m_OnDilationMinBackDilationStartValue: 60
-  m_OnDilationMaxBackDilationStartValue: 40
-  m_OnDilationMinBackDilationValue: 3
-  m_OnDilationMaxBackDilationValue: 8
-  m_OnDilationMinBackDilationDuration: 0.2
-  m_OnDilationMaxBackDilationDuration: 0.3
+  m_OnDilationMaxBackDilationStartValue: 80
+  m_OnDilationMinBackDilationValue: 5
+  m_OnDilationMaxBackDilationValue: 10
+  m_OnDilationMinBackDilationDuration: 0.1
+  m_OnDilationMaxBackDilationDuration: 0.1
   m_OnDilationBackDilationEase: 1
-  m_OnDilationUseBackDilation: 0
+  m_OnDilationUseBackDilation: 1
   m_OnChangeColofulDuration: 0.75
   m_OnChangeColofulEase: 1

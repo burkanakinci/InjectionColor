@@ -20,7 +20,7 @@ namespace Game.Object
         {
             for (int i = 0; i < m_ShrinkingPiece.Length; i++)
             {
-                m_ShrinkingPiece[i].ShrinkObject();
+                m_ShrinkingPiece[i].Shrink();
             }
         }
 
@@ -36,7 +36,7 @@ namespace Game.Object
         {
             for (int i = 0; i < m_ShrinkingPiece.Length; i++)
             {
-                m_ShrinkingPiece[i].DilationDelayCallTween();
+                m_ShrinkingPiece[i].Dilation();
             }
         }
     }
