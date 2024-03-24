@@ -39,6 +39,6 @@ MonoBehaviour:
   m_OnDilationMinBackDilationDuration: 0.1
   m_OnDilationMaxBackDilationDuration: 0.1
   m_OnDilationBackDilationEase: 1
-  m_OnDilationUseBackDilation: 1
+  m_OnDilationUseBackDilation: 0
   m_OnChangeColofulDuration: 0.75
   m_OnChangeColofulEase: 1

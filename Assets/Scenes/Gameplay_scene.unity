@@ -657,7 +657,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9819adbf1fe20054682f30af172846c4, type: 2}
     - target: {fileID: -8408019470174761542, guid: 322c3d277d660a74db6e97b1709303da, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1448194289606828903, guid: 322c3d277d660a74db6e97b1709303da, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -744,8 +744,16 @@ PrefabInstance:
       value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 104178502685544773, guid: eb18f70a6709eea45811166c34364abb, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 104178502685544773, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 0.16251834
+      objectReference: {fileID: 0}
+    - target: {fileID: 104178502685544773, guid: eb18f70a6709eea45811166c34364abb, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 535351319913798594, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -789,11 +797,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 535351319913798594, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 535351319913798594, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 535351319913798594, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
@@ -801,11 +809,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 535351319913798594, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 535351319913798594, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.g
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 535351319913798594, guid: eb18f70a6709eea45811166c34364abb, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 535351319913798594, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
@@ -843,6 +855,10 @@ PrefabInstance:
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4344772810658604583, guid: eb18f70a6709eea45811166c34364abb, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 4856902261144391071, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -875,6 +891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BubblesSurfaceWater
       objectReference: {fileID: 0}
+    - target: {fileID: 5733391386488340692, guid: eb18f70a6709eea45811166c34364abb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6036954795703513687, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -897,7 +917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7355041411677639695, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.003
+      value: 0.952
       objectReference: {fileID: 0}
     - target: {fileID: 7355041411677639695, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -933,11 +953,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858198184623089347, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: ShapeModule.angle
-      value: 18.1
+      value: 33.155163
       objectReference: {fileID: 0}
     - target: {fileID: 7858198184623089347, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 0.028839542
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858198184623089347, guid: eb18f70a6709eea45811166c34364abb, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.52769697
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858198184623089347, guid: eb18f70a6709eea45811166c34364abb, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7858198184623089347, guid: eb18f70a6709eea45811166c34364abb, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
