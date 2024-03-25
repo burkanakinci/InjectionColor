@@ -9,12 +9,12 @@ namespace Game.Object
     public class PouringCupLiquid : CustomBehaviour<PouringCupVisual>
     {
         [SerializeField] private MeshRenderer m_PouringLiquidRenderer;
-        private int m_MixedCount;
+        private bool m_AnyMixed;
         
         public override void Initialize(PouringCupVisual _cachedComponent)
         {
             base.Initialize(_cachedComponent);
-            m_MixedCount = 0;
+            m_AnyMixed = false;
             m_PouringLiquidRenderer.material.SetVector(PouringLiquidMaterial.NORMAL_SPEED,Vector2.zero);
         }
 
@@ -25,23 +25,28 @@ namespace Game.Object
         [Button]
         public void SetTargetColorOnDeinject(Color _addedColor)
         {
-            ++m_MixedCount;
             m_AddedColor = _addedColor;
-            m_AddedColor.r /= m_MixedCount;
-            m_AddedColor.g /= m_MixedCount;
-            m_AddedColor.b /= m_MixedCount;
             m_AddedColor.a = 1.0f;
+            if (m_AnyMixed)
+            {
+                m_AddedColor.r *= 0.5f;
+                m_AddedColor.g *= 0.5f;
+                m_AddedColor.b *= 0.5f;
 
-            m_TargetColorMultiply = m_MixedCount - 1;
-            m_TargetColorMultiply /= m_MixedCount;
-            m_TargetColor.r *= m_TargetColorMultiply;
-            m_TargetColor.g *= m_TargetColorMultiply;
-            m_TargetColor.b *= m_TargetColorMultiply;
+                m_TargetColor.r *= 0.5f;
+                m_TargetColor.g *= 0.5f;
+                m_TargetColor.b *= 0.5f;
             
-            m_TargetColor.r += m_AddedColor.r;
-            m_TargetColor.g += m_AddedColor.g;
-            m_TargetColor.b += m_AddedColor.b;
+                m_TargetColor.r += m_AddedColor.r;
+                m_TargetColor.g += m_AddedColor.g;
+                m_TargetColor.b += m_AddedColor.b;
+            }
+            else
+            {
+                m_TargetColor = m_AddedColor;
+            }
             m_TargetColor.a = 1.0f;
+            m_AnyMixed = true;
         }
         
         [Button]

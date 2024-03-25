@@ -1,6 +1,3 @@
-using System;
-using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.Object
@@ -8,10 +5,12 @@ namespace Game.Object
     public class ColoredVisual : CustomBehaviour<Colored>
     {
         [SerializeField] private ShrinkingPiece[] m_ShrinkingPiece;
+        [SerializeField] private SyringeSplashVFX m_SyringeSplashVFX;
 
         public override void Initialize(Colored _cachedComponent)
         {
             base.Initialize(_cachedComponent);
+            m_SyringeSplashVFX.Initialize();
             for (int i = 0; i < m_ShrinkingPiece.Length; i++)
             {
                 m_ShrinkingPiece[i].Initialize(this);
@@ -33,6 +32,11 @@ namespace Game.Object
             {
                 m_ShrinkingPiece[i].Dilation();
             }
+        }
+
+        public void SetSplashVFXEnabled(bool _isEnable)
+        {
+            m_SyringeSplashVFX.SetVFXEnabled(_isEnable);
         }
 
         private void OnDisable()

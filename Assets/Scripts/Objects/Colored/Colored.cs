@@ -41,5 +41,10 @@ namespace Game.Object
         {
             m_ColoredVisual.DilationColoredVisual();
         }
+
+        public void SetSplashVFXEnabled(bool _isEnable)
+        {
+            m_ColoredVisual.SetSplashVFXEnabled(_isEnable);
+        }
     }
 }

@@ -10,12 +10,11 @@ namespace Game.Object
     {
         [SerializeField] private Transform m_SyringeUpperParent;
         [SerializeField] private MeshRenderer m_SyringeLiquidMaterial;
-        [SerializeField] private SyringeSplashVFX m_SyringeSplashVFX;
+        
 
         public override void Initialize(Syringe _cachedComponent)
         {
             base.Initialize(_cachedComponent);
-            m_SyringeSplashVFX.Initialize(this);
             m_SyringeUpperParent.localPosition = Vector3.zero;
             m_SyringeLiquidMaterial.material.SetFloat(SyringeLiquidMaterial.FULNESS,0.0f);
         }
@@ -69,16 +68,6 @@ namespace Game.Object
         {
             m_StartLiquidFulnessValue = m_SyringeLiquidMaterial.material.GetFloat(SyringeLiquidMaterial.FULNESS);
             SyringeLiquidFulnessTween(0.0f,_liquidDownPair.LiquidDownDuration).SetEase(_liquidDownPair.LiquidDownEase);
-        }
-
-        public void SetSplashVFXColor(Color _color)
-        {
-            m_SyringeSplashVFX.SetVFXColor(_color);
-        }
-
-        public void SetSplashVFXEnabled(bool _isEnable)
-        {
-            m_SyringeSplashVFX.SetVFXEnabled(_isEnable);
         }
 
         #region Tweens

@@ -18,7 +18,6 @@ namespace Game.Object
             m_CurrentCamera = GameManager.Instance.GetManager<CameraManager>().CurrentCamera;
             m_PouringCup = GameManager.Instance.GetManager<PlayerManager>().Player.PouringCup;
             transform.position = m_PouringCup.SyringePouringParent.position;
-            m_SyringeVisual.SetSplashVFXEnabled(false);
         }
 
         private Colored m_CurrentColored;
@@ -35,8 +34,6 @@ namespace Game.Object
                 .OnComplete(() =>
                 {
                     _colored.DeinjectColor();
-                    m_SyringeVisual.SetSplashVFXColor(_colored.ObjectColor);
-                    m_SyringeVisual.SetSplashVFXEnabled(true);
                     m_SyringeVisual.SetSyringeLiquidColor(_colored.ObjectColor);
                     m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
                     m_SyringeVisual.SyringeUp(m_SyringeData.DeinjectMovementUpPair);
@@ -52,7 +49,6 @@ namespace Game.Object
 
         private void CompleteColoredDeinject()
         {
-            m_SyringeVisual.SetSplashVFXEnabled(false);
             transform.SetParent(m_PouringCup.SyringePouringParent);
             JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
                 () =>
