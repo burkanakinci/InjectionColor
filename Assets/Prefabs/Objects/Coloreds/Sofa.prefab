@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShrinkingPiece:
-  - {fileID: 2760567573350893961}
   - {fileID: 2725633112389620736}
+  - {fileID: 2760567573350893961}
   - {fileID: 3900094415543941886}
   - {fileID: 3040018959011047152}
   - {fileID: 4269832251725876371}

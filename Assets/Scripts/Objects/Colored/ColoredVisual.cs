@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace Game.Object
             {
                 m_ShrinkingPiece[i].Initialize(this);
             }
+
+            m_ShrinkingPiece[0].OnChangeShrinkingValue += CachedComponent.OnChangeShrinkingValue;
         }
         public void DeinjectColoredVisual()
         {
@@ -30,6 +33,11 @@ namespace Game.Object
             {
                 m_ShrinkingPiece[i].Dilation();
             }
+        }
+
+        private void OnDisable()
+        {
+            m_ShrinkingPiece[0].OnChangeShrinkingValue -= CachedComponent.OnChangeShrinkingValue;
         }
     }
 }

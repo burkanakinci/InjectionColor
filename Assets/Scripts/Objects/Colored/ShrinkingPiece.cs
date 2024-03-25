@@ -13,6 +13,7 @@ namespace Game.Object
         [SerializeField] private ShrinkingPieceData m_ShrinkingPieceData;
         [SerializeField] private Material m_StartMaterial;
         private Entities m_Entities;
+        public Action<float> OnChangeShrinkingValue;
 
         public override void Initialize(ColoredVisual _cachedComponent)
         {
@@ -134,26 +135,12 @@ namespace Game.Object
             m_ShrinkingPieceRenderer.SetBlendShapeWeight(0, _shapeValue);
             m_TempMaterialLerp = _shapeValue * 0.01f;
             m_ShrinkingPieceRenderer.material.Lerp(m_StartMaterial, m_TargetTweenMaterial, m_TempMaterialLerp);
+            OnChangeShrinkingValue?.Invoke(m_TempMaterialLerp);
         }
 
         private Tween m_ChangeMaterialTween;
         private Material m_StartTweenMaterial;
         private Material m_TargetTweenMaterial;
-
-        private Tween ChangeMaterialTween(float _duration)
-        {
-            m_ChangeMaterialTween?.Kill();
-            m_ChangeMaterialTween = DOTween.To(() => 0.0f,
-                _value => ChangeMaterialByLerp(_value),
-                1.0f,
-                _duration);
-            return m_ChangeMaterialTween;
-        }
-
-        private void ChangeMaterialByLerp(float _lerp)
-        {
-            m_ShrinkingPieceRenderer.material.Lerp(m_StartTweenMaterial, m_TargetTweenMaterial, _lerp);
-        }
 
         public Tween ShrinkingDelayCallTween(float _delay, Action _onComplete)
         {

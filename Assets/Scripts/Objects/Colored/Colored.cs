@@ -27,6 +27,11 @@ namespace Game.Object
             m_SyringeParentShrinkStartPos = m_SyringeParent.transform.localPosition;
         }
 
+        public void OnChangeShrinkingValue(float _lerp)
+        {
+            SyringeTargetParent.localPosition = Vector3.Lerp(m_SyringeParentShrinkStartPos,m_SyringeParentShrinkEndPos,_lerp);
+        }
+
         public void DeinjectColor()
         {
             m_ColoredVisual.DeinjectColoredVisual();

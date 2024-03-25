@@ -39,7 +39,7 @@ MonoBehaviour:
     m_OnDeinjectShakeBackMaxDuration: 0.6
     m_OnDeinjectShakeBackEase: 1
   m_DeinjectMovementUpPair:
-    m_MoveUpDuration: 0.8
+    m_MoveUpDuration: 1.2
     m_MoveUpDistance: 0.1105
     m_MoveUpEase: 1
   m_DeinjectMovementDownPair:
