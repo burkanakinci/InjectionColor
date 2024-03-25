@@ -34,9 +34,13 @@ namespace Game.Object
             }
         }
 
-        public void SetSplashVFXEnabled(bool _isEnable)
+        public void SetSplashVFXEnabled(OnDisabledSplashVFXPair _disabledPair)
         {
-            m_SyringeSplashVFX.SetVFXEnabled(_isEnable);
+            m_SyringeSplashVFX.SetVFXEnabled(_disabledPair);
+        }
+        public void SetSplashVFXEnabled(OnEnabledSplashVFXPair _enabledPair)
+        {
+            m_SyringeSplashVFX.SetVFXEnabled(_enabledPair);
         }
 
         private void OnDisable()

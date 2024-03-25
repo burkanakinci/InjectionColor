@@ -53,6 +53,7 @@ namespace Game.Object
             JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
                 () =>
                 {
+                    m_CurrentColored.SetSplashVFXEnabled(false);
                     LocalJumpTween(
                             Vector3.zero,
                             m_SyringeData.OnSyringePourMovementJumpPower + transform.localPosition.y,

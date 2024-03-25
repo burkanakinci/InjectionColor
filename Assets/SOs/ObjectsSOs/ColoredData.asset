@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732e474ac0a0431f9e760b7a74e17d16, type: 3}
   m_Name: ColoredData
   m_EditorClassIdentifier: 
+  m_OnEnabledSplashVFXPair:
+    m_EnabledSimulationSpeed: 4
+    m_EnabledSimulationDuration: 1
+    m_EnabledSimulationEase: 1
+  m_OnDisabledSplashVFXPair:
+    m_DisabledSimulationDuration: 1.5
+    m_DisabledSimulationEase: 18

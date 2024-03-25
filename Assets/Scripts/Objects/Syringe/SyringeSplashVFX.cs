@@ -1,3 +1,5 @@
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.Object
@@ -8,19 +10,57 @@ namespace Game.Object
 
         public override void Initialize()
         {
-            SetVFXEnabled(false);
+            m_ColoredSplashVFX.Stop();
+            m_VFXMain = m_ColoredSplashVFX.main;
+            m_VFXMain.startSpeed = 0.0f;
         }
 
-        public void SetVFXEnabled(bool _isEnable)
+        public void SetVFXEnabled(OnDisabledSplashVFXPair _disabledPair)
         {
-            if (_isEnable)
-            {
-                m_ColoredSplashVFX.Play();
-            }
-            else
-            {
-                m_ColoredSplashVFX.Stop();
-            }
+            EnabledTween(0.0f, _disabledPair.DisabledSimulationDuration)
+                .SetEase(_disabledPair.DisabledSimulationEase)
+                .OnComplete(() =>
+                {
+                    m_ColoredSplashVFX.Stop();
+                });
         }
+        public void SetVFXEnabled(OnEnabledSplashVFXPair _enabledPair)
+        {
+            m_ColoredSplashVFX.Play();
+            EnabledTween(_enabledPair.EnabledSimulationSpeed, _enabledPair.EnabledSimulationDuration)
+                .SetEase(_enabledPair.EnabledSimulationEase);
+        }
+        #region Tween
+
+        private Tween m_EnabledTween;
+        private ParticleSystem.MinMaxCurve m_StartSpeed;
+        private ParticleSystem.MinMaxCurve m_TargetSpeed;
+        private ParticleSystem.MainModule m_VFXMain;
+        [Button]
+        private Tween EnabledTween(float _targetSpeed,float _duration)
+        {
+            m_TargetSpeed.constant = _targetSpeed;
+            m_StartSpeed.constant = m_VFXMain.startSpeed.constant;
+            m_EnabledTween?.Kill();
+            m_EnabledTween = DOTween.To(()=>
+                0.0f,
+                _value => SetVFXSpeed(_value),
+                1.0f,
+                _duration
+                );
+            return m_EnabledTween;
+        }
+
+        private void SetVFXSpeed(float _lerp)
+        {
+            m_VFXMain.startSpeed = Mathf.Lerp(m_StartSpeed.constant,m_TargetSpeed.constant,_lerp);
+        }
+
+        public void KillAllTween()
+        {
+            m_EnabledTween?.Kill();
+        }
+
+        #endregion
     }
 }
