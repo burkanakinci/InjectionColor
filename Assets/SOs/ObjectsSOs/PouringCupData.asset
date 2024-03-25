@@ -17,11 +17,11 @@ MonoBehaviour:
     m_ChangeLiquidEase: 1
   m_DownNormalSpeedPourLiquidPair:
     m_OnChangeNormalSpeedType: 0
-    m_OnChangeNormalSpeedDuration: 1
+    m_OnChangeNormalSpeedDuration: 2
     m_OnChangeNormalSpeedTarget: {x: 0, y: 0}
     m_OnChangeNormalSpeedEase: 1
   m_UpNormalSpeedPourLiquidPair:
     m_OnChangeNormalSpeedType: 1
-    m_OnChangeNormalSpeedDuration: 0.5
-    m_OnChangeNormalSpeedTarget: {x: 0, y: 0.1}
-    m_OnChangeNormalSpeedEase: 18
+    m_OnChangeNormalSpeedDuration: 1
+    m_OnChangeNormalSpeedTarget: {x: 0, y: 0.01}
+    m_OnChangeNormalSpeedEase: 1
