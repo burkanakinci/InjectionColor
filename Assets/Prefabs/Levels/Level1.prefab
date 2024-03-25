@@ -50,6 +50,7 @@ MonoBehaviour:
   m_ObjectsOnLevel:
   - {fileID: 8974022447531533849}
   - {fileID: 2788002587263138115}
+  m_TargetColor: {r: 0.9372549, g: 0.3764706, b: 0.2509804, a: 1}
 --- !u!1001 &2566904272607208249
 PrefabInstance:
   m_ObjectHideFlags: 0

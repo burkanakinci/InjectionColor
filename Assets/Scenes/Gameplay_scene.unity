@@ -123,6 +123,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &257529206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8408019470174761542, guid: 1cf40d297771870438254d5cbe3673b6, type: 3}
+  m_PrefabInstance: {fileID: 260068518}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &257529208 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8572521592329909499, guid: 1cf40d297771870438254d5cbe3673b6, type: 3}
+  m_PrefabInstance: {fileID: 260068518}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &257529210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257529206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b811ca3fec4e30836ff8deb6c03bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LiquidRenderer: {fileID: 257529208}
 --- !u!1001 &260068518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -198,7 +221,7 @@ PrefabInstance:
     - target: {fileID: -3614757983309958583, guid: 1cf40d297771870438254d5cbe3673b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9819adbf1fe20054682f30af172846c4, type: 2}
+      objectReference: {fileID: 895685449}
     - target: {fileID: 919132149155446097, guid: 1cf40d297771870438254d5cbe3673b6, type: 3}
       propertyPath: m_Name
       value: PouringLiquid_CupEdited
@@ -211,6 +234,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -8408019470174761542, guid: 1cf40d297771870438254d5cbe3673b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 257529210}
     - targetCorrespondingSourceObject: {fileID: -8080236748619578281, guid: 1cf40d297771870438254d5cbe3673b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 260068522}
@@ -409,7 +435,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1322648257239936212, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
   m_PrefabInstance: {fileID: 4518093593759071875}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1145982679}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4edcaf035a962549ab1b01b15b283a7, type: 3}
@@ -533,6 +559,60 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!21 &895685449
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LiquidPouring_ShaderGraph (Instance)
+  m_Shader: {fileID: -6465566751694194690, guid: 2d7c837a0e99e4d4ca7d379a102363bf, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Metallic: 0.1
+    - _NormalStregth: 0.1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Smoothness: 5
+    - _Transparency: 0.1
+    - _TransparencyMask: 3
+    - _VoronoiAgitation: 0
+    - _VoronoiDensity: 10
+    - _VoronoiPower: 50
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _NormalSpeed: {r: 0, g: 0.2, b: 0, a: 0}
+    - _VoronoiColor: {r: 1, g: 1, b: 1, a: 1}
+    - _VoronoiSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _VoronoiTiling: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +766,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98589439cbecc104a8e3fc02486a95b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1145982679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3973149792622216456, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
+  m_PrefabInstance: {fileID: 4518093593759071875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1428329611 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 665040319536945350, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
@@ -702,6 +787,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8463976128523283013, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
   m_PrefabInstance: {fileID: 4518093593759071875}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1819651232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145982679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110d606f708f45b8966200a903cc562a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TargetLiquid: {fileID: 257529210}
 --- !u!1 &2115128147
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +961,10 @@ PrefabInstance:
       propertyPath: m_PouringCupData
       value: 
       objectReference: {fileID: 11400000, guid: a6a680311f195214ca729d4d9a2e393a, type: 2}
+    - target: {fileID: 1322648257239936212, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
+      propertyPath: m_PouringCupTarget
+      value: 
+      objectReference: {fileID: 1819651232}
     - target: {fileID: 1322648257239936212, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
       propertyPath: m_PouringCupVisual
       value: 
@@ -1030,7 +1132,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8734485820938998506, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 260068519}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3973149792622216456, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1819651232}
   m_SourcePrefab: {fileID: 100100000, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
