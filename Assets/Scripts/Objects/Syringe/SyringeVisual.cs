@@ -10,23 +10,14 @@ namespace Game.Object
     {
         [SerializeField] private Transform m_SyringeUpperParent;
         [SerializeField] private MeshRenderer m_SyringeLiquidMaterial;
-        [SerializeField] private ParticleSystem m_ColoredSplashVFX;
+        [SerializeField] private SyringeSplashVFX m_SyringeSplashVFX;
 
         public override void Initialize(Syringe _cachedComponent)
         {
             base.Initialize(_cachedComponent);
+            m_SyringeSplashVFX.Initialize(this);
             m_SyringeUpperParent.localPosition = Vector3.zero;
             m_SyringeLiquidMaterial.material.SetFloat(SyringeLiquidMaterial.FULNESS,0.0f);
-            m_ColoredSplashVFXMain = m_ColoredSplashVFX.main;
-            m_ColoredSplashVFXCOL = m_ColoredSplashVFX.colorOverLifetime;
-            m_ColoredSplasfVFXTrail = m_ColoredSplashVFX.trails;
-            
-            m_ColoredSplashColorKey = new GradientColorKey[] { new GradientColorKey(), new GradientColorKey()};
-            m_ColoredSplashAlphaKey = new GradientAlphaKey[] { new GradientAlphaKey(), new GradientAlphaKey() };
-            m_ColoredSplashAlphaKey[0].alpha = 1.0f;
-            m_ColoredSplashAlphaKey[0].time = 0.0f; 
-            m_ColoredSplashAlphaKey[1].alpha = 0.0f;
-            m_ColoredSplashAlphaKey[1].time = 1.0f;
         }
 
         public void StartDeinjectShaking(DeinjectShakingPair _deinjectShakingPair,
@@ -80,35 +71,14 @@ namespace Game.Object
             SyringeLiquidFulnessTween(0.0f,_liquidDownPair.LiquidDownDuration).SetEase(_liquidDownPair.LiquidDownEase);
         }
 
-        private ParticleSystem.MainModule m_ColoredSplashVFXMain;
-        private ParticleSystem.ColorOverLifetimeModule m_ColoredSplashVFXCOL;
-        private ParticleSystem.TrailModule m_ColoredSplasfVFXTrail;
-        [SerializeField]private Gradient m_ColoredSplashGradient;
-        private GradientColorKey[] m_ColoredSplashColorKey;
-        private GradientAlphaKey[] m_ColoredSplashAlphaKey;
-        [Button]
         public void SetSplashVFXColor(Color _color)
         {
-            m_ColoredSplashVFXMain.startColor = _color;
-            m_ColoredSplashColorKey[0].color = _color;
-            m_ColoredSplashColorKey[1].color = _color;
-            m_ColoredSplashGradient.SetKeys(m_ColoredSplashColorKey,m_ColoredSplashAlphaKey);
-            m_ColoredSplashVFXCOL.color = m_ColoredSplashGradient;
-            m_ColoredSplasfVFXTrail.colorOverLifetime = m_ColoredSplashGradient;
-            m_ColoredSplasfVFXTrail.colorOverTrail = m_ColoredSplashGradient;
+            m_SyringeSplashVFX.SetVFXColor(_color);
         }
 
         public void SetSplashVFXEnabled(bool _isEnable)
         {
-            m_ColoredSplashVFX.gameObject.SetActive(_isEnable);
-            if (_isEnable)
-            {
-                m_ColoredSplashVFX.Play();
-            }
-            else
-            {
-                m_ColoredSplashVFX.Stop();
-            }
+            m_SyringeSplashVFX.SetVFXEnabled(_isEnable);
         }
 
         #region Tweens
