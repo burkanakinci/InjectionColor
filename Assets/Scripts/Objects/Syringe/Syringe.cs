@@ -52,6 +52,7 @@ namespace Game.Object
 
         private void CompleteColoredDeinject()
         {
+            m_SyringeVisual.SetSplashVFXEnabled(false);
             transform.SetParent(m_PouringCup.SyringePouringParent);
             JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
                 () =>
