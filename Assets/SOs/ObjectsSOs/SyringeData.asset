@@ -56,3 +56,5 @@ MonoBehaviour:
   m_OnSyringePourMovementJumpPower: 1
   m_OnSyringePourMovementJumpDuration: 1
   m_OnSyringePourMovementJumpEase: 0
+  m_OnSyringePourMovementRotateDuration: 0.6
+  m_OnSyringePourMovementRotateEase: 1

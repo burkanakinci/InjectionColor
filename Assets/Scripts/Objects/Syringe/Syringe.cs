@@ -20,18 +20,15 @@ namespace Game.Object
             transform.position = m_PouringCup.SyringePouringParent.position;
         }
 
-        private Vector3 m_ColoredTarget;
         private Colored m_CurrentColored;
         private Camera m_CurrentCamera;
 
         public void StartDeinjectColored(Colored _colored)
         {
             m_CurrentColored = _colored;
-            m_ColoredTarget = (m_CurrentColored.SyringeTargetPos.position - m_CurrentCamera.transform.position) *
-                              m_SyringeData.OnMoveToColoredTargetDistanceMultiply;
-            m_ColoredTarget = m_CurrentCamera.transform.position + m_ColoredTarget;
-            JumpTween(m_ColoredTarget, 
-                    m_SyringeData.OnMoveToColoredJumpPower + transform.position.y,
+            transform.SetParent(_colored.SyringeTargetParent);
+            LocalJumpTween(Vector3.zero, 
+                    m_SyringeData.OnMoveToColoredJumpPower + transform.localPosition.y,
                     m_SyringeData.OnMoveToColoredJumpDuration)
                 .SetEase(m_SyringeData.OnMoveToColoredJumpEase)
                 .OnComplete(() =>
@@ -46,18 +43,19 @@ namespace Game.Object
                             CompleteColoredDeinject();
                         });
                 });
-            RotateTween(m_CurrentColored.SyringeTargetPos.eulerAngles,m_SyringeData.OnMoveToColoredRotateDuration)
+            LocalRotateTween(Vector3.zero,m_SyringeData.OnMoveToColoredRotateDuration)
                 .SetEase(m_SyringeData.OnMoveToColoredRotateEase);
         }
 
         private void CompleteColoredDeinject()
         {
+            transform.SetParent(m_PouringCup.SyringePouringParent);
             JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
                 () =>
                 {
-                    JumpTween(
-                            m_PouringCup.SyringePouringParent.position,
-                            m_SyringeData.OnSyringePourMovementJumpPower + transform.position.y,
+                    LocalJumpTween(
+                            Vector3.zero,
+                            m_SyringeData.OnSyringePourMovementJumpPower + transform.localPosition.y,
                             m_SyringeData.OnSyringePourMovementJumpDuration)
                         .SetEase(m_SyringeData.OnSyringePourMovementJumpEase)
                         .OnComplete(() =>
@@ -65,6 +63,8 @@ namespace Game.Object
                             m_CurrentColored.DilationColored();
                             CompleteSyringePourJump();
                         });
+                    LocalRotateTween(Vector3.zero,m_SyringeData.OnSyringePourMovementRotateDuration)
+                        .SetEase(m_SyringeData.OnSyringePourMovementRotateEase);
                 });
         }
 
@@ -94,14 +94,14 @@ namespace Game.Object
             return m_MoveTween;
         }
 
-        private Tween JumpTween(Vector3 _target, float _power, float _duration)
+        private Tween LocalJumpTween(Vector3 _target, float _power, float _duration)
         {
             m_MoveTween?.Kill();
-            m_MoveTween = transform.DOJump(_target, _power, 1, _duration);
+            m_MoveTween = transform.DOLocalJump(_target, _power, 1, _duration);
             return m_MoveTween;
         }
 
-        private Tween RotateTween(Vector3 _target, float _duration)
+        private Tween LocalRotateTween(Vector3 _target, float _duration)
         {
             m_RotateTween?.Kill();
             m_RotateTween = transform.DORotateQuaternion(Quaternion.Euler(_target),_duration);

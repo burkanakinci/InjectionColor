@@ -24,14 +24,6 @@ namespace Game.Object
             }
         }
 
-        public void ChangeColorless()
-        {
-            for (int i = 0; i < m_ShrinkingPiece.Length; i++)
-            {
-                m_ShrinkingPiece[i].ChangeColorless();
-            }
-        }
-
         public void DilationColoredVisual()
         {
             for (int i = 0; i < m_ShrinkingPiece.Length; i++)

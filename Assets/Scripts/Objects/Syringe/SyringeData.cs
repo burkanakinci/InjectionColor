@@ -100,6 +100,10 @@ namespace Game.Object
         private float m_OnSyringePourMovementJumpDuration;
         [FoldoutGroup("On Syringe Pouring Movement")][SerializeField] 
         private Ease m_OnSyringePourMovementJumpEase;
+        [FoldoutGroup("On Syringe Pouring Movement")][SerializeField] 
+        private float m_OnSyringePourMovementRotateDuration;
+        [FoldoutGroup("On Syringe Pouring Movement")][SerializeField] 
+        private Ease m_OnSyringePourMovementRotateEase;
 
         #endregion
 
@@ -168,6 +172,8 @@ namespace Game.Object
         public float OnSyringePourMovementJumpPower => m_OnSyringePourMovementJumpPower;
         public float OnSyringePourMovementJumpDuration => m_OnSyringePourMovementJumpDuration;
         public Ease OnSyringePourMovementJumpEase => m_OnSyringePourMovementJumpEase;
+        public float OnSyringePourMovementRotateDuration => m_OnSyringePourMovementRotateDuration;
+        public Ease OnSyringePourMovementRotateEase => m_OnSyringePourMovementRotateEase;
 
         #endregion
 

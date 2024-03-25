@@ -25,6 +25,11 @@ namespace Game.Utilities.Constants
         public const string BASE_COLOR = "_BaseColor";
         public const string NORMAL_SPEED = "_NormalSpeed";
     }
+    
+    public struct ColoredShrinkVFXColor
+    {
+        public const string VORONOI_DENSITY = "_VoronoiDensity";
+    }
 
     public enum PooledObjectType
     {

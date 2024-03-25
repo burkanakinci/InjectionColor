@@ -107,27 +107,8 @@ namespace Game.Object
         {
             ShrinkingDelayCallTween(m_ShrinkingPieceData.OnDilationStartDelay, () =>
             {
-                ChangeColorful();
                 DilationObject();
             });
-        }
-
-        public void ChangeColorless()
-        {
-            return;
-            m_StartTweenMaterial = m_StartMaterial;
-            m_TargetTweenMaterial = m_Entities.GetColoredObjectsMaterial(ColoredObjectMaterialType.Colorless);
-            ChangeMaterialTween(m_ShrinkingPieceData.OnChangeColorlessDuration)
-                .SetEase(m_ShrinkingPieceData.OnChangeColorlessEase);
-        }
-
-        public void ChangeColorful()
-        {
-            return;
-            m_StartTweenMaterial = m_Entities.GetColoredObjectsMaterial(ColoredObjectMaterialType.Colorless);
-            m_TargetTweenMaterial = m_StartMaterial;
-            ChangeMaterialTween(m_ShrinkingPieceData.OnChangeColofulDuration)
-                .SetEase(m_ShrinkingPieceData.OnChangeColofulEase);
         }
 
         #region Tweens
