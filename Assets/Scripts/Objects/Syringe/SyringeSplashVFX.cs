@@ -21,11 +21,13 @@ namespace Game.Object
                 .SetEase(_disabledPair.DisabledSimulationEase)
                 .OnComplete(() =>
                 {
+                    m_ColoredSplashVFX.gameObject.SetActive(false);
                     m_ColoredSplashVFX.Stop();
                 });
         }
         public void SetVFXEnabled(OnEnabledSplashVFXPair _enabledPair)
         {
+            m_ColoredSplashVFX.gameObject.SetActive(true);
             m_ColoredSplashVFX.Play();
             EnabledTween(_enabledPair.EnabledSimulationSpeed, _enabledPair.EnabledSimulationDuration)
                 .SetEase(_enabledPair.EnabledSimulationEase);
