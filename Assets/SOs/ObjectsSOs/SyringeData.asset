@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SyringeUpperMovementDuration: 0
   m_SyringeUpperMovementEase: 0
-  m_OnMoveToColoredTargetDistanceMultiply: 1
-  m_OnMoveToColoredJumpPower: 1
+  m_OnMoveToColoredJumpFirstHeight: 0.35
+  m_OnMoveToColoredJumpPower: 2
   m_OnMoveToColoredJumpDuration: 1
   m_OnMoveToColoredJumpEase: 18
   m_OnMoveToColoredRotateDuration: 0.9
@@ -23,6 +23,8 @@ MonoBehaviour:
   m_MovementToColoredFlipPair:
     m_OnMoveToColoredFlipDuration: 0.75
     m_OnMoveToColoredFlipEase: 1
+  m_OnMoveToColoredSettleDuration: 0.15
+  m_OnMoveToColoredSettleEase: 18
   m_DeinjectShakingPair:
     m_OnDeinjectShakeMinDuration: 1
     m_OnDeinjectShakeMaxDuration: 1.5
@@ -52,9 +54,9 @@ MonoBehaviour:
   m_DeinjectLiquidDownPair:
     m_LiquidDownDuration: 0.5
     m_LiquidDownEase: 1
-  m_OnSyringePourMovementStartDelay: 0.25
-  m_OnSyringePourMovementJumpPower: 1
-  m_OnSyringePourMovementJumpDuration: 1
-  m_OnSyringePourMovementJumpEase: 0
-  m_OnSyringePourMovementRotateDuration: 0.6
+  m_OnSyringePourMovementStartDelay: 1
+  m_OnSyringePourMovementJumpPower: 2
+  m_OnSyringePourMovementJumpDuration: 0.75
+  m_OnSyringePourMovementJumpEase: 18
+  m_OnSyringePourMovementRotateDuration: 0.5
   m_OnSyringePourMovementRotateEase: 1

@@ -27,20 +27,25 @@ namespace Game.Object
         {
             m_CurrentColored = _colored;
             transform.SetParent(_colored.SyringeTargetParent);
-            LocalJumpTween(Vector3.zero, 
+            LocalJumpTween(Vector3.up * m_SyringeData.OnMoveToColoredJumpFirstHeight, 
                     m_SyringeData.OnMoveToColoredJumpPower + transform.localPosition.y,
                     m_SyringeData.OnMoveToColoredJumpDuration)
                 .SetEase(m_SyringeData.OnMoveToColoredJumpEase)
                 .OnComplete(() =>
                 {
-                    _colored.DeinjectColor();
-                    m_SyringeVisual.SetSyringeLiquidColor(_colored.ObjectColor);
-                    m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
-                    m_SyringeVisual.SyringeUp(m_SyringeData.DeinjectMovementUpPair);
-                    m_SyringeVisual.SyringeLiquidUp(m_SyringeData.DeinjectLiquidUpPair)
+                    LocalMoveTween(Vector3.zero,m_SyringeData.OnMoveToColoredSettleDuration)
+                        .SetEase(m_SyringeData.OnMoveToColoredSettleEase)
                         .OnComplete(() =>
                         {
-                            CompleteColoredDeinject();
+                            _colored.DeinjectColor();
+                            m_SyringeVisual.SetSyringeLiquidColor(_colored.ObjectColor);
+                            m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
+                            m_SyringeVisual.SyringeUp(m_SyringeData.DeinjectMovementUpPair);
+                            m_SyringeVisual.SyringeLiquidUp(m_SyringeData.DeinjectLiquidUpPair)
+                                .OnComplete(() =>
+                                {
+                                    CompleteColoredDeinject();
+                                });
                         });
                 });
             LocalRotateTween(Vector3.zero,m_SyringeData.OnMoveToColoredRotateDuration)
@@ -99,6 +104,13 @@ namespace Game.Object
         {
             m_MoveTween?.Kill();
             m_MoveTween = transform.DOLocalJump(_target, _power, 1, _duration);
+            return m_MoveTween;
+        }
+        
+        private Tween LocalMoveTween(Vector3 _target, float _duration)
+        {
+            m_MoveTween?.Kill();
+            m_MoveTween = transform.DOLocalMove(_target, _duration);
             return m_MoveTween;
         }
 

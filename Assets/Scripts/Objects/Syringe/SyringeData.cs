@@ -24,8 +24,8 @@ namespace Game.Object
         #region On Syringe Movement To Colored
 
         [Header("On Syringe Movement To Colored")] 
-        [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField][Range(0.0f,1.0f)]
-        private float m_OnMoveToColoredTargetDistanceMultiply;
+        [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField]
+        private float m_OnMoveToColoredJumpFirstHeight;
         [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField]
         private float m_OnMoveToColoredJumpPower;
         [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField]
@@ -38,6 +38,10 @@ namespace Game.Object
         private Ease m_OnMoveToColoredRotateEase;
         [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField]
         private MovementToColoredFlipPair m_MovementToColoredFlipPair;
+        [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField]
+        private float m_OnMoveToColoredSettleDuration;
+        [FoldoutGroup("On Syringe Movement To Colored")] [SerializeField]
+        private Ease m_OnMoveToColoredSettleEase;
 
         #endregion
 
@@ -119,14 +123,16 @@ namespace Game.Object
         #endregion
 
         #region On Syringe Movement To Colored
-        
-        public float OnMoveToColoredTargetDistanceMultiply => m_OnMoveToColoredTargetDistanceMultiply;
+
+        public float OnMoveToColoredJumpFirstHeight => m_OnMoveToColoredJumpFirstHeight;
         public float OnMoveToColoredJumpPower => m_OnMoveToColoredJumpPower;
         public float OnMoveToColoredJumpDuration => m_OnMoveToColoredJumpDuration;
         public Ease OnMoveToColoredJumpEase => m_OnMoveToColoredJumpEase;
         public float OnMoveToColoredRotateDuration => m_OnMoveToColoredRotateDuration;
         public Ease OnMoveToColoredRotateEase => m_OnMoveToColoredRotateEase;
         public MovementToColoredFlipPair MovementToColoredFlipPair => m_MovementToColoredFlipPair;
+        public float OnMoveToColoredSettleDuration => m_OnMoveToColoredSettleDuration;
+        public Ease OnMoveToColoredSettleEase => m_OnMoveToColoredSettleEase;
 
         #endregion
         

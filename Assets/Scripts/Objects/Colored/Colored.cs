@@ -34,8 +34,9 @@ namespace Game.Object
 
         public void DeinjectColor()
         {
-            m_ColoredVisual.DeinjectColoredVisual();
             SetSplashVFXEnabled(true);
+            SetFirstSplashVFXEnabled(true);
+            m_ColoredVisual.DeinjectColoredVisual();
         }
 
         public void DilationColored()
@@ -53,6 +54,10 @@ namespace Game.Object
             {
                 m_ColoredVisual.SetSplashVFXEnabled(m_ColoredData.OnDisabledSplashVFXPair);
             }
+        }
+        public void SetFirstSplashVFXEnabled(bool _isEnable)
+        {
+            m_ColoredVisual.SetFirstSplashVFXEnabled(_isEnable);
         }
     }
 }

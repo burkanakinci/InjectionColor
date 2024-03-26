@@ -6,11 +6,13 @@ namespace Game.Object
     {
         [SerializeField] private ShrinkingPiece[] m_ShrinkingPiece;
         [SerializeField] private SyringeSplashVFX m_SyringeSplashVFX;
+        [SerializeField] private SyringeFirstSplashVFX m_SyringeFirstSplashVFX;
 
         public override void Initialize(Colored _cachedComponent)
         {
             base.Initialize(_cachedComponent);
             m_SyringeSplashVFX.Initialize();
+            m_SyringeFirstSplashVFX.Initialize();
             for (int i = 0; i < m_ShrinkingPiece.Length; i++)
             {
                 m_ShrinkingPiece[i].Initialize(this);
@@ -41,6 +43,11 @@ namespace Game.Object
         public void SetSplashVFXEnabled(OnEnabledSplashVFXPair _enabledPair)
         {
             m_SyringeSplashVFX.SetVFXEnabled(_enabledPair);
+        }
+
+        public void SetFirstSplashVFXEnabled(bool _isEnable)
+        {
+            m_SyringeFirstSplashVFX.SetSplashVFXEnabled(_isEnable);
         }
 
         private void OnDisable()
