@@ -85,7 +85,7 @@ namespace Game.Object
         private void SetColorByLerp(float _lerp)
         {
             m_CurrentColor = Color.Lerp(m_StartColor, m_TargetColor, _lerp);
-            m_PouringLiquidRenderer.material.SetColor(PouringLiquidMaterial.BASE_COLOR,m_CurrentColor); 
+            m_PouringLiquidRenderer.material.SetColor(PouringLiquidMaterial.BASE_COLOR, m_CurrentColor);
         }
         
         private Tween SetNormalSpeedTween(float _duration)

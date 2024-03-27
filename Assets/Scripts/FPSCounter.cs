@@ -11,6 +11,12 @@ public class FPSCounter : MonoBehaviour
     [SerializeField]private int frames = 0;
     private float fps;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
+
     private void Start()
     {
         time = 0.0f;
