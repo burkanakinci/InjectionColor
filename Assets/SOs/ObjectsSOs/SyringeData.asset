@@ -49,7 +49,7 @@ MonoBehaviour:
     m_MoveDownDuration: 0.6
     m_MoveDownEase: 1
   m_DeinjectLiquidUpPair:
-    m_LiquidUpDuration: 1.2
+    m_LiquidUpDuration: 1
     m_LiquidUpEase: 1
   m_DeinjectLiquidDownPair:
     m_LiquidDownDuration: 0.5

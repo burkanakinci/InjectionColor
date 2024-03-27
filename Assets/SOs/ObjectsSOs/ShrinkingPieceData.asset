@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_OnShrinkingMinStartDelay: 0.2
   m_OnShrinkingMaxStartDelay: 0.3
-  m_OnShrinkingMinDuration: 1
-  m_OnShrinkingMaxDuration: 1.2
+  m_OnShrinkingMinDuration: 0.8
+  m_OnShrinkingMaxDuration: 1
   m_OnShrinkingEase: 1
   m_OnShrinkingMinBackDilationStartValue: 20
   m_OnShrinkingMaxBackDilationStartValue: 30

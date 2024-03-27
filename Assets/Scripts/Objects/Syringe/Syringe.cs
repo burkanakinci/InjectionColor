@@ -54,10 +54,10 @@ namespace Game.Object
 
         private void CompleteColoredDeinject()
         {
-            transform.SetParent(m_PouringCup.SyringePouringParent);
             JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
                 () =>
                 {
+                    transform.SetParent(m_PouringCup.SyringePouringParent);
                     m_CurrentColored.SetSplashVFXEnabled(false);
                     LocalJumpTween(
                             Vector3.zero,
