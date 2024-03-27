@@ -36,6 +36,7 @@ namespace Game.Object
 
         public void SetPouringLiquidNormalSpeedUp()
         {
+            return;
             m_PouringCupVisual.PouringCupLiquid.SetLiquidNormalSpeed(m_PouringCupData.UpNormalSpeedPourLiquidPair)
                 .OnComplete(() =>
                 {

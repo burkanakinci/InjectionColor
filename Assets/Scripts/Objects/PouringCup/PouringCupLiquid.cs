@@ -15,7 +15,7 @@ namespace Game.Object
         {
             base.Initialize(_cachedComponent);
             m_AnyMixed = false;
-            m_PouringLiquidRenderer.material.SetVector(PouringLiquidMaterial.NORMAL_SPEED,Vector2.zero);
+            //m_PouringLiquidRenderer.material.SetVector(PouringLiquidMaterial.NORMAL_SPEED,Vector2.zero);
         }
 
         private Color m_AddedColor;
@@ -52,7 +52,7 @@ namespace Game.Object
         [Button]
         public void StartColorChangeTween(ChangePouringLiquidColorPair _changePouringLiquidColorPair)
         {
-            m_StartColor = m_PouringLiquidRenderer.material.GetColor(PouringLiquidMaterial.BASE_COLOR);
+            m_StartColor = m_PouringLiquidRenderer.material.color;
             SetColorTween(_changePouringLiquidColorPair.ChangeLiquidDuration).
                 SetEase(_changePouringLiquidColorPair.ChangeLiquidEase);
         }
@@ -60,7 +60,7 @@ namespace Game.Object
         private Vector2 m_TargetNormalSpeed;
         public Tween SetLiquidNormalSpeed(ChangeNormalSpeedPourLiquidPair _changeSpeedPair)
         {
-            m_StartNormalSpeed = m_PouringLiquidRenderer.material.GetVector(PouringLiquidMaterial.NORMAL_SPEED);
+           // m_StartNormalSpeed = m_PouringLiquidRenderer.material.GetVector(PouringLiquidMaterial.NORMAL_SPEED);
             m_TargetNormalSpeed = _changeSpeedPair.OnChangeNormalSpeedTarget;
             return SetNormalSpeedTween(_changeSpeedPair.OnChangeNormalSpeedDuration)
                 .SetEase(_changeSpeedPair.OnChangeNormalSpeedEase);
@@ -85,7 +85,7 @@ namespace Game.Object
         private void SetColorByLerp(float _lerp)
         {
             m_CurrentColor = Color.Lerp(m_StartColor, m_TargetColor, _lerp);
-            m_PouringLiquidRenderer.material.SetColor(PouringLiquidMaterial.BASE_COLOR, m_CurrentColor);
+            m_PouringLiquidRenderer.material.color = m_CurrentColor;
         }
         
         private Tween SetNormalSpeedTween(float _duration)
