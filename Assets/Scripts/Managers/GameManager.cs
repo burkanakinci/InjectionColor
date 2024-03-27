@@ -25,6 +25,11 @@ namespace Game.Manager
             InitializeManager();
         }
 
+        private void Start()
+        {
+            GetManager<LevelManager>().LoadLevel();
+        }
+
         public void InitializeManager()
         {
             DOTween.SetTweensCapacity(2500, 250);

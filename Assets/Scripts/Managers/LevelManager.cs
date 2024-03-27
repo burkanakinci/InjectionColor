@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Game.Object;
-using Game.Utilities.Constants;
 using Sirenix.OdinInspector;
-using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -17,10 +16,9 @@ namespace Game.Manager
 
         private int m_CurrentLevelNumber;
         private int m_ActiveLevelDataNumber;
-        private int m_MaxLevelDataCount;
+        [SerializeField]private int m_MaxLevelDataCount;
         private JsonConverter m_JsonConverter;
         private AsyncOperationHandle<GameObject> m_LevelPrefabHandle;
-        [SerializeField] private AddressableAssetGroup m_LevelAssetGroup;
         [SerializeField] private int m_StartRandomLevel;
 
         #endregion
@@ -34,7 +32,6 @@ namespace Game.Manager
         public void InitializeManager()
         {
             m_JsonConverter = GameManager.Instance.GetManager<JsonConverter>();
-            m_MaxLevelDataCount = m_LevelAssetGroup.entries.Count;
         }
 
         private void LoadLevelPrefab()
