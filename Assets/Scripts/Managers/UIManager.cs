@@ -18,7 +18,7 @@ namespace Game.Manager
         {
             m_UIPanels.ForEach(_panel =>
             {
-                _panel.Initialize(this);
+                _panel.Initialize();
                 _panel.gameObject.SetActive(true);
             });
         }

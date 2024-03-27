@@ -6,16 +6,17 @@ using Game.Object;
 
 namespace Game.UI
 {
-    public class UIPanel : CustomBehaviour<UIManager>
+    public class UIPanel : CustomBehaviour
     {
         [SerializeField] private CanvasGroup m_CanvasGroup;
         public CanvasGroup CanvasGroup => m_CanvasGroup;
         [SerializeField] protected List<UIArea> m_PanelAreas;
         public UIArea CurrentArea { get; private set; }
+        private UIManager m_UIManager;
 
-        public override void Initialize(UIManager _uiManager)
+        public override void Initialize()
         {
-            base.Initialize(_uiManager);
+            m_UIManager = GameManager.Instance.GetManager<UIManager>();
             m_PanelAreas.ForEach(_area =>
             {
                 _area.gameObject.SetActive(true);
@@ -25,7 +26,7 @@ namespace Game.UI
 
         public virtual void ShowPanel()
         {
-            CachedComponent.HideAllPanels();
+            m_UIManager.HideAllPanels();
 
             if (!gameObject.activeInHierarchy)
             {
@@ -43,7 +44,7 @@ namespace Game.UI
 
         public virtual void ShowThisPanel()
         {
-            CachedComponent.SetCurrentUIPanel(this);
+            m_UIManager.SetCurrentUIPanel(this);
         }
 
         public virtual void HideAllArea()

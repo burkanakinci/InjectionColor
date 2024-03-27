@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
 using Game.GamePlayer;
+using Game.Manager;
+using Game.Utilities.Constants;
 
 namespace Game.StateMachine
 {
@@ -16,10 +18,11 @@ namespace Game.StateMachine
 
         public void Enter()
         {
+            GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine.ChangeStateTo(PlayerStates.RunState);
             // GameManager.Instance.LevelManager.SetLevelNumber(m_Player.PlayerLevel);
             // GameManager.Instance.LevelManager.CreateLevel();
             // GameManager.Instance.UIManager.GetPanel(UIPanelType.IdlePanel).ShowPanel();
-            // OnEnterEvent?.Invoke();
+             OnEnterEvent?.Invoke();
             // GameManager.Instance.GameStart();
         }
         public void UpdateLogic()

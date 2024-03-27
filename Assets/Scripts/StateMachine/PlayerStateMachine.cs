@@ -25,10 +25,8 @@ namespace Game.StateMachine
             m_States[3] = new FailState(_player);
             m_States[4] = new GeneralState(_player);
 
-            m_CurrentState = GetPlayerState(PlayerStates.RunState);
+            m_CurrentState = GetPlayerState(PlayerStates.IdleState);
             m_GeneralState = GetPlayerState(PlayerStates.GeneralState);
-            
-            ChangeStateTo(PlayerStates.RunState,true);
         }
 
         public bool CompareState(PlayerStates _state)

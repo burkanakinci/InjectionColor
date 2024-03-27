@@ -57,8 +57,9 @@ namespace Game.Utilities.Constants
     public enum UIPanelType
     {
         IdlePanel = 0,
-        RunPanel = 1,
+        HudPanel = 1,
         FinishPanel = 2,
+        CommonPanel = 3,
     }
 
     public enum FinishAreaType
