@@ -37,11 +37,7 @@ namespace Game.Object
         public void SetColorOnDeinject(Color _addedColor)
         {
             m_PouringCupVisual.PouringCupLiquid.SetTargetColorOnDeinject(_addedColor);
-            m_PouringCupVisual.PouringCupLiquid.StartColorChangeTween(m_PouringCupData.ChangePouringLiquidColorPair)
-                .OnComplete(() =>
-                {
-                    m_TargetMatchUIArea.SetMatchingPercent(PouringCupTarget.GetContainsPlayerColor(m_PouringCupVisual.PouringCupLiquid.CurrentLiquidColor));
-                });
+            m_PouringCupVisual.PouringCupLiquid.StartColorChangeTween(m_PouringCupData.ChangePouringLiquidColorPair);
         }
     }
 }

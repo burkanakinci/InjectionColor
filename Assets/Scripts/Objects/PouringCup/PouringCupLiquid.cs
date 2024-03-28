@@ -1,5 +1,7 @@
 using System;
 using DG.Tweening;
+using Game.Manager;
+using Game.UI;
 using Game.Utilities.Constants;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
@@ -12,11 +14,16 @@ namespace Game.Object
         [SerializeField] private MeshRenderer m_PouringLiquidRenderer;
         private bool m_AnyMixed;
         public Color CurrentLiquidColor => m_TargetColor;
+        private TargetColorMatchArea m_TargetColorMatchArea;
+        private PouringCupTarget m_PouringCupTarget;
         
         public override void Initialize(PouringCupVisual _cachedComponent)
         {
             base.Initialize(_cachedComponent);
             m_AnyMixed = false;
+            m_TargetColorMatchArea = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.HudPanel)
+                .GetArea<TargetColorMatchArea, HudAreaType>(HudAreaType.TargetMatchColorArea);
+            m_PouringCupTarget = CachedComponent.CachedComponent.PouringCupTarget;
         }
 
         private Color m_AddedColor;
@@ -55,7 +62,16 @@ namespace Game.Object
         {
             m_StartColor = m_PouringLiquidRenderer.material.color;
             return SetColorTween(_changePouringLiquidColorPair.ChangeLiquidDuration).
-                SetEase(_changePouringLiquidColorPair.ChangeLiquidEase);
+                SetEase(_changePouringLiquidColorPair.ChangeLiquidEase)
+                .OnComplete(() =>
+                {
+                    m_TargetColorMatchArea.ShowArea();
+                    m_TargetColorMatchArea.ShowTween()
+                        .OnComplete(() =>
+                        {
+                            m_TargetColorMatchArea.SetMatchingPercent(m_PouringCupTarget.GetContainsPlayerColor(CachedComponent.PouringCupLiquid.CurrentLiquidColor));
+                        });
+                });
         }
 
         #region Tween

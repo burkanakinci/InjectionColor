@@ -1,19 +1,34 @@
+using System;
 using DG.Tweening;
+using Game.Manager;
+using Game.Object;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace Game.UI
 {
     public class TargetColorMatchArea : UIArea
     {
+        [SerializeField] 
+        private RectTransform m_AreaTransform;
+        
         #region Tween Values
 
         [SerializeField] [FoldoutGroup("Tween Values")]
         private float m_MixedTweenDuration;
         [SerializeField] [FoldoutGroup("Tween Values")]
         private Ease m_MixedTweenEase;
+        [SerializeField] [FoldoutGroup("Tween Values")]
+        private float m_ShowTweenDuration;
+        [SerializeField] [FoldoutGroup("Tween Values")]
+        private Ease m_ShowTweenEase;
+        [SerializeField] [FoldoutGroup("Tween Values")]
+        private float m_HideTweenDuration;
+        [SerializeField] [FoldoutGroup("Tween Values")]
+        private Ease m_HideTweenEase;
 
         #endregion
         
@@ -35,13 +50,35 @@ namespace Game.UI
 
         #endregion
 
+        private float m_ScreenHeight;
+        private Vector3 m_StartPos;
+        private Vector3 m_EndPos;
+        private PouringCupTarget m_PouringCupTarget;
+        
         public override void Initialize(UIPanel _cachedComponent)
         {
             base.Initialize(_cachedComponent);
+
+            m_PouringCupTarget = GameManager.Instance.GetManager<PlayerManager>().Player.PouringCup.PouringCupTarget;
+            
             m_MixedValue = 0;
             m_CurrentColorSlider.fillAmount=0.0f;
             m_MixedColorSlider.fillAmount=0.0f;
             m_PercentText.text = "0";
+
+            m_EndPos = m_AreaTransform.anchoredPosition;
+            m_StartPos = Vector3.up * -650.0f;
+            m_AreaTransform.anchoredPosition = m_StartPos;
+        }
+
+        public Tween ShowTween()
+        {
+            return LocalMoveTween(m_EndPos, m_ShowTweenDuration).SetEase(m_ShowTweenEase);
+        }
+
+        public Tween HideTween()
+        {
+            return LocalMoveTween(m_StartPos, m_HideTweenDuration).SetEase(m_HideTweenEase);
         }
 
         private float m_MixedValue;
@@ -65,6 +102,7 @@ namespace Game.UI
         #region Tween
 
         private Tween m_MixedTween;
+        private Tween m_MoveTween;
 
         private Tween MixedTween(float _duration)
         {
@@ -84,6 +122,37 @@ namespace Game.UI
             m_PercentText.text = ((int)Mathf.Lerp(m_StartMixedValue, m_MixedValue, _lerp)).ToString();
         }
 
+        private Vector3 m_TweenStartPos;
+        private Vector3 m_TweenEndPos;
+        private Tween LocalMoveTween(Vector3 _pos, float _duration)
+        {
+            m_TweenStartPos = m_AreaTransform.anchoredPosition;
+            m_TweenEndPos = _pos;
+            m_MoveTween?.Kill();
+            m_MoveTween = DOTween.To(()=>
+                0.0f,
+                _value => SetPosByLerp(_value),
+                1.0f,
+                _duration);
+            return m_MoveTween;
+        }
+
+        private void SetPosByLerp(float _lerp)
+        {
+            m_AreaTransform.anchoredPosition = Vector3.Lerp(m_TweenStartPos,m_EndPos,_lerp);
+        }
+
+        public void KillAllTween()
+        {
+            m_MixedTween?.Kill();
+            m_MoveTween?.Kill();
+        }
+
         #endregion
+
+        private void OnDisable()
+        {
+            KillAllTween();
+        }
     }
 }

@@ -1913,6 +1913,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1957647917}
     m_Modifications:
+    - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
+      propertyPath: m_AreaTransform
+      value: 
+      objectReference: {fileID: 839847853}
+    - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
+      propertyPath: m_HideTweenEase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
+      propertyPath: m_ShowTweenEase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
+      propertyPath: m_HideTweenDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
+      propertyPath: m_ShowTweenDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5544242252546728630, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
