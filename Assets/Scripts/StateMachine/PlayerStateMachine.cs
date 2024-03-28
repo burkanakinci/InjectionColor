@@ -18,12 +18,13 @@ namespace Game.StateMachine
 
         public PlayerStateMachine(Player _player)
         {
-            m_States = new IPlayerState[5];
+            m_States = new IPlayerState[6];
             m_States[0] = new IdleState(_player);
             m_States[1] = new RunState(_player);
             m_States[2] = new WinState(_player);
             m_States[3] = new FailState(_player);
-            m_States[4] = new GeneralState(_player);
+            m_States[4] = new InjectColorState(_player);
+            m_States[5] = new GeneralState(_player);
 
             m_CurrentState = GetPlayerState(PlayerStates.IdleState);
             m_GeneralState = GetPlayerState(PlayerStates.GeneralState);

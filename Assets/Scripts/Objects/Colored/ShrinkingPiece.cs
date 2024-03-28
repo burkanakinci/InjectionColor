@@ -158,5 +158,10 @@ namespace Game.Object
         }
 
         #endregion
+
+        private void OnDisable()
+        {
+            KillAllTween();
+        }
     }
 }

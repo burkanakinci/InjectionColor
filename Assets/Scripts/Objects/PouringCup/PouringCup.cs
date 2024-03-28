@@ -33,16 +33,5 @@ namespace Game.Object
             m_PouringCupVisual.PouringCupLiquid.SetTargetColorOnDeinject(_addedColor);
             m_PouringCupVisual.PouringCupLiquid.StartColorChangeTween(m_PouringCupData.ChangePouringLiquidColorPair);
         }
-
-        public void SetPouringLiquidNormalSpeedUp()
-        {
-            return;
-            m_PouringCupVisual.PouringCupLiquid.SetLiquidNormalSpeed(m_PouringCupData.UpNormalSpeedPourLiquidPair)
-                .OnComplete(() =>
-                {
-                    m_PouringCupVisual.PouringCupLiquid.SetLiquidNormalSpeed(m_PouringCupData
-                        .DownNormalSpeedPourLiquidPair);
-                });
-        }
     }
 }

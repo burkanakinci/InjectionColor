@@ -9,7 +9,8 @@ namespace Game.GamePlayer
     {
         #region Player Fields
 
-        [ShowInInspector]public PlayerStateMachine PlayerStateMachine { get; private set; }
+        [ShowInInspector]
+        public PlayerStateMachine PlayerStateMachine { get; private set; }
 
         #endregion
 

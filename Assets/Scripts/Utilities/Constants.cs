@@ -18,19 +18,6 @@ namespace Game.Utilities.Constants
         public const string SIDE_COLOR = "_SideColor"; 
     }
 
-    public struct PouringLiquidMaterial
-    {
-        public const string VORONOI_DENSITY = "_VoronoiDensity";
-        public const string VORONOI_AGITATION = "_VoronoiAgitation";
-        public const string BASE_COLOR = "_BaseColor";
-        public const string NORMAL_SPEED = "_NormalSpeed";
-    }
-    
-    public struct ColoredShrinkVFXColor
-    {
-        public const string VORONOI_DENSITY = "_VoronoiDensity";
-    }
-
     public enum PooledObjectType
     {
     }
@@ -45,7 +32,8 @@ namespace Game.Utilities.Constants
         RunState = 1,
         WinState = 2,
         FailState = 3,
-        GeneralState = 4,
+        InjectColorState = 4,
+        GeneralState = 5,
     }
 
     public enum ObjectsLayer

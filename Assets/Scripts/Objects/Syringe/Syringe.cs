@@ -79,7 +79,6 @@ namespace Game.Object
             SyringeUpperMovementDownDelayCall(m_SyringeData.DeinjectMovementDownPair.MoveDownStartDelay,
                 () =>
                 {
-                    m_PouringCup.SetPouringLiquidNormalSpeedUp();
                     m_SyringeVisual.SyringeDown(m_SyringeData.DeinjectMovementDownPair);
                     m_SyringeVisual.SyringeLiquidDown(m_SyringeData.DeinjectLiquidDownPair);
                     m_PouringCup.SetColorOnDeinject(m_CurrentColored.ObjectColor);
@@ -149,5 +148,10 @@ namespace Game.Object
         }
 
         #endregion
+
+        private void OnDisable()
+        {
+            KillAllTween();
+        }
     }
 }

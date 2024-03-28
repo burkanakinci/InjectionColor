@@ -41,5 +41,17 @@ namespace Game.Object
             yield return new WaitUntil(() => (!m_SplashVFX.IsAlive()));
             SetSplashVFXEnabled(false);
         }
+
+        private void StopAllCoroutine()
+        {
+            if (m_ParticleIsAliveCoroutine != null)
+            {
+                StopCoroutine(m_ParticleIsAliveCoroutine);
+            }
+        }
+        private void OnDisable()
+        {
+            StopAllCoroutine();
+        }
     }
 }
