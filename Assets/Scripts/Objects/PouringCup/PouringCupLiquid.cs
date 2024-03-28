@@ -69,6 +69,7 @@ namespace Game.Object
                     m_TargetColorMatchArea.ShowTween()
                         .OnComplete(() =>
                         {
+                            m_TargetColorMatchArea.SetCurrentColor(CachedComponent.PouringCupLiquid.CurrentLiquidColor);
                             m_TargetColorMatchArea.SetMatchingPercent(m_PouringCupTarget.GetContainsPlayerColor(CachedComponent.PouringCupLiquid.CurrentLiquidColor));
                         });
                 });

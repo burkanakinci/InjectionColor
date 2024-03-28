@@ -71,6 +71,15 @@ namespace Game.UI
             m_AreaTransform.anchoredPosition = m_StartPos;
         }
 
+        public void SetCurrentColor(Color _color)
+        {
+            m_CurrentColorSlider.color = _color;
+        }
+
+        public void SetTargetColor(Color _color)
+        {
+            m_MixedColorSlider.color = _color;
+        }
         public Tween ShowTween()
         {
             return LocalMoveTween(m_EndPos, m_ShowTweenDuration).SetEase(m_ShowTweenEase);
