@@ -40,7 +40,8 @@ namespace Game.UI
             base.Initialize(_cachedComponent);
             m_MixedValue = 0;
             m_CurrentColorSlider.fillAmount=0.0f;
-            m_MixedColorSlider.fillAmount=1.0f;
+            m_MixedColorSlider.fillAmount=0.0f;
+            m_PercentText.text = "0";
         }
 
         private float m_MixedValue;
@@ -56,7 +57,7 @@ namespace Game.UI
             m_StartMixedSliderValue = m_MixedColorSlider.fillAmount;
             m_MixedValue = (int)_mixedValue;
             m_CurrentSliderValue = m_MixedValue / 100.0f;
-            m_MixedSliderValue = 1.0f - m_CurrentSliderValue;
+            m_MixedSliderValue = m_CurrentSliderValue;
 
             MixedTween(m_MixedTweenDuration).SetEase(m_MixedTweenEase);
         }
