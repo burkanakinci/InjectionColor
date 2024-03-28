@@ -58,6 +58,7 @@ namespace Game.Utilities.Constants
 
     public enum HudAreaType
     {
+        TargetMatchColorArea = 0,
     }
 
     public enum ActiveParents

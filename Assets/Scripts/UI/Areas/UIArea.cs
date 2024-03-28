@@ -4,6 +4,7 @@ using Game.Object;
 
 namespace Game.UI
 {
+    [RequireComponent(typeof(CanvasGroup))]
     public class UIArea : CustomBehaviour<UIPanel>
     {
         [SerializeField] private CanvasGroup m_CanvasGroup;

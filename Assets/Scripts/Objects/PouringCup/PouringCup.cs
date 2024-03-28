@@ -1,4 +1,7 @@
 using DG.Tweening;
+using Game.Manager;
+using Game.UI;
+using Game.Utilities.Constants;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -6,7 +9,6 @@ namespace Game.Object
 {
     public class PouringCup : CustomBehaviour
     {
-
         #region Fields
 
         [SerializeField] private PouringCupVisual m_PouringCupVisual;
@@ -23,15 +25,23 @@ namespace Game.Object
 
         #endregion
 
+        private TargetColorMatchArea m_TargetMatchUIArea;
+
         public override void Initialize()
         {
             m_PouringCupVisual.Initialize(this);
+            m_TargetMatchUIArea = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.HudPanel)
+                .GetArea<TargetColorMatchArea, HudAreaType>(HudAreaType.TargetMatchColorArea);
         }
 
         public void SetColorOnDeinject(Color _addedColor)
         {
             m_PouringCupVisual.PouringCupLiquid.SetTargetColorOnDeinject(_addedColor);
-            m_PouringCupVisual.PouringCupLiquid.StartColorChangeTween(m_PouringCupData.ChangePouringLiquidColorPair);
+            m_PouringCupVisual.PouringCupLiquid.StartColorChangeTween(m_PouringCupData.ChangePouringLiquidColorPair)
+                .OnComplete(() =>
+                {
+                    m_TargetMatchUIArea.SetMatchingPercent(PouringCupTarget.GetContainsPlayerColor(m_PouringCupVisual.PouringCupLiquid.CurrentLiquidColor));
+                });
         }
     }
 }

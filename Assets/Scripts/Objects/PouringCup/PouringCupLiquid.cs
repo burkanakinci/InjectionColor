@@ -11,6 +11,7 @@ namespace Game.Object
     {
         [SerializeField] private MeshRenderer m_PouringLiquidRenderer;
         private bool m_AnyMixed;
+        public Color CurrentLiquidColor => m_TargetColor;
         
         public override void Initialize(PouringCupVisual _cachedComponent)
         {
@@ -50,10 +51,10 @@ namespace Game.Object
         }
         
         [Button]
-        public void StartColorChangeTween(ChangePouringLiquidColorPair _changePouringLiquidColorPair)
+        public Tween StartColorChangeTween(ChangePouringLiquidColorPair _changePouringLiquidColorPair)
         {
             m_StartColor = m_PouringLiquidRenderer.material.color;
-            SetColorTween(_changePouringLiquidColorPair.ChangeLiquidDuration).
+            return SetColorTween(_changePouringLiquidColorPair.ChangeLiquidDuration).
                 SetEase(_changePouringLiquidColorPair.ChangeLiquidEase);
         }
 

@@ -65,7 +65,7 @@ namespace Game.StateMachine
         {
             if (_clickedObject.TryGetComponent(out Colored _colored))
             {
-                m_Player.PlayerSyringe.StartDeinjectColored(_colored);
+                m_Player.PlayerSyringe.StartInjectColored(_colored);
                 m_Player.PlayerStateMachine.ChangeStateTo(PlayerStates.InjectColorState);
             }
         }

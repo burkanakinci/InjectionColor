@@ -23,7 +23,7 @@ namespace Game.Object
         private Colored m_CurrentColored;
         private Camera m_CurrentCamera;
 
-        public void StartDeinjectColored(Colored _colored)
+        public void StartInjectColored(Colored _colored)
         {
             m_CurrentColored = _colored;
             transform.SetParent(_colored.SyringeTargetParent);
@@ -44,7 +44,7 @@ namespace Game.Object
                             m_SyringeVisual.SyringeLiquidUp(m_SyringeData.DeinjectLiquidUpPair)
                                 .OnComplete(() =>
                                 {
-                                    CompleteColoredDeinject();
+                                    CompleteColoredInject();
                                 });
                         });
                 });
@@ -52,7 +52,7 @@ namespace Game.Object
                 .SetEase(m_SyringeData.OnMoveToColoredRotateEase);
         }
 
-        private void CompleteColoredDeinject()
+        private void CompleteColoredInject()
         {
             JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
                 () =>

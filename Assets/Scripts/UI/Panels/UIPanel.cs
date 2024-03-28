@@ -67,5 +67,15 @@ namespace Game.UI
         {
             return m_PanelAreas[(int)(object)_area];
         }
+
+        public T GetArea<T, TEnum>(TEnum _areaType) where T : UIArea where TEnum : Enum
+        {
+            if (m_PanelAreas[(int)(object)_areaType] is T area)
+            {
+                return area;
+            }
+
+            return null;
+        }
     }
 }
