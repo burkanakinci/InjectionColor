@@ -3,6 +3,8 @@ using System.Linq;
 using DG.Tweening;
 using Game.Manager;
 using Game.Object;
+using Game.StateMachine;
+using Game.Utilities.Constants;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -80,6 +82,7 @@ namespace Game.UI
 
         [SerializeField] 
         private WinPercentPair[] m_WinPercentPairs; 
+        private PlayerStateMachine m_PlayerStateMachine;
 
         private float m_ScreenHeight;
         private Vector3 m_StartPos;
@@ -89,6 +92,9 @@ namespace Game.UI
         public override void Initialize(UIPanel _cachedComponent)
         {
             base.Initialize(_cachedComponent);
+            
+            m_ContinueInjectButton.Initialize(this);
+            m_NextLevelButton.Initialize(this);
 
             m_PouringCupTarget = GameManager.Instance.GetManager<PlayerManager>().Player.PouringCup.PouringCupTarget;
             
@@ -105,6 +111,8 @@ namespace Game.UI
 
             m_ContinueInjectButton.transform.localScale = Vector3.zero;
             m_NextLevelButton.transform.localScale = Vector3.zero;
+            
+            m_PlayerStateMachine = GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine;
         }
 
         public void SetCurrentColor(Color _color)
@@ -120,10 +128,22 @@ namespace Game.UI
         {
             return LocalMoveTween(m_EndPos, m_ShowTweenDuration).SetEase(m_ShowTweenEase);
         }
-
+        
         public Tween HideTween()
         {
-            return LocalMoveTween(m_StartPos, m_HideTweenDuration).SetEase(m_HideTweenEase);
+            return LocalMoveTween(m_EndPos, m_HideTweenDuration).SetEase(m_HideTweenEase).
+                OnComplete(() =>
+                {
+                    HideArea();
+                });
+        }
+
+        public void ContinueInject()
+        {
+            m_ContinueInjectButton.ScaleDownTween(m_ScaleDownButtonPair);
+            m_NextLevelButton.ScaleDownTween(m_ScaleDownButtonPair);
+            HideTween();
+            m_PlayerStateMachine.ChangeStateTo(PlayerStates.RunState);
         }
 
         private float m_MixedValue;
@@ -197,7 +217,7 @@ namespace Game.UI
 
         private void SetPosByLerp(float _lerp)
         {
-            m_AreaTransform.anchoredPosition = Vector3.Lerp(m_TweenStartPos,m_EndPos,_lerp);
+            m_AreaTransform.anchoredPosition = Vector3.Lerp(m_TweenStartPos,m_TweenEndPos,_lerp);
         }
 
         public void KillAllTween()

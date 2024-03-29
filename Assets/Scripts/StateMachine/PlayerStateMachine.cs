@@ -16,6 +16,8 @@ namespace Game.StateMachine
 
         #endregion
 
+        public event Action<PlayerStates> OnPlayerStateChanged;
+
         public PlayerStateMachine(Player _player)
         {
             m_States = new IPlayerState[6];
@@ -47,6 +49,7 @@ namespace Game.StateMachine
                 Exit();
                 m_CurrentState = m_States[(int)state];
                 Enter();
+                OnPlayerStateChanged?.Invoke(state);
             }
         }
 

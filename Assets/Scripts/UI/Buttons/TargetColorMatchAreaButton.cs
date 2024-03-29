@@ -47,6 +47,7 @@ namespace Game.UI
         private void OnDisable()
         {
             KillAllTween();
+            OnClickTargetMatchAreaButton = null;
         }
     }
 }
