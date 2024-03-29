@@ -26,13 +26,6 @@ namespace Game.UI
 
         public virtual void ShowPanel()
         {
-            m_UIManager.HideAllPanels();
-
-            if (!gameObject.activeInHierarchy)
-            {
-                gameObject.SetActive(true);
-            }
-
             CanvasGroup.Open();
             ShowThisPanel();
         }

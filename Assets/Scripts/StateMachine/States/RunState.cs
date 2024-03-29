@@ -3,6 +3,7 @@ using System;
 using Game.GamePlayer;
 using Game.Manager;
 using Game.Object;
+using Game.UI;
 using Game.Utilities.Constants;
 
 namespace Game.StateMachine
@@ -14,6 +15,7 @@ namespace Game.StateMachine
         private Player m_Player;
         private InputManager m_InputManager;
         private Camera m_CurrentCamera;
+        private UIPanel m_HudPanel;
 
         public RunState(Player _player)
         {
@@ -21,11 +23,12 @@ namespace Game.StateMachine
             m_MergingLayerMask = 1 << (int)ObjectsLayer.Colored;
             m_InputManager = GameManager.Instance.GetManager<InputManager>();
             m_CurrentCamera = GameManager.Instance.GetManager<CameraManager>().CurrentCamera;
+            m_HudPanel = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.HudPanel);
         }
 
         public void Enter()
         {
-            // GameManager.Instance.UIManager.GetPanel(UIPanelType.RunPanel).ShowPanel();
+            m_HudPanel.ShowPanel();
             ResetRayCollidedEvent();
             OnEnterEvent?.Invoke();
         }
@@ -82,9 +85,7 @@ namespace Game.StateMachine
 
         public void Exit()
         {
-            // UnsubscribeInputTouchDown();
-            // m_RayCollidedEvent = null;
-            // OnExitEvent?.Invoke();
+            OnExitEvent?.Invoke();
         }
     }
 }

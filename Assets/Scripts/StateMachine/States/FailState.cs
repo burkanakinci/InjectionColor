@@ -16,10 +16,7 @@ namespace Game.StateMachine
 
         public void Enter()
         {
-            // GameManager.Instance.UIManager.GetPanel(UIPanelType.FinishPanel).ShowPanel();
-            // GameManager.Instance.UIManager.CurrentUIPanel.HideAllArea();
-            // GameManager.Instance.UIManager.CurrentUIPanel.ShowArea<FinishAreaType>(FinishAreaType.FailArea);
-            // OnEnterEvent?.Invoke();
+            OnEnterEvent?.Invoke();
         }
         public void UpdateLogic()
         {

@@ -48,17 +48,23 @@ namespace Game.Manager
             }
         }
 
+        private GameObject m_CurrentLevel;
         private void SpawnLevelPrefab(GameObject prefab)
         {
-            var spawnedLevel = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            spawnedLevel.GetComponent<ILevel>()?.OnSpawnLevel();
+             m_CurrentLevel = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
+             m_CurrentLevel.GetComponent<ILevel>()?.OnSpawnLevel();
         }
-
+        [Button]
         private void UnloadLevelPrefab()
         {
             if (m_LevelPrefabHandle.IsValid())
             {
                 Addressables.ReleaseInstance(m_LevelPrefabHandle);
+            }
+
+            if (m_CurrentLevel != null)
+            {
+                GameObject.Destroy(m_CurrentLevel);
             }
         }
 

@@ -14,14 +14,20 @@ namespace Game.StateMachine
         public Action OnEnterEvent { get; set; }
         public Action OnExitEvent { get; set; }
         private Player m_Player;
+        private UIPanel m_FinisPanel;
+        private UIManager m_UIManager;
 
         public WinState(Player _player)
         {
             m_Player = _player;
+            m_UIManager = GameManager.Instance.GetManager<UIManager>();
+            m_FinisPanel = m_UIManager.GetPanel(UIPanelType.FinishPanel);
         }
         
         public void Enter()
         {
+            m_UIManager.HideAllPanels();
+            m_FinisPanel.ShowPanel();
             OnEnterEvent?.Invoke();
         }
 
@@ -35,6 +41,7 @@ namespace Game.StateMachine
 
         public void Exit()
         {
+            m_FinisPanel.HidePanel();
             OnExitEvent?.Invoke();
         }
     }

@@ -24,7 +24,6 @@ namespace Game.Object
             }
             m_PouringCupTarget = GameManager.Instance.GetManager<PlayerManager>().Player.PouringCup.PouringCupTarget;
             m_PouringCupTarget.SetPouringCupLiquidColor(m_TargetColor);
-            GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine.ChangeStateTo(PlayerStates.RunState);
         }
     }
 }
