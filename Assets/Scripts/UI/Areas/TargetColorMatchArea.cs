@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using DG.Tweening;
 using Game.Manager;
 using Game.Object;
@@ -17,18 +18,36 @@ namespace Game.UI
         
         #region Tween Values
 
-        [SerializeField] [FoldoutGroup("Tween Values")]
+        #region Mixed Tweens
+
+        [SerializeField] [FoldoutGroup("Mixed Tween Values")]
         private float m_MixedTweenDuration;
-        [SerializeField] [FoldoutGroup("Tween Values")]
+        [SerializeField] [FoldoutGroup("Mixed Tween Values")]
         private Ease m_MixedTweenEase;
-        [SerializeField] [FoldoutGroup("Tween Values")]
+
+        #endregion
+
+        #region Show Hide Tweens
+
+        [SerializeField] [FoldoutGroup("Show Tween Values")]
         private float m_ShowTweenDuration;
-        [SerializeField] [FoldoutGroup("Tween Values")]
+        [SerializeField] [FoldoutGroup("Show Tween Values")]
         private Ease m_ShowTweenEase;
-        [SerializeField] [FoldoutGroup("Tween Values")]
+        [SerializeField] [FoldoutGroup("Show Tween Values")]
         private float m_HideTweenDuration;
-        [SerializeField] [FoldoutGroup("Tween Values")]
+        [SerializeField] [FoldoutGroup("Show Tween Values")]
         private Ease m_HideTweenEase;
+
+        #endregion
+
+        #region Button Tweens
+
+        [SerializeField] [FoldoutGroup("Button Tween Values")]
+        private ButtonScaleTweenPair m_ScaleUpButtonPair;
+        [SerializeField] [FoldoutGroup("Button Tween Values")]
+        private ButtonScaleTweenPair m_ScaleDownButtonPair;
+
+        #endregion
 
         #endregion
         
@@ -43,12 +62,24 @@ namespace Game.UI
 
         #endregion
 
+        #region Buttons
+
+        [SerializeField] [FoldoutGroup("Buttons")]
+        private ContinueInjectButton m_ContinueInjectButton;
+        [SerializeField] [FoldoutGroup("Buttons")]
+        private NextLevelButton m_NextLevelButton;
+
+        #endregion
+    
         #region Text
 
         [SerializeField] 
         private TextMeshProUGUI m_PercentText;
 
         #endregion
+
+        [SerializeField] 
+        private WinPercentPair[] m_WinPercentPairs; 
 
         private float m_ScreenHeight;
         private Vector3 m_StartPos;
@@ -69,6 +100,11 @@ namespace Game.UI
             m_EndPos = m_AreaTransform.anchoredPosition;
             m_StartPos = Vector3.up * -650.0f;
             m_AreaTransform.anchoredPosition = m_StartPos;
+
+            m_WinPercentPairs = m_WinPercentPairs.OrderBy(_opened => _opened.OpenedPercentValue).ToArray();
+
+            m_ContinueInjectButton.transform.localScale = Vector3.zero;
+            m_NextLevelButton.transform.localScale = Vector3.zero;
         }
 
         public void SetCurrentColor(Color _color)
@@ -105,7 +141,20 @@ namespace Game.UI
             m_CurrentSliderValue = m_MixedValue / 100.0f;
             m_MixedSliderValue = m_CurrentSliderValue;
 
-            MixedTween(m_MixedTweenDuration).SetEase(m_MixedTweenEase);
+            MixedTween(m_MixedTweenDuration).SetEase(m_MixedTweenEase)
+                .OnComplete(() =>
+                {
+                    OnCompleteMixed();
+                });
+        }
+
+        private void OnCompleteMixed()
+        {
+            m_ContinueInjectButton.ScaleUpTween(m_ScaleUpButtonPair);
+            if (m_MixedValue >= m_WinPercentPairs[0].OpenedPercentValue)
+            {
+                m_NextLevelButton.ScaleUpTween(m_ScaleUpButtonPair);
+            }
         }
 
         #region Tween
@@ -163,5 +212,42 @@ namespace Game.UI
         {
             KillAllTween();
         }
+    }
+
+    [Serializable]
+    public struct WinPercentPair
+    {
+        #region Datas
+
+        [SerializeField] 
+        private float m_OpenedPercentValue;
+
+        #endregion
+
+        #region External Access
+
+        public float OpenedPercentValue => m_OpenedPercentValue;
+
+        #endregion
+    }
+
+    [Serializable]
+    public struct ButtonScaleTweenPair
+    {
+        #region Datas
+        
+        [SerializeField] 
+        private float m_ScaleTweenDuration;
+        [SerializeField] 
+        private Ease m_ScaleTweenEase;
+
+        #endregion
+
+        #region External Access
+        
+        public float ScaleTweenDuration => m_ScaleTweenDuration;
+        public Ease ScaleTweenEase => m_ScaleTweenEase;
+
+        #endregion
     }
 }
