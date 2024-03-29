@@ -2289,7 +2289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
       propertyPath: m_WinPercentPairs.Array.data[0].m_OpenedPercentValue
-      value: 25
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
       propertyPath: m_WinPercentPairs.Array.data[1].m_OpenedPercentValue
