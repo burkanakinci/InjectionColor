@@ -18,6 +18,7 @@ namespace Game.UI
         }
         private void NextLevel()
         {
+            CachedComponent.OnClickedNextLevel();
             m_PlayerStateMachine.ChangeStateTo(PlayerStates.WinState);
         }
     }

@@ -88,7 +88,8 @@ namespace Game.UI
         private Vector3 m_StartPos;
         private Vector3 m_EndPos;
         private PouringCupTarget m_PouringCupTarget;
-        
+        private UIPanel m_FinishPanel;
+
         public override void Initialize(UIPanel _cachedComponent)
         {
             base.Initialize(_cachedComponent);
@@ -113,6 +114,8 @@ namespace Game.UI
             m_NextLevelButton.transform.localScale = Vector3.zero;
             
             m_PlayerStateMachine = GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine;
+
+            m_FinishPanel = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.FinishPanel);
         }
 
         public void SetCurrentColor(Color _color)
@@ -175,6 +178,13 @@ namespace Game.UI
             {
                 m_NextLevelButton.ScaleUpTween(m_ScaleUpButtonPair);
             }
+        }
+
+        public void OnClickedNextLevel()
+        {
+            transform.SetParent(m_FinishPanel.transform);
+            m_ContinueInjectButton.ScaleDownTween(m_ScaleDownButtonPair);
+            m_NextLevelButton.ScaleDownTween(m_ScaleDownButtonPair);
         }
 
         #region Tween
