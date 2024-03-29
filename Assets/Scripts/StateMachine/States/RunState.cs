@@ -27,7 +27,7 @@ namespace Game.StateMachine
         {
             // GameManager.Instance.UIManager.GetPanel(UIPanelType.RunPanel).ShowPanel();
             ResetRayCollidedEvent();
-            // OnEnterEvent?.Invoke();
+            OnEnterEvent?.Invoke();
         }
 
         public void SubscribeInputTouchDown()
@@ -40,6 +40,7 @@ namespace Game.StateMachine
         {
             m_InputManager.OnTouchDown -= ClickedRay;
         }
+
         public void ResetRayCollidedEvent()
         {
             m_RayCollidedEvent = ClickedColoredObject;

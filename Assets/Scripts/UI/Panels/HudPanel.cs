@@ -1,11 +1,24 @@
+using Game.Manager;
+using Game.StateMachine;
+using Game.Utilities.Constants;
+
 namespace Game.UI
 {
     public class HudPanel : UIPanel
     {
-        public override void ShowPanel()
+        private IPlayerState m_RunState;
+
+        public override void Initialize()
         {
-            ShowAllArea();
-            base.ShowPanel();
+            base.Initialize();
+            m_RunState = GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine
+                .GetPlayerState(PlayerStates.RunState);
+            m_RunState.OnEnterEvent += ShowPanel;
+        }
+
+        private void OnDisable()
+        {
+            m_RunState.OnEnterEvent -= ShowPanel;
         }
     }
 }

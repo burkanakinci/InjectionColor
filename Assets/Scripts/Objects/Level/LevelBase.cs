@@ -1,4 +1,5 @@
 using Game.Manager;
+using Game.StateMachine;
 using Game.UI;
 using Game.Utilities.Constants;
 using UnityEngine;
@@ -9,10 +10,11 @@ namespace Game.Object
     {
         [SerializeField] private CustomBehaviour[] m_ObjectsOnLevel;
         [SerializeField] private Color m_TargetColor;
-        private PouringCupTarget m_PouringCupTarget;
-        private TargetColorMatchArea m_TargetColorMatchArea;
         public void OnSpawnLevel()
         {
+            TargetColorMatchArea m_TargetColorMatchArea;
+            PouringCupTarget m_PouringCupTarget;
+            
             m_TargetColorMatchArea = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.HudPanel)
                 .GetArea<TargetColorMatchArea, HudAreaType>(HudAreaType.TargetMatchColorArea);
             m_TargetColorMatchArea.SetTargetColor(m_TargetColor);
@@ -22,6 +24,7 @@ namespace Game.Object
             }
             m_PouringCupTarget = GameManager.Instance.GetManager<PlayerManager>().Player.PouringCup.PouringCupTarget;
             m_PouringCupTarget.SetPouringCupLiquidColor(m_TargetColor);
+            GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine.ChangeStateTo(PlayerStates.RunState);
         }
     }
 }

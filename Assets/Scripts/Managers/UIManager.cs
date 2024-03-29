@@ -25,7 +25,13 @@ namespace Game.Manager
 
         public void HideAllPanels()
         {
-            m_UIPanels.ForEach(x => { x.HidePanel(); });
+            for (int i = 0; i < m_UIPanels.Count; i++)
+            {
+                if (i != (int)UIPanelType.CommonPanel)
+                {
+                    m_UIPanels[i].HidePanel();
+                }
+            }
         }
 
         #region Getter

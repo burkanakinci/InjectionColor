@@ -18,12 +18,7 @@ namespace Game.StateMachine
 
         public void Enter()
         {
-            GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine.ChangeStateTo(PlayerStates.RunState);
-            // GameManager.Instance.LevelManager.SetLevelNumber(m_Player.PlayerLevel);
-            // GameManager.Instance.LevelManager.CreateLevel();
-            // GameManager.Instance.UIManager.GetPanel(UIPanelType.IdlePanel).ShowPanel();
              OnEnterEvent?.Invoke();
-            // GameManager.Instance.GameStart();
         }
         public void UpdateLogic()
         {
