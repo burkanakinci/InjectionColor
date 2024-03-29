@@ -15,12 +15,13 @@ namespace Game.StateMachine
         private UIPanel m_IdlePanel;
         private UIPanel m_CommonPanel;
         private UIManager m_UIManager;
+
         public IdleState(Player _player)
         {
             m_Player = _player;
             m_UIManager = GameManager.Instance.GetManager<UIManager>();
-            m_IdlePanel =m_UIManager.GetPanel(UIPanelType.IdlePanel);
-            m_CommonPanel =m_UIManager.GetPanel(UIPanelType.CommonPanel);
+            m_IdlePanel = m_UIManager.GetPanel(UIPanelType.IdlePanel);
+            m_CommonPanel = m_UIManager.GetPanel(UIPanelType.CommonPanel);
         }
 
         public void Enter()
@@ -29,14 +30,18 @@ namespace Game.StateMachine
             m_CommonPanel.ShowPanel();
             m_IdlePanel.ShowPanel();
             GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine.ChangeStateTo(PlayerStates.RunState);
-             OnEnterEvent?.Invoke();
+            GameManager.Instance.GetManager<LevelManager>().LoadLevel();
+            OnEnterEvent?.Invoke();
         }
+
         public void UpdateLogic()
         {
         }
+
         public void UpdatePhysic()
         {
         }
+
         public void Exit()
         {
             m_IdlePanel.HidePanel();

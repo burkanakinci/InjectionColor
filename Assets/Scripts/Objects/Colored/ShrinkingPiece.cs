@@ -128,7 +128,7 @@ namespace Game.Object
                 _duration);
             return m_ShrinhkingBlendShapeTween;
         }
-
+        
         private float m_TempMaterialLerp;
         private void SetShrinkBlendShape(float _shapeValue)
         {

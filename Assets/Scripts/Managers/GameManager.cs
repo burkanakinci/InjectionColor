@@ -27,7 +27,6 @@ namespace Game.Manager
 
         private void Start()
         {
-            GetManager<LevelManager>().LoadLevel();
             GetManager<PlayerManager>().Player.PlayerStateMachine.ChangeStateTo(PlayerStates.IdleState,true);
         }
 
