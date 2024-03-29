@@ -131,7 +131,7 @@ namespace Game.UI
         
         public Tween HideTween()
         {
-            return LocalMoveTween(m_EndPos, m_HideTweenDuration).SetEase(m_HideTweenEase).
+            return LocalMoveTween(m_StartPos, m_HideTweenDuration).SetEase(m_HideTweenEase).
                 OnComplete(() =>
                 {
                     HideArea();
