@@ -26,6 +26,10 @@ namespace Game.UI
         private float m_MixedTweenDuration;
         [SerializeField] [FoldoutGroup("Mixed Tween Values")]
         private Ease m_MixedTweenEase;
+        [SerializeField] [FoldoutGroup("Mixed Tween Values")]
+        private float m_MixedResetTweenDuration;
+        [SerializeField] [FoldoutGroup("Mixed Tween Values")]
+        private Ease m_MixedResetTweenEase;
 
         #endregion
 
@@ -88,7 +92,6 @@ namespace Game.UI
         private Vector3 m_StartPos;
         private Vector3 m_EndPos;
         private PouringCupTarget m_PouringCupTarget;
-        private UIPanel m_FinishPanel;
 
         public override void Initialize(UIPanel _cachedComponent)
         {
@@ -114,8 +117,6 @@ namespace Game.UI
             m_NextLevelButton.transform.localScale = Vector3.zero;
             
             m_PlayerStateMachine = GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine;
-
-            m_FinishPanel = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.FinishPanel);
         }
 
         public void SetCurrentColor(Color _color)
@@ -164,7 +165,7 @@ namespace Game.UI
             m_CurrentSliderValue = m_MixedValue / 100.0f;
             m_MixedSliderValue = m_CurrentSliderValue;
 
-            MixedTween(m_MixedTweenDuration).SetEase(m_MixedTweenEase)
+            MixedTween(m_MixedValue,m_MixedTweenDuration).SetEase(m_MixedTweenEase)
                 .OnComplete(() =>
                 {
                     OnCompleteMixed();
@@ -182,18 +183,32 @@ namespace Game.UI
 
         public void OnClickedNextLevel()
         {
-            transform.SetParent(m_FinishPanel.transform);
             m_ContinueInjectButton.ScaleDownTween(m_ScaleDownButtonPair);
             m_NextLevelButton.ScaleDownTween(m_ScaleDownButtonPair);
+            
+            m_StartMixedValue = m_MixedValue;
+            m_StartCurrentSliderValue = m_CurrentColorSlider.fillAmount;
+            m_StartMixedSliderValue = m_MixedColorSlider.fillAmount;
+            
+            m_CurrentSliderValue = 0.0f;
+            m_MixedSliderValue = m_CurrentSliderValue;
+            
+            MixedTween(0.0f,m_MixedResetTweenDuration).SetEase(m_MixedResetTweenEase)
+                .OnComplete(() =>
+                {
+                    m_PlayerStateMachine.ChangeStateTo(PlayerStates.WinState);
+                });
         }
 
         #region Tween
 
         private Tween m_MixedTween;
         private Tween m_MoveTween;
+        private float m_TweenMixedTarget;
 
-        private Tween MixedTween(float _duration)
+        private Tween MixedTween(float _target,float _duration)
         {
+            m_TweenMixedTarget = _target;
             m_MixedTween?.Kill();
             m_MixedTween = m_MixedTween = DOTween.To(()=>
                 0.0f,
@@ -207,7 +222,7 @@ namespace Game.UI
         {
             m_CurrentColorSlider.fillAmount=Mathf.Lerp(m_StartCurrentSliderValue,m_CurrentSliderValue,_lerp);
             m_MixedColorSlider.fillAmount=Mathf.Lerp(m_StartMixedSliderValue,m_MixedSliderValue,_lerp);
-            m_PercentText.text = ((int)Mathf.Lerp(m_StartMixedValue, m_MixedValue, _lerp)).ToString();
+            m_PercentText.text = ((int)Mathf.Lerp(m_StartMixedValue, m_TweenMixedTarget, _lerp)).ToString();
         }
 
         private Vector3 m_TweenStartPos;

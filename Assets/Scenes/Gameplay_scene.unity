@@ -2378,12 +2378,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
       propertyPath: m_MixedTweenDuration
-      value: 0.75
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
+      propertyPath: m_MixedResetTweenEase
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
       propertyPath: m_ContinueInjectButton
       value: 
       objectReference: {fileID: 41159914}
+    - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
+      propertyPath: m_MixedResetTweenDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2211468436938105499, guid: 95dd877dc22d059429eb517e38bcc652, type: 3}
       propertyPath: m_WinPercentPairs.Array.size
       value: 3

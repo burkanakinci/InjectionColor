@@ -9,17 +9,14 @@ namespace Game.UI
 {
     public class NextLevelButton : TargetColorMatchAreaButton
     {
-        private PlayerStateMachine m_PlayerStateMachine;
         public override void Initialize(TargetColorMatchArea _cachedComponent)
         {
             base.Initialize(_cachedComponent);
-            m_PlayerStateMachine = GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine;
             OnClickTargetMatchAreaButton = NextLevel;
         }
         private void NextLevel()
         {
             CachedComponent.OnClickedNextLevel();
-            m_PlayerStateMachine.ChangeStateTo(PlayerStates.WinState);
         }
     }
 }
