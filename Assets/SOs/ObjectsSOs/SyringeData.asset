@@ -16,9 +16,9 @@ MonoBehaviour:
   m_SyringeUpperMovementEase: 0
   m_OnMoveToColoredJumpFirstHeight: 0.35
   m_OnMoveToColoredJumpPower: 2
-  m_OnMoveToColoredJumpDuration: 1
+  m_OnMoveToColoredJumpDuration: 0.75
   m_OnMoveToColoredJumpEase: 18
-  m_OnMoveToColoredRotateDuration: 0.9
+  m_OnMoveToColoredRotateDuration: 0.6
   m_OnMoveToColoredRotateEase: 1
   m_MovementToColoredFlipPair:
     m_OnMoveToColoredFlipDuration: 0.75

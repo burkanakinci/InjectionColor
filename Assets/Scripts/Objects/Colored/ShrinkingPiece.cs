@@ -9,7 +9,7 @@ namespace Game.Object
 {
     public class ShrinkingPiece : CustomBehaviour<ColoredVisual>
     {
-        [SerializeField] private SkinnedMeshRenderer m_ShrinkingPieceRenderer;
+        private SkinnedMeshRenderer m_ShrinkingPieceRenderer;
         [SerializeField] private ShrinkingPieceData m_ShrinkingPieceData;
         [SerializeField] private Material m_StartMaterial;
         private Entities m_Entities;
@@ -18,8 +18,10 @@ namespace Game.Object
         public override void Initialize(ColoredVisual _cachedComponent)
         {
             base.Initialize(_cachedComponent);
+            m_ShrinkingPieceRenderer = GetComponent<SkinnedMeshRenderer>();
             m_Entities = GameManager.Instance.GetManager<Entities>();
             m_TargetTweenMaterial = m_Entities.GetColoredObjectsMaterial(ColoredObjectMaterialType.Colorless);
+            SetShrinkBlendShape(0.0f);
         }
 
         private float m_TempDilationStartValue;

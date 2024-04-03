@@ -116,7 +116,7 @@ namespace Game.Object
         private Tween LocalRotateTween(Vector3 _target, float _duration)
         {
             m_RotateTween?.Kill();
-            m_RotateTween = transform.DORotateQuaternion(Quaternion.Euler(_target),_duration);
+            m_RotateTween = transform.DOLocalRotateQuaternion(Quaternion.Euler(_target),_duration);
             return m_RotateTween;
         }
 
