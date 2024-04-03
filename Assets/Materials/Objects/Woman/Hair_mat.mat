@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5459945713245565688
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
-  m_Shader: {fileID: 4800000, guid: 29e9912dcf4d9de48bc0f926ca79355d, type: 3}
+  m_Name: Hair_mat
+  m_Shader: {fileID: 4800000, guid: df695d70c539c3d4c87b79de307ab7bb, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -30,7 +17,6 @@ Material:
   - _MK_ENVIRONMENT_REFLECTIONS_ADVANCED
   - _MK_FRESNEL_HIGHLIGHTS
   - _MK_LIGHT_CEL
-  - _MK_OUTLINE_HULL_CLIP
   - _MK_RECEIVE_SHADOWS
   - _MK_SPECULAR_ISOTROPIC
   - _MK_WRAPPED_DIFFUSE
@@ -39,7 +25,7 @@ Material:
   - _RECEIVESHADOWS_ON
   - _WRAPPEDLIGHTING_ON
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
@@ -143,7 +129,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b376780a16f30e141824d5baae6b8f5e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -212,7 +198,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AdvancedTab: 0
+    - _AdvancedTab: 1
     - _AlbedoMapIntensity: 1
     - _AlphaClip: 0
     - _AlphaClipping: 0
@@ -287,7 +273,6 @@ Material:
     - _OutlineFadeMin: 0.25
     - _OutlineNoise: 0
     - _OutlineSize: 5
-    - _OutlineTab: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -317,7 +302,7 @@ Material:
     - _StencilRef: 0
     - _StencilWriteMask: 255
     - _StencilZFail: 0
-    - _StylizeTab: 1
+    - _StylizeTab: 0
     - _Surface: 0
     - _ThresholdMapScale: 1
     - _VertexAnimation: 0
@@ -329,14 +314,14 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
+    - _AlbedoColor: {r: 1, g: 0.9813726, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.98137254, b: 0, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 1, g: 0.19999996, b: 0.6, a: 1}
+    - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _LightTransmissionColor: {r: 1, g: 0.65, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -347,3 +332,16 @@ Material:
     - _SpecularColor: {r: 0.19999993, g: 0.19999993, b: 0.19999993, a: 1}
     - _VertexAnimationFrequency: {r: 2.5, g: 2.5, b: 2.5, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &344954972015789145
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
