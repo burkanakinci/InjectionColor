@@ -11,7 +11,7 @@ namespace Game.Object
     {
         private SkinnedMeshRenderer m_ShrinkingPieceRenderer;
         [SerializeField] private ShrinkingPieceData m_ShrinkingPieceData; 
-        private Material m_StartMaterial;
+        [SerializeField]private Material m_StartMaterial;
         private Entities m_Entities;
         public Action<float> OnChangeShrinkingValue;
 
@@ -22,7 +22,6 @@ namespace Game.Object
             m_Entities = GameManager.Instance.GetManager<Entities>();
             m_TargetTweenMaterial = m_Entities.GetColoredObjectsMaterial(ColoredObjectMaterialType.Colorless);
             SetShrinkBlendShape(0.0f);
-            m_StartMaterial = m_ShrinkingPieceRenderer.material;
         }
 
         private float m_TempDilationStartValue;

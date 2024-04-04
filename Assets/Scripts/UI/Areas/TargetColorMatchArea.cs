@@ -174,7 +174,10 @@ namespace Game.UI
 
         private void OnCompleteMixed()
         {
-            m_ContinueInjectButton.ScaleUpTween(m_ScaleUpButtonPair);
+            if (m_MixedValue < m_WinPercentPairs[^1].OpenedPercentValue)
+            {
+                m_ContinueInjectButton.ScaleUpTween(m_ScaleUpButtonPair);
+            }
             if (m_MixedValue >= m_WinPercentPairs[0].OpenedPercentValue)
             {
                 m_NextLevelButton.ScaleUpTween(m_ScaleUpButtonPair);

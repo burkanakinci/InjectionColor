@@ -12,7 +12,6 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _MK_ALBEDO_MAP
   - _MK_ARTISTIC_ANIMATION_STUTTER
   - _MK_DETAIL_BLEND_MIX
   - _MK_ENVIRONMENT_REFLECTIONS_ADVANCED
@@ -38,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoMap:
-        m_Texture: {fileID: 2800000, guid: e7b958ba18dcf7c44baa148dd346b279, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -118,7 +117,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e7b958ba18dcf7c44baa148dd346b279, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -315,14 +314,14 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 0.8113207, g: 0.8113207, b: 0.8113207, a: 1}
+    - _AlbedoColor: {r: 0.2216981, g: 1, b: 0.6832233, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.8113207, g: 0.8113207, b: 0.8113207, a: 1}
+    - _Color: {r: 0.22169808, g: 1, b: 0.6832233, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GoochBrightColor: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
-    - _GoochDarkColor: {r: 0.9827944, g: 1, b: 0, a: 1}
+    - _GoochBrightColor: {r: 0.7104397, g: 0.9716981, b: 0.8576318, a: 1}
+    - _GoochDarkColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _LightTransmissionColor: {r: 1, g: 0.65, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -330,7 +329,7 @@ Material:
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 0.5, g: 0.4973906, b: 0.096698105, a: 1}
+    - _SpecularColor: {r: 0.62473303, g: 0.9528302, b: 0.81076753, a: 1}
     - _VertexAnimationFrequency: {r: 2.5, g: 2.5, b: 2.5, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6420257321711731527
