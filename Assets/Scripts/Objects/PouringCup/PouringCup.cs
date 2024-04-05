@@ -14,6 +14,7 @@ namespace Game.Object
         [SerializeField] private PouringCupVisual m_PouringCupVisual;
         [SerializeField] private PouringCupData m_PouringCupData;
         [SerializeField] private Transform m_SyringePouringParent;
+        [SerializeField] private Transform m_SyringeStartParent;
         [SerializeField] private PouringCupTarget m_PouringCupTarget;
 
         #endregion
@@ -21,6 +22,7 @@ namespace Game.Object
         #region External Access
 
         public Transform SyringePouringParent => m_SyringePouringParent;
+        public Transform SyringeStartParent => m_SyringeStartParent;
         public PouringCupTarget PouringCupTarget => m_PouringCupTarget;
 
         #endregion

@@ -64,10 +64,10 @@ namespace Game.Object
             m_StartLiquidFulnessValue = m_SyringeLiquidMaterial.material.GetFloat(SyringeLiquidMaterial.FULNESS);
             return SyringeLiquidFulnessTween(1.0f,_liquidUpPair.LiquidUpDuration).SetEase(_liquidUpPair.LiquidUpEase);
         }
-        public void SyringeLiquidDown(DeinjectLiquidDownPair _liquidDownPair)
+        public Tween SyringeLiquidDown(DeinjectLiquidDownPair _liquidDownPair)
         {
             m_StartLiquidFulnessValue = m_SyringeLiquidMaterial.material.GetFloat(SyringeLiquidMaterial.FULNESS);
-            SyringeLiquidFulnessTween(0.0f,_liquidDownPair.LiquidDownDuration).SetEase(_liquidDownPair.LiquidDownEase);
+            return SyringeLiquidFulnessTween(0.0f,_liquidDownPair.LiquidDownDuration).SetEase(_liquidDownPair.LiquidDownEase);
         }
 
         #region Tweens

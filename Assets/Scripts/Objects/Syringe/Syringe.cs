@@ -17,7 +17,7 @@ namespace Game.Object
             m_SyringeVisual.Initialize(this);
             m_CurrentCamera = GameManager.Instance.GetManager<CameraManager>().CurrentCamera;
             m_PouringCup = GameManager.Instance.GetManager<PlayerManager>().Player.PouringCup;
-            transform.position = m_PouringCup.SyringePouringParent.position;
+            transform.position = m_PouringCup.SyringeStartParent.position;
         }
 
         private Colored m_CurrentColored;
@@ -80,8 +80,27 @@ namespace Game.Object
                 () =>
                 {
                     m_SyringeVisual.SyringeDown(m_SyringeData.DeinjectMovementDownPair);
-                    m_SyringeVisual.SyringeLiquidDown(m_SyringeData.DeinjectLiquidDownPair);
+                    m_SyringeVisual.SyringeLiquidDown(m_SyringeData.DeinjectLiquidDownPair)
+                        .OnComplete(() =>
+                        {
+                            OnCompleteSyringePouring();
+                        });
                     m_PouringCup.SetColorOnDeinject(m_CurrentColored.ObjectColor);
+                });
+        }
+
+        private void OnCompleteSyringePouring()
+        {
+            transform.SetParent(m_PouringCup.SyringeStartParent);
+            JumpDelayedTween(m_SyringeData.OnSyringeCompletedPouringStartDelay,
+                () =>
+                {
+                    LocalJumpTween(
+                            Vector3.zero,
+                            m_SyringeData.OnSyringeCompletedPouringJumpPower + transform.localPosition.y,
+                            m_SyringeData.OnSyringeCompletedPouringJumpDuration
+                        )
+                        .SetEase(m_SyringeData.OnSyringeCompletedPouringJumpEase);
                 });
         }
 

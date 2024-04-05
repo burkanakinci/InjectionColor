@@ -477,6 +477,37 @@ Transform:
   - {fileID: 782628377}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &485301960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485301961}
+  m_Layer: 0
+  m_Name: PouringSyringeStartParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485301961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485301960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.45, y: 0, z: -1.682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1819651233}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &516747298 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 565540736831738661, guid: a80a0241881e7be47b46411b1ed2dcad, type: 3}
@@ -1388,6 +1419,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TargetLiquid: {fileID: 257529210}
+--- !u!4 &1819651233 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8949607991659073512, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
+  m_PrefabInstance: {fileID: 4518093593759071875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1894545583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1977,6 +2013,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1322648257239936212, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
+      propertyPath: m_SyringeStartParent
+      value: 
+      objectReference: {fileID: 485301961}
+    - target: {fileID: 1322648257239936212, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
       propertyPath: m_SyringePouringParent
       value: 
       objectReference: {fileID: 1619027416}
@@ -2132,6 +2172,9 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 8243089829413447139, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8949607991659073512, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 485301961}
     - targetCorrespondingSourceObject: {fileID: 8734485820938998506, guid: 1f6866e7283e9cd4a84287788fd1d21f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 260068519}
