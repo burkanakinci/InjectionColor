@@ -20,7 +20,7 @@ namespace Game.UI
 
         private void OnEnterIdleState()
         {
-            m_LevelText.text = "LV." + m_JSONConverter.SavedPlayerData.PlayerLevel;
+            m_LevelText.text = "Level " + m_JSONConverter.SavedPlayerData.PlayerLevel;
         }
     }
 }
