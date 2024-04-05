@@ -10,7 +10,7 @@ namespace Game.Object
     {
         [SerializeField] private CustomBehaviour[] m_ObjectsOnLevel;
         [SerializeField] private Color m_TargetColor;
-        public void OnSpawnLevel()
+        public virtual void OnSpawnLevel()
         {
             TargetColorMatchArea m_TargetColorMatchArea;
             PouringCupTarget m_PouringCupTarget;

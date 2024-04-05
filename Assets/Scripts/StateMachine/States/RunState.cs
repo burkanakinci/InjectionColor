@@ -46,11 +46,11 @@ namespace Game.StateMachine
 
         public void ResetRayCollidedEvent()
         {
-            m_RayCollidedEvent = ClickedColoredObject;
+            OnRayCollidedEvent = ClickedColoredObject;
             SubscribeInputTouchDown();
         }
 
-        private Action<GameObject> m_RayCollidedEvent;
+        public Action<GameObject> OnRayCollidedEvent;
         private RaycastHit m_MergingHit;
         private Ray m_MergingRay;
         private int m_MergingLayerMask;
@@ -61,7 +61,7 @@ namespace Game.StateMachine
             m_MergingRay = m_CurrentCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(m_MergingRay, out m_MergingHit, 1000f, m_MergingLayerMask))
             {
-                m_RayCollidedEvent?.Invoke(m_MergingHit.collider.gameObject);
+                OnRayCollidedEvent?.Invoke(m_MergingHit.collider.gameObject);
             }
         }
 
