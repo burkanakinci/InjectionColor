@@ -92,6 +92,8 @@ namespace Game.UI
         private Vector3 m_StartPos;
         private Vector3 m_EndPos;
         private PouringCupTarget m_PouringCupTarget;
+        private UIPanel m_HudPanel;
+        private UIPanel m_FinishPanel;
 
         public override void Initialize(UIPanel _cachedComponent)
         {
@@ -117,6 +119,11 @@ namespace Game.UI
             m_NextLevelButton.transform.localScale = Vector3.zero;
             
             m_PlayerStateMachine = GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine;
+
+            m_HudPanel = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.HudPanel);
+            m_FinishPanel = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.FinishPanel);
+            
+            transform.SetParent(m_HudPanel.transform);
         }
 
         public void SetCurrentColor(Color _color)
@@ -186,6 +193,9 @@ namespace Game.UI
 
         public void OnClickedNextLevel()
         {
+            transform.SetParent(m_FinishPanel.transform);
+            m_PlayerStateMachine.ChangeStateTo(PlayerStates.WinState);
+            
             m_ContinueInjectButton.ScaleDownTween(m_ScaleDownButtonPair);
             m_NextLevelButton.ScaleDownTween(m_ScaleDownButtonPair);
             
@@ -199,7 +209,7 @@ namespace Game.UI
             MixedTween(0.0f,m_MixedResetTweenDuration).SetEase(m_MixedResetTweenEase)
                 .OnComplete(() =>
                 {
-                    m_PlayerStateMachine.ChangeStateTo(PlayerStates.WinState);
+                    transform.SetParent(m_HudPanel.transform);
                 });
         }
 
