@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using Game.Manager;
+using Game.StateMachine;
 using Game.UI;
 using Game.Utilities.Constants;
 using Sirenix.OdinInspector;
@@ -16,7 +17,8 @@ namespace Game.Object
         public Color CurrentLiquidColor => m_TargetColor;
         private TargetColorMatchArea m_TargetColorMatchArea;
         private PouringCupTarget m_PouringCupTarget;
-        
+        private IPlayerState m_IdleState;
+
         public override void Initialize(PouringCupVisual _cachedComponent)
         {
             base.Initialize(_cachedComponent);
@@ -24,7 +26,15 @@ namespace Game.Object
             m_TargetColorMatchArea = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.HudPanel)
                 .GetArea<TargetColorMatchArea, HudAreaType>(HudAreaType.TargetMatchColorArea);
             m_PouringCupTarget = CachedComponent.CachedComponent.PouringCupTarget;
+            m_IdleState = GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine.GetPlayerState(PlayerStates.IdleState);
+            m_IdleState.OnEnterEvent += OnStart;
         }
+        private void OnStart()
+        {
+            m_AnyMixed = false;
+            m_PouringLiquidRenderer.material.color = Color.white;
+        }
+
 
         private Color m_AddedColor;
         private Color m_TargetColor;
@@ -105,6 +115,7 @@ namespace Game.Object
 
         private void OnDisable()
         {
+            m_IdleState.OnEnterEvent -= OnStart;
             KillAllTween();
         }
     }

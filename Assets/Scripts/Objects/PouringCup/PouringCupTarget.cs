@@ -1,3 +1,6 @@
+using Game.Manager;
+using Game.StateMachine;
+using Game.Utilities.Constants;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -6,6 +9,20 @@ namespace Game.Object
     public class PouringCupTarget : CustomBehaviour<PouringCup>
     {
         [SerializeField] private PouringCupTargetLiquid m_TargetLiquid;
+        private IPlayerState m_IdleState;
+        
+        public override void Initialize(PouringCup _cachedComponent)
+        {
+            base.Initialize(_cachedComponent);
+            m_IdleState = GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine.GetPlayerState(PlayerStates.IdleState);
+            m_IdleState.OnEnterEvent += OnStart;
+        }
+        
+        private void OnStart()
+        {
+            SetPouringCupLiquidColor(Color.white);
+        }
+
         public void SetPouringCupLiquidColor(Color _color)
         {
             m_TargetColor = _color;
@@ -27,6 +44,11 @@ namespace Game.Object
             m_ContainsValue = m_ColorTotalDist * m_PercentMultiply;
 
             return m_ContainsValue;
+        }
+        private void OnDisable()
+        {
+            if(m_IdleState != null)
+                m_IdleState.OnEnterEvent -= OnStart;
         }
     }
 }
