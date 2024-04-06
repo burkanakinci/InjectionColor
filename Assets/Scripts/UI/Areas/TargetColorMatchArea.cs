@@ -94,6 +94,7 @@ namespace Game.UI
         private PouringCupTarget m_PouringCupTarget;
         private UIPanel m_HudPanel;
         private UIPanel m_FinishPanel;
+        private IPlayerState m_IdleState;
 
         public override void Initialize(UIPanel _cachedComponent)
         {
@@ -102,27 +103,35 @@ namespace Game.UI
             m_ContinueInjectButton.Initialize(this);
             m_NextLevelButton.Initialize(this);
 
-            m_PouringCupTarget = GameManager.Instance.GetManager<PlayerManager>().Player.PouringCup.PouringCupTarget;
+            UIManager _uiManager = GameManager.Instance.GetManager<UIManager>();
+            PlayerManager _playerManager = GameManager.Instance.GetManager<PlayerManager>();
+
+            m_PouringCupTarget = _playerManager.Player.PouringCup.PouringCupTarget;
+            m_PlayerStateMachine = _playerManager.Player.PlayerStateMachine;
+            m_HudPanel = _uiManager.GetPanel(UIPanelType.HudPanel);
+            m_FinishPanel = _uiManager.GetPanel(UIPanelType.FinishPanel);
+            m_IdleState = _playerManager.Player.PlayerStateMachine.GetPlayerState(PlayerStates.IdleState);
             
+            m_EndPos = m_AreaTransform.anchoredPosition;
+            m_StartPos = Vector3.up * -650.0f;
+            
+            m_WinPercentPairs = m_WinPercentPairs.OrderBy(_opened => _opened.OpenedPercentValue).ToArray();
+
+            m_IdleState.OnEnterEvent += StartArea;
+        }
+
+        private void StartArea()
+        {
             m_MixedValue = 0;
             m_CurrentColorSlider.fillAmount=0.0f;
             m_MixedColorSlider.fillAmount=0.0f;
             m_PercentText.text = "0";
-
-            m_EndPos = m_AreaTransform.anchoredPosition;
-            m_StartPos = Vector3.up * -650.0f;
+            
             m_AreaTransform.anchoredPosition = m_StartPos;
-
-            m_WinPercentPairs = m_WinPercentPairs.OrderBy(_opened => _opened.OpenedPercentValue).ToArray();
 
             m_ContinueInjectButton.transform.localScale = Vector3.zero;
             m_NextLevelButton.transform.localScale = Vector3.zero;
-            
-            m_PlayerStateMachine = GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine;
 
-            m_HudPanel = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.HudPanel);
-            m_FinishPanel = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.FinishPanel);
-            
             transform.SetParent(m_HudPanel.transform);
         }
 
@@ -270,6 +279,7 @@ namespace Game.UI
         private void OnDisable()
         {
             KillAllTween();
+            m_IdleState.OnEnterEvent -= StartArea;
         }
     }
 
