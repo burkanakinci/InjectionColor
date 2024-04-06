@@ -315,14 +315,14 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 1, g: 0.9529412, b: 0.78039217, a: 1}
+    - _AlbedoColor: {r: 0.7830189, g: 0.74977756, b: 0.63897294, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 0.9529411, b: 0.78039217, a: 1}
+    - _Color: {r: 0.7830188, g: 0.74977756, b: 0.6389729, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.9056604, g: 0.81320244, b: 0.47419012, a: 1}
-    - _GoochBrightColor: {r: 0.9528302, g: 0.92747754, b: 0.62473303, a: 1}
-    - _GoochDarkColor: {r: 0.6886792, g: 0.48339063, b: 0.19166073, a: 1}
+    - _EmissionColor: {r: 0.78431374, g: 0.7490196, b: 0.6392157, a: 1}
+    - _GoochBrightColor: {r: 0.9245283, g: 0.8916441, b: 0.7893378, a: 1}
+    - _GoochDarkColor: {r: 0.5377358, g: 0.50626963, b: 0.40837485, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _LightTransmissionColor: {r: 1, g: 0.65, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -330,7 +330,7 @@ Material:
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 1, g: 0.9529412, b: 0.78039217, a: 1}
+    - _SpecularColor: {r: 0.78431374, g: 0.7490196, b: 0.6392157, a: 1}
     - _VertexAnimationFrequency: {r: 2.5, g: 2.5, b: 2.5, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6420257321711731527

@@ -3,6 +3,7 @@ using DG.Tweening;
 using Game.Manager;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using AudioType = Game.Manager.AudioType;
 
 namespace Game.Object
 {
@@ -11,12 +12,14 @@ namespace Game.Object
         [SerializeField] private SyringeVisual m_SyringeVisual;
         [SerializeField] private SyringeData m_SyringeData;
         private PouringCup m_PouringCup;
+        private AudioManager m_AudioManager;
 
         public override void Initialize()
         {
             m_SyringeVisual.Initialize(this);
             m_CurrentCamera = GameManager.Instance.GetManager<CameraManager>().CurrentCamera;
             m_PouringCup = GameManager.Instance.GetManager<PlayerManager>().Player.PouringCup;
+            m_AudioManager = GameManager.Instance.GetManager<AudioManager>();
             transform.position = m_PouringCup.SyringeStartParent.position;
         }
 
@@ -25,6 +28,7 @@ namespace Game.Object
 
         public void StartInjectColored(Colored _colored)
         {
+            m_AudioManager.Play(AudioType.SyringeMoveToColored);
             m_CurrentColored = _colored;
             transform.SetParent(_colored.SyringeTargetParent);
             LocalJumpTween(Vector3.up * m_SyringeData.OnMoveToColoredJumpFirstHeight, 
@@ -37,6 +41,7 @@ namespace Game.Object
                         .SetEase(m_SyringeData.OnMoveToColoredSettleEase)
                         .OnComplete(() =>
                         {
+                            m_AudioManager.Play(AudioType.SyringeStab);
                             _colored.DeinjectColor();
                             m_SyringeVisual.SetSyringeLiquidColor(_colored.ObjectColor);
                             m_SyringeVisual.StartDeinjectShaking(m_SyringeData.DeinjectShakingPair,m_SyringeData.DeinjectShakingBackPair);
@@ -57,6 +62,7 @@ namespace Game.Object
             JumpDelayedTween(m_SyringeData.OnSyringePourMovementStartDelay,
                 () =>
                 {
+                    m_AudioManager.Play(AudioType.SyringeBackFromColored);
                     transform.SetParent(m_PouringCup.SyringePouringParent);
                     m_CurrentColored.SetSplashVFXEnabled(false);
                     LocalJumpTween(
@@ -79,6 +85,7 @@ namespace Game.Object
             SyringeUpperMovementDownDelayCall(m_SyringeData.DeinjectMovementDownPair.MoveDownStartDelay,
                 () =>
                 {
+                    m_AudioManager.Play(AudioType.SyringePouringLiquid);
                     m_SyringeVisual.SyringeDown(m_SyringeData.DeinjectMovementDownPair);
                     m_SyringeVisual.SyringeLiquidDown(m_SyringeData.DeinjectLiquidDownPair)
                         .OnComplete(() =>
