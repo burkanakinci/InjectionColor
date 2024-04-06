@@ -52,7 +52,8 @@ namespace Game.Object
 
         private void OnDisable()
         {
-            m_ShrinkingPiece[0].OnChangeShrinkingValue -= CachedComponent.OnChangeShrinkingValue;
+            if(m_ShrinkingPiece[0] != null && CachedComponent != null)
+                m_ShrinkingPiece[0].OnChangeShrinkingValue -= CachedComponent.OnChangeShrinkingValue;
         }
     }
 }

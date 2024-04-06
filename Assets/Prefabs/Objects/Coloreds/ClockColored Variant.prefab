@@ -147,13 +147,79 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -7108526074593422279, guid: 4974a874c97befc4a916bbb881099b41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7161718250949397475}
+    - targetCorrespondingSourceObject: {fileID: -5797466877858072714, guid: 4974a874c97befc4a916bbb881099b41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4424951583926570170}
+    - targetCorrespondingSourceObject: {fileID: -4086367563450888955, guid: 4974a874c97befc4a916bbb881099b41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1397272618773338071}
   m_SourcePrefab: {fileID: 100100000, guid: 4974a874c97befc4a916bbb881099b41, type: 3}
+--- !u!1 &840725919578679774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5797466877858072714, guid: 4974a874c97befc4a916bbb881099b41, type: 3}
+  m_PrefabInstance: {fileID: 2603530644476550824}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4424951583926570170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840725919578679774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6a562b3e44119ba0085de603338d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShrinkingPieceData: {fileID: 11400000, guid: 881cbe36b071e864faeeca1848504165, type: 2}
+  m_StartMaterial: {fileID: 0}
 --- !u!4 &2570183397630753091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4974a874c97befc4a916bbb881099b41, type: 3}
   m_PrefabInstance: {fileID: 2603530644476550824}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4141315361324632721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7108526074593422279, guid: 4974a874c97befc4a916bbb881099b41, type: 3}
+  m_PrefabInstance: {fileID: 2603530644476550824}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7161718250949397475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141315361324632721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6a562b3e44119ba0085de603338d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShrinkingPieceData: {fileID: 11400000, guid: 881cbe36b071e864faeeca1848504165, type: 2}
+  m_StartMaterial: {fileID: 0}
+--- !u!1 &7164056071404426157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4086367563450888955, guid: 4974a874c97befc4a916bbb881099b41, type: 3}
+  m_PrefabInstance: {fileID: 2603530644476550824}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1397272618773338071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164056071404426157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6a562b3e44119ba0085de603338d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShrinkingPieceData: {fileID: 11400000, guid: 881cbe36b071e864faeeca1848504165, type: 2}
+  m_StartMaterial: {fileID: 0}
 --- !u!1001 &3220133328951464112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,6 +228,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158205257006795401, guid: e2efacc81148cca489460ff86e3b26c9, type: 3}
+      propertyPath: m_ShrinkingPiece.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 158205257006795401, guid: e2efacc81148cca489460ff86e3b26c9, type: 3}
+      propertyPath: m_ShrinkingPiece.Array.data[0]
+      value: 
+      objectReference: {fileID: 7161718250949397475}
+    - target: {fileID: 158205257006795401, guid: e2efacc81148cca489460ff86e3b26c9, type: 3}
+      propertyPath: m_ShrinkingPiece.Array.data[1]
+      value: 
+      objectReference: {fileID: 1397272618773338071}
+    - target: {fileID: 158205257006795401, guid: e2efacc81148cca489460ff86e3b26c9, type: 3}
+      propertyPath: m_ShrinkingPiece.Array.data[2]
+      value: 
+      objectReference: {fileID: 4424951583926570170}
     - target: {fileID: 3022017070811053035, guid: e2efacc81148cca489460ff86e3b26c9, type: 3}
       propertyPath: m_Name
       value: ClockColored Variant
