@@ -46,7 +46,8 @@ namespace Game.StateMachine
 
         public void ResetRayCollidedEvent()
         {
-            OnRayCollidedEvent = ClickedColoredObject;
+            OnRayCollidedEvent -= ClickedColoredObject;
+            OnRayCollidedEvent += ClickedColoredObject;
             SubscribeInputTouchDown();
         }
 

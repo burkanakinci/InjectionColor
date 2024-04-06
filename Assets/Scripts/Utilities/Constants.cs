@@ -52,8 +52,7 @@ namespace Game.Utilities.Constants
 
     public enum FinishAreaType
     {
-        WinArea = 0,
-        FailArea = 1,
+        FinishBGArea = 0,
     }
 
     public enum HudAreaType

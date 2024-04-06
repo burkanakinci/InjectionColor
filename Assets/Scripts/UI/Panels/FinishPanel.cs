@@ -8,5 +8,10 @@ namespace Game.UI
 {
     public class FinishPanel : UIPanel
     {
+        public override void ShowPanel()
+        {
+            base.ShowPanel();
+            GetArea(FinishAreaType.FinishBGArea).ShowArea();
+        }
     }
 }

@@ -194,6 +194,7 @@ namespace Game.UI
         public void OnClickedNextLevel()
         {
             transform.SetParent(m_FinishPanel.transform);
+            transform.SetAsFirstSibling();
             m_PlayerStateMachine.ChangeStateTo(PlayerStates.WinState);
             
             m_ContinueInjectButton.ScaleDownTween(m_ScaleDownButtonPair);

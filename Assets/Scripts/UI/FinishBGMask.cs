@@ -35,19 +35,19 @@ namespace Game.UI
         public override void Initialize()
         {
             m_ScreenHeight = Screen.height *2.0f;
-            m_MaskTransform.sizeDelta = Vector2.one * m_ScreenHeight;
+            m_MaskTransform.sizeDelta = Vector2.zero;
         }
         
         [Button]
-        public void ShowBG()
+        public Tween ShowBG()
         {
-            MaskSizeTween(0.0f,m_ShowBGDuration).SetEase(m_ShowBGEase);
+            return MaskSizeTween(0.0f,m_ShowBGDuration).SetEase(m_ShowBGEase);
         }
         
         [Button]
-        public void HideBG()
+        public Tween HideBG()
         {
-            MaskSizeTween(m_ScreenHeight,m_HideBGDuration).SetEase(m_HideBGEase);
+            return MaskSizeTween(m_ScreenHeight,m_HideBGDuration).SetEase(m_HideBGEase);
         }
 
         #region Tween

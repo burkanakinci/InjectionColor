@@ -1,7 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Game.Object;
+using Game.StateMachine;
+using Game.UI;
+using Game.Utilities.Constants;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -20,6 +24,8 @@ namespace Game.Manager
         private JsonConverter m_JsonConverter;
         private AsyncOperationHandle<GameObject> m_LevelPrefabHandle;
         [SerializeField] private int m_StartRandomLevel;
+        private FinishBGArea m_FinishBGArea;
+        private PlayerStateMachine m_PlayerStateMachine;
 
         #endregion
 
@@ -32,6 +38,9 @@ namespace Game.Manager
         public void InitializeManager()
         {
             m_JsonConverter = GameManager.Instance.GetManager<JsonConverter>();
+            m_FinishBGArea = GameManager.Instance.GetManager<UIManager>().GetPanel(UIPanelType.FinishPanel)
+                .GetArea<FinishBGArea, FinishAreaType>(FinishAreaType.FinishBGArea);
+            m_PlayerStateMachine = GameManager.Instance.GetManager<PlayerManager>().Player.PlayerStateMachine;
         }
 
         private void LoadLevelPrefab()
@@ -53,6 +62,10 @@ namespace Game.Manager
         {
              m_CurrentLevel = GameObject.Instantiate(prefab, Vector3.zero, Quaternion.identity);
              m_CurrentLevel.GetComponent<ILevel>()?.OnSpawnLevel();
+             m_FinishBGArea.SetFinishBGEnabled(false).OnComplete(() =>
+             {
+                 m_PlayerStateMachine.ChangeStateTo(PlayerStates.RunState);
+             });
         }
         [Button]
         private void UnloadLevelPrefab()
@@ -77,8 +90,8 @@ namespace Game.Manager
         public void SetLevelNumber(int _levelNumber)
         {
             m_CurrentLevelNumber = _levelNumber;
-            m_ActiveLevelDataNumber = (m_CurrentLevelNumber <= m_MaxLevelDataCount)
-                ? (m_CurrentLevelNumber)
+            m_ActiveLevelDataNumber = (m_CurrentLevelNumber <= m_MaxLevelDataCount) ?
+                 (m_CurrentLevelNumber)
                 : ((int)(UnityEngine.Random.Range(m_StartRandomLevel, (m_MaxLevelDataCount + 1))));
         }
 

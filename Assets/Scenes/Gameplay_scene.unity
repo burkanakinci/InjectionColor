@@ -582,11 +582,11 @@ PrefabInstance:
       objectReference: {fileID: 963194227}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148562062104330240].m_StartRandomLevel
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148562062104330240].m_MaxLevelDataCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148561995980079107].m_UIPanels.Array.size

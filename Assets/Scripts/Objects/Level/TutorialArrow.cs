@@ -45,7 +45,6 @@ namespace Game.Object
 
         private void DisableObjectsByLerp(float _lerpValue)
         {
-            m_ClickObjectText.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, _lerpValue);
             m_ArrowObject.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, _lerpValue);
         }
 
