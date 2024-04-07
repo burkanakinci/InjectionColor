@@ -31,6 +31,7 @@ namespace Game.Object
             m_AudioManager.Play(AudioType.SyringeMoveToColored);
             m_CurrentColored = _colored;
             transform.SetParent(_colored.SyringeTargetParent);
+            ScaleTween(1.0f, m_SyringeData.OnMoveToColoredJumpDuration);
             LocalJumpTween(Vector3.up * m_SyringeData.OnMoveToColoredJumpFirstHeight, 
                     m_SyringeData.OnMoveToColoredJumpPower + transform.localPosition.y,
                     m_SyringeData.OnMoveToColoredJumpDuration)
@@ -65,6 +66,7 @@ namespace Game.Object
                     m_AudioManager.Play(AudioType.SyringeBackFromColored);
                     transform.SetParent(m_PouringCup.SyringePouringParent);
                     m_CurrentColored.SetSplashVFXEnabled(false);
+                    ScaleTween(1.0f, m_SyringeData.OnSyringePourMovementJumpDuration);
                     LocalJumpTween(
                             Vector3.zero,
                             m_SyringeData.OnSyringePourMovementJumpPower + transform.localPosition.y,
@@ -102,6 +104,7 @@ namespace Game.Object
             JumpDelayedTween(m_SyringeData.OnSyringeCompletedPouringStartDelay,
                 () =>
                 {
+                    ScaleTween(1.0f,m_SyringeData.OnSyringeCompletedPouringJumpDuration);
                     LocalJumpTween(
                             Vector3.zero,
                             m_SyringeData.OnSyringeCompletedPouringJumpPower + transform.localPosition.y,
@@ -117,12 +120,12 @@ namespace Game.Object
         private Tween m_RotateTween;
         private Tween m_JumpDelayedTween;
         private Tween m_SyringeUpperMovementDownDelayCall;
-
-        private Tween MoveTween(Vector3 _target, float _duration)
+        private Tween m_ScaleTween;
+        public Tween ScaleTween(float _scaleMultiply,float _duration)
         {
-            m_MoveTween?.Kill();
-            m_MoveTween = transform.DOMove(_target, _duration);
-            return m_MoveTween;
+            m_ScaleTween?.Kill();
+            m_ScaleTween = transform.DOScale(Vector3.one * _scaleMultiply , _duration);
+            return m_ScaleTween;
         }
 
         private Tween LocalJumpTween(Vector3 _target, float _power, float _duration)
@@ -166,6 +169,7 @@ namespace Game.Object
 
         public void KillAllTween()
         {
+            m_ScaleTween?.Kill();
             m_SyringeUpperMovementDownDelayCall?.Kill();
             m_JumpDelayedTween?.Kill();
             m_SyringeVisual.KillAllTween();
