@@ -14,9 +14,12 @@ Material:
   m_ValidKeywords:
   - _MK_ARTISTIC_ANIMATION_STUTTER
   - _MK_DETAIL_BLEND_MIX
+  - _MK_EMISSION
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
+  - _MK_IRIDESCENCE_DEFAULT
   - _MK_LIGHT_CEL
   - _MK_RECEIVE_SHADOWS
+  - _MK_RIM_DEFAULT
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
   - TCP2_NONE
@@ -285,14 +288,14 @@ Material:
     - _IndirectIntensityOutline: 0
     - _Initialized: 0
     - _InputTab: 1
-    - _Iridescence: 0
-    - _IridescenceSize: 1
-    - _IridescenceSmoothness: 0.5
+    - _Iridescence: 1
+    - _IridescenceSize: 0.82
+    - _IridescenceSmoothness: 0.397
     - _IridescenceThresholdOffset: 0
     - _Light: 1
     - _LightBands: 4
     - _LightBandsScale: 0.5
-    - _LightThreshold: 0.5
+    - _LightThreshold: 0.716
     - _LightTransmission: 0
     - _LightTransmissionDistortion: 0.25
     - _LightTransmissionIntensity: 1
@@ -342,11 +345,11 @@ Material:
     - _RenderFace: 2
     - _RenderPriority: 0
     - _RenderingMode: 0
-    - _Rim: 0
+    - _Rim: 1
     - _RimMax: 1
     - _RimMin: 0.5
-    - _RimSize: 1
-    - _RimSmoothness: 0.5
+    - _RimSize: 1.72
+    - _RimSmoothness: 0.66
     - _RimThresholdOffset: 0.25
     - _Roughness: 0.5
     - _Saturation: 1
@@ -378,7 +381,7 @@ Material:
     - _StencilRef: 0
     - _StencilWriteMask: 255
     - _StencilZFail: 0
-    - _StylizeTab: 0
+    - _StylizeTab: 1
     - _Surface: 0
     - _TexLod: 5
     - _ThresholdMapScale: 1
@@ -408,22 +411,22 @@ Material:
     - __dummy__: 0
     - __outline_gui_dummy__: 0
     m_Colors:
-    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
+    - _AlbedoColor: {r: 1, g: 0.9490196, b: 0.88235295, a: 1}
     - _BaseColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.9490196, b: 0.88235295, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.0625, g: 0.059313726, b: 0.05514706, a: 1}
+    - _GoochBrightColor: {r: 1, g: 0.97, b: 0.92, a: 1}
+    - _GoochDarkColor: {r: 0.7735849, g: 0.6929423, b: 0.5874866, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
-    - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _IridescenceColor: {r: 0.8, g: 0.75686276, b: 0.7058824, a: 1}
     - _LightTransmissionColor: {r: 1, g: 0.65, b: 0, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.5}
+    - _RimColor: {r: 1, g: 0.9529412, b: 0.89411765, a: 1}
     - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
     - _SColor: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
     - _SketchColor: {r: 0, g: 0, b: 0, a: 1}
