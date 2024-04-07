@@ -40,7 +40,7 @@ namespace Game.Object
             m_ColorTotalDist += Mathf.Abs(m_TargetColor.r - _color.r);
             m_ColorTotalDist += Mathf.Abs(m_TargetColor.g - _color.g);
             m_ColorTotalDist += Mathf.Abs(m_TargetColor.b - _color.b);
-            m_ColorTotalDist = 3.0f - m_ColorTotalDist;
+            m_ColorTotalDist =  3.0f - m_ColorTotalDist;
             m_ContainsValue = m_ColorTotalDist * m_PercentMultiply;
 
             return m_ContainsValue;

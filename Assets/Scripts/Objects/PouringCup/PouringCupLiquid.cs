@@ -35,7 +35,6 @@ namespace Game.Object
             m_PouringLiquidRenderer.material.color = Color.white;
         }
 
-
         private Color m_AddedColor;
         private Color m_TargetColor;
         private Color m_StartColor;

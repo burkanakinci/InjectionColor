@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1081237787869280748, guid: 535889cfc23935b4caab06e25ab87f0c, type: 3}
       propertyPath: ColorModule.enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1081237787869280748, guid: 535889cfc23935b4caab06e25ab87f0c, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime1
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3996331166773308981, guid: 535889cfc23935b4caab06e25ab87f0c, type: 3}
       propertyPath: ColorModule.enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3996331166773308981, guid: 535889cfc23935b4caab06e25ab87f0c, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
