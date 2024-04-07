@@ -211,6 +211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HatColored Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8370110888004328627, guid: 4a6d23def69d24f4a804a4e577ee10e4, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 62b24c06aceed7d41a12012fb5b2a3f6, type: 2}
     - target: {fileID: 8662148795472581998, guid: 4a6d23def69d24f4a804a4e577ee10e4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -519,6 +523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -10.589
       objectReference: {fileID: 0}
+    - target: {fileID: 5748070823415498879, guid: 86742c1beb2be034a9ba95183b4f7c43, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 03745dd4846d2fe4c95ed4d8bb38b87b, type: 2}
     - target: {fileID: 5891024297964628227, guid: 86742c1beb2be034a9ba95183b4f7c43, type: 3}
       propertyPath: m_SyringeSplashVFX
       value: 
@@ -1074,12 +1082,20 @@ PrefabInstance:
       propertyPath: m_SyringeFirstSplashVFX
       value: 
       objectReference: {fileID: 4469782087854613778}
+    - target: {fileID: 2572654815573276165, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 11a729e81b86f6b4698bbbbc88a10cdc, type: 2}
     - target: {fileID: 2777949661186644562, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 11a729e81b86f6b4698bbbbc88a10cdc, type: 2}
     - target: {fileID: 3250640271660863112, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 11a729e81b86f6b4698bbbbc88a10cdc, type: 2}
+    - target: {fileID: 4385559534241808776, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
+      propertyPath: m_StartMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 11a729e81b86f6b4698bbbbc88a10cdc, type: 2}
     - target: {fileID: 5067045022604452356, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
@@ -1122,8 +1138,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5131564455737951632, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 11a729e81b86f6b4698bbbbc88a10cdc, type: 2}
     - target: {fileID: 6759147639490236014, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 11a729e81b86f6b4698bbbbc88a10cdc, type: 2}
+    - target: {fileID: 7273338286093061987, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
+      propertyPath: m_StartMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 11a729e81b86f6b4698bbbbc88a10cdc, type: 2}
     - target: {fileID: 7723286564853968578, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
@@ -1252,12 +1276,20 @@ PrefabInstance:
       propertyPath: m_SyringeFirstSplashVFX
       value: 
       objectReference: {fileID: 4540744453973760420}
+    - target: {fileID: 2572654815573276165, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: be6e7bd84d7c81942b57e2e49b1b6bcc, type: 2}
     - target: {fileID: 2777949661186644562, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: be6e7bd84d7c81942b57e2e49b1b6bcc, type: 2}
     - target: {fileID: 3250640271660863112, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be6e7bd84d7c81942b57e2e49b1b6bcc, type: 2}
+    - target: {fileID: 4385559534241808776, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
+      propertyPath: m_StartMaterial
       value: 
       objectReference: {fileID: 2100000, guid: be6e7bd84d7c81942b57e2e49b1b6bcc, type: 2}
     - target: {fileID: 5067045022604452356, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
@@ -1300,8 +1332,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5131564455737951632, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: be6e7bd84d7c81942b57e2e49b1b6bcc, type: 2}
     - target: {fileID: 6759147639490236014, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be6e7bd84d7c81942b57e2e49b1b6bcc, type: 2}
+    - target: {fileID: 7273338286093061987, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
+      propertyPath: m_StartMaterial
       value: 
       objectReference: {fileID: 2100000, guid: be6e7bd84d7c81942b57e2e49b1b6bcc, type: 2}
     - target: {fileID: 7723286564853968578, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
@@ -1400,6 +1440,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 176184653581526405, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: fdd81970eccc5e941b00b6fba5bfb94f, type: 2}
     - target: {fileID: 817627630900390422, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1416,6 +1460,10 @@ PrefabInstance:
       propertyPath: m_BlendShapeWeights.Array.data[0]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1266284490481544698, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: fdd81970eccc5e941b00b6fba5bfb94f, type: 2}
     - target: {fileID: 1682088123385485581, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1440,6 +1488,10 @@ PrefabInstance:
       propertyPath: m_BlendShapeWeights.Array.data[0]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3917743295729204354, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: fdd81970eccc5e941b00b6fba5bfb94f, type: 2}
     - target: {fileID: 4178723822145699588, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
       propertyPath: m_ObjectColor.b
       value: 0.8627451
@@ -1452,6 +1504,14 @@ PrefabInstance:
       propertyPath: m_ObjectColor.r
       value: 0.74509805
       objectReference: {fileID: 0}
+    - target: {fileID: 5147792802396756350, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: fdd81970eccc5e941b00b6fba5bfb94f, type: 2}
+    - target: {fileID: 5228989311702973478, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: fdd81970eccc5e941b00b6fba5bfb94f, type: 2}
     - target: {fileID: 5542420653542050221, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
       propertyPath: m_Name
       value: Sofa2Colored Variant
@@ -1472,6 +1532,10 @@ PrefabInstance:
       propertyPath: m_SyringeFirstSplashVFX
       value: 
       objectReference: {fileID: 329776661864492900}
+    - target: {fileID: 7670619728397731647, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
+      propertyPath: m_StartMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: fdd81970eccc5e941b00b6fba5bfb94f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

@@ -126,7 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6a562b3e44119ba0085de603338d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShrinkingPieceData: {fileID: 0}
+  m_ShrinkingPieceData: {fileID: 11400000, guid: 881cbe36b071e864faeeca1848504165, type: 2}
+  m_StartMaterial: {fileID: 0}
 --- !u!1001 &4778297723469367323
 PrefabInstance:
   m_ObjectHideFlags: 0
