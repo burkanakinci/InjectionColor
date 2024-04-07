@@ -8,16 +8,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Pink1_mat
-  m_Shader: {fileID: 4800000, guid: df695d70c539c3d4c87b79de307ab7bb, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7633a2fd8a3bed44791c9e952ff86e5d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _MK_ARTISTIC_ANIMATION_STUTTER
-  - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
   - _MK_DETAIL_BLEND_MIX
   - _MK_EMISSION
   - _MK_ENVIRONMENT_REFLECTIONS_ADVANCED
   - _MK_FRESNEL_HIGHLIGHTS
+  - _MK_IRIDESCENCE_DEFAULT
+  - _MK_OUTLINE_NOISE
   - _MK_RECEIVE_SHADOWS
   - _MK_SPECULAR_ISOTROPIC
   - _MK_WRAPPED_DIFFUSE
@@ -236,7 +237,7 @@ Material:
     - _Anisotropy: 0
     - _Artistic: 0
     - _ArtisticFrequency: 1
-    - _ArtisticProjection: 1
+    - _ArtisticProjection: 0
     - _Blend: 0
     - _BlendDst: 0
     - _BlendDstAlpha: 0
@@ -288,8 +289,8 @@ Material:
     - _IndirectIntensityOutline: 0
     - _Initialized: 0
     - _InputTab: 1
-    - _Iridescence: 0
-    - _IridescenceSize: 0.96
+    - _Iridescence: 1
+    - _IridescenceSize: 0.63
     - _IridescenceSmoothness: 0.5
     - _IridescenceThresholdOffset: 0
     - _Light: 0
@@ -314,7 +315,7 @@ Material:
     - _Offset1: 0
     - _Offset2: 0
     - _OptionsTab: 1
-    - _Outline: 3
+    - _Outline: 1
     - _OutlineData: 0
     - _OutlineFadeMax: 2
     - _OutlineFadeMin: 0.25
@@ -322,9 +323,10 @@ Material:
     - _OutlineLightingTypeURP: 0
     - _OutlineMaxWidth: 1
     - _OutlineMinWidth: 1
-    - _OutlineNoise: 0
+    - _OutlineNoise: 0.72
     - _OutlinePixelSizeType: 0
-    - _OutlineSize: 5
+    - _OutlineSize: 0.7
+    - _OutlineTab: 1
     - _OutlineTextureLOD: 5
     - _OutlineTextureType: 0
     - _OutlineWidth: 1
@@ -364,7 +366,7 @@ Material:
     - _SpecSmooth: 1
     - _Specular: 1
     - _SpecularHighlights: 1
-    - _SpecularIntensity: 1
+    - _SpecularIntensity: 3
     - _SpecularMapType: 0
     - _SpecularRoughness: 0.5
     - _SpecularSmoothness: 0
@@ -415,19 +417,19 @@ Material:
     - __dummy__: 0
     - __outline_gui_dummy__: 0
     m_Colors:
-    - _AlbedoColor: {r: 0.8207547, g: 0.46844962, b: 0.64266473, a: 1}
+    - _AlbedoColor: {r: 0.8207547, g: 0.46844947, b: 0.64266473, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.8207547, g: 0.46844953, b: 0.64266473, a: 1}
+    - _Color: {r: 0.8207547, g: 0.4684494, b: 0.64266473, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.6509434, g: 0.38381097, b: 0.40267217, a: 1}
     - _GoochBrightColor: {r: 0.8980392, g: 0.47843137, b: 0.8793873, a: 1}
     - _GoochDarkColor: {r: 0.115548216, g: 0.04463333, b: 0.16037738, a: 1}
     - _HColor: {r: 0.785, g: 0.785, b: 0.785, a: 1}
-    - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _IridescenceColor: {r: 0.7372549, g: 0.41960785, b: 0.5764706, a: 1}
     - _LightTransmissionColor: {r: 1, g: 0.65, b: 0, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.654902, g: 0.37254903, b: 0.5137255, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
