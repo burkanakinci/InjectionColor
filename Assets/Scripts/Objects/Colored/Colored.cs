@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace Game.Object
@@ -11,6 +12,7 @@ namespace Game.Object
         [SerializeField] private Transform m_SyringeParent;
         [SerializeField] private Color m_ObjectColor;
         [SerializeField] private Vector3 m_SyringeParentShrinkEndPos;
+        [SerializeField] private Vector3 m_OnChangeColorfulJumpPos;
         private Vector3 m_SyringeParentShrinkStartPos;
         public Color ObjectColor => m_ObjectColor;
 
@@ -42,6 +44,18 @@ namespace Game.Object
         public void DilationColored()
         {
             m_ColoredVisual.DilationColoredVisual();
+        }
+
+        public void OnChangeColoredJump()
+        {
+            m_ColoredVisual.LocalMoveTween(m_OnChangeColorfulJumpPos,m_ColoredData.OnChangeColorfulJumpDuration)
+                .SetEase(m_ColoredData.OnChangeColorfulJumpEase)
+                .OnComplete(() =>
+                {
+                    m_ColoredVisual
+                        .LocalMoveTween(Vector3.zero, m_ColoredData.OnChangeColorfulJumpBackDuration)
+                        .SetEase(m_ColoredData.OnChangeColorfulJumpBackEase);
+                });
         }
 
         public void SetSplashVFXEnabled(bool _isEnable)

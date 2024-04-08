@@ -11,7 +11,7 @@ namespace Game.Object
     {
         private SkinnedMeshRenderer m_ShrinkingPieceRenderer;
         [SerializeField] private ShrinkingPieceData m_ShrinkingPieceData; 
-        [SerializeField]private Material m_StartMaterial;
+        [SerializeField] private Material m_StartMaterial;
         private Entities m_Entities;
         public Action<float> OnChangeShrinkingValue;
 
@@ -99,6 +99,7 @@ namespace Game.Object
                         m_ShrinkingPieceData.OnShrinkingDuration)
                     .SetEase(m_ShrinkingPieceData.OnShrinkingEase);
             }
+            
         }
 
         public void Shrink()
@@ -106,10 +107,11 @@ namespace Game.Object
             ShrinkingDelayCallTween(m_ShrinkingPieceData.OnShrinkingStartDelay, () => { ShrinkObject(); });
         }
 
-        public void Dilation()
+        public void Dilation(Action _onStartDilation = null)
         {
             ShrinkingDelayCallTween(m_ShrinkingPieceData.OnDilationStartDelay, () =>
             {
+                _onStartDilation?.Invoke();
                 DilationObject();
             });
         }

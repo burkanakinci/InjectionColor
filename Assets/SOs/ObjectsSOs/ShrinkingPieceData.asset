@@ -27,11 +27,11 @@ MonoBehaviour:
   m_OnShrinkingUseBackDilation: 1
   m_OnChangeColorlessDuration: 0.8
   m_OnChangeColorlessEase: 1
-  m_OnDilationMinStartDelay: 0.5
-  m_OnDilationMaxStartDelay: 0.6
-  m_OnDilationMinDuration: 1
-  m_OnDilationMaxDuration: 1.1
-  m_OnDilationEase: 1
+  m_OnDilationMinStartDelay: 0.4
+  m_OnDilationMaxStartDelay: 0.5
+  m_OnDilationMinDuration: 0.25
+  m_OnDilationMaxDuration: 0.35
+  m_OnDilationEase: 18
   m_OnDilationMinBackDilationStartValue: 60
   m_OnDilationMaxBackDilationStartValue: 80
   m_OnDilationMinBackDilationValue: 5
@@ -40,5 +40,5 @@ MonoBehaviour:
   m_OnDilationMaxBackDilationDuration: 0.1
   m_OnDilationBackDilationEase: 1
   m_OnDilationUseBackDilation: 0
-  m_OnChangeColofulDuration: 0.75
+  m_OnChangeColofulDuration: 0.5
   m_OnChangeColofulEase: 1

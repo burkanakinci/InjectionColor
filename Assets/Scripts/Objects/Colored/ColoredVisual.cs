@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace Game.Object
@@ -30,7 +31,8 @@ namespace Game.Object
 
         public void DilationColoredVisual()
         {
-            for (int i = 0; i < m_ShrinkingPiece.Length; i++)
+            m_ShrinkingPiece[0].Dilation(CachedComponent.OnChangeColoredJump);
+            for (int i = 1; i < m_ShrinkingPiece.Length; i++)
             {
                 m_ShrinkingPiece[i].Dilation();
             }
@@ -50,8 +52,27 @@ namespace Game.Object
             m_SyringeFirstSplashVFX.SetSplashVFXEnabled(_isEnable);
         }
 
+        #region Tween
+
+        private Tween m_MoveTween;
+
+        public Tween LocalMoveTween(Vector3 _pos,float _duration)
+        {
+            m_MoveTween?.Kill();
+            m_MoveTween = transform.DOLocalMove(_pos,_duration);
+            return m_MoveTween;
+        }
+
+        public void KillAllTween()
+        {
+            m_MoveTween?.Kill();
+        }
+
+        #endregion
+
         private void OnDisable()
         {
+            KillAllTween();
             if(m_ShrinkingPiece[0] != null && CachedComponent != null)
                 m_ShrinkingPiece[0].OnChangeShrinkingValue -= CachedComponent.OnChangeShrinkingValue;
         }

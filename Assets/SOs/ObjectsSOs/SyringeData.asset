@@ -18,7 +18,7 @@ MonoBehaviour:
   m_OnMoveToColoredJumpPower: 2
   m_OnMoveToColoredJumpDuration: 0.75
   m_OnMoveToColoredJumpEase: 18
-  m_OnMoveToColoredRotateDuration: 0.6
+  m_OnMoveToColoredRotateDuration: 0.75
   m_OnMoveToColoredRotateEase: 1
   m_MovementToColoredFlipPair:
     m_OnMoveToColoredFlipDuration: 0.75
@@ -54,11 +54,11 @@ MonoBehaviour:
   m_DeinjectLiquidDownPair:
     m_LiquidDownDuration: 0.5
     m_LiquidDownEase: 1
-  m_OnSyringePourMovementStartDelay: 1
+  m_OnSyringePourMovementStartDelay: 0.5
   m_OnSyringePourMovementJumpPower: 2
   m_OnSyringePourMovementJumpDuration: 0.75
   m_OnSyringePourMovementJumpEase: 18
-  m_OnSyringePourMovementRotateDuration: 0.5
+  m_OnSyringePourMovementRotateDuration: 0.75
   m_OnSyringePourMovementRotateEase: 1
   m_OnSyringeCompletedPouringStartDelay: 0.25
   m_OnSyringeCompletedPouringJumpPower: 0.15

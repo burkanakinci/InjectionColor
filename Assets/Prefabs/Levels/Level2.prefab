@@ -346,6 +346,18 @@ PrefabInstance:
       propertyPath: m_ObjectColor.r
       value: 0.91764706
       objectReference: {fileID: 0}
+    - target: {fileID: 8094947260876119538, guid: ff71cfde053053a48bba0c6968a90c9e, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094947260876119538, guid: ff71cfde053053a48bba0c6968a90c9e, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094947260876119538, guid: ff71cfde053053a48bba0c6968a90c9e, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8943877990451348860, guid: ff71cfde053053a48bba0c6968a90c9e, type: 3}
       propertyPath: m_Name
       value: Brown2_SplashVFX
@@ -593,6 +605,18 @@ PrefabInstance:
     - target: {fileID: 1221292966543685810, guid: 0c333352a01999c418a5ad16c253a852, type: 3}
       propertyPath: m_ObjectColor.r
       value: 0.85882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221292966543685810, guid: 0c333352a01999c418a5ad16c253a852, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221292966543685810, guid: 0c333352a01999c418a5ad16c253a852, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221292966543685810, guid: 0c333352a01999c418a5ad16c253a852, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2070223693803921468, guid: 0c333352a01999c418a5ad16c253a852, type: 3}
       propertyPath: m_Name
@@ -947,6 +971,18 @@ PrefabInstance:
     - target: {fileID: 8768264626129532511, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
       propertyPath: m_ObjectColor.r
       value: 0.3254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768264626129532511, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768264626129532511, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768264626129532511, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9066066184419080937, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
       propertyPath: m_StartMaterial
@@ -1323,6 +1359,18 @@ PrefabInstance:
     - target: {fileID: 8768264626129532511, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
       propertyPath: m_ObjectColor.r
       value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768264626129532511, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768264626129532511, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768264626129532511, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9066066184419080937, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
       propertyPath: m_StartMaterial

@@ -22,6 +22,20 @@ namespace Game.Object
 
 
         #endregion
+        
+        #region On Change Colorful Jump
+
+        [Header("On Change Colorful Jump")]
+        [FoldoutGroup("On Change Colorful Jump")][SerializeField]
+        private float m_OnChangeColorfulJumpDuration;
+        [FoldoutGroup("On Change Colorful Jump")][SerializeField] 
+        private Ease m_OnChangeColorfulJumpEase;
+        [FoldoutGroup("On Change Colorful Jump")][SerializeField]
+        private float m_OnChangeColorfulJumpBackDuration;
+        [FoldoutGroup("On Change Colorful Jump")][SerializeField] 
+        private Ease m_OnChangeColorfulJumpBackEase;
+
+        #endregion
 
         #endregion
 
@@ -33,6 +47,15 @@ namespace Game.Object
         public OnDisabledSplashVFXPair OnDisabledSplashVFXPair => m_OnDisabledSplashVFXPair;
 
         #endregion
+
+        #endregion
+        
+        #region On Change Colorful Jump
+
+        public float OnChangeColorfulJumpDuration => m_OnChangeColorfulJumpDuration;
+        public Ease OnChangeColorfulJumpEase => m_OnChangeColorfulJumpEase;
+        public float OnChangeColorfulJumpBackDuration => m_OnChangeColorfulJumpBackDuration;
+        public Ease OnChangeColorfulJumpBackEase => m_OnChangeColorfulJumpBackEase;
 
         #endregion
     }

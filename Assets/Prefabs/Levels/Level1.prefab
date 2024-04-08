@@ -340,6 +340,14 @@ PrefabInstance:
       propertyPath: m_ObjectColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8768264626129532511, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768264626129532511, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9066066184419080937, guid: b4b0608e25ccaaa4182bc7ca90a53c15, type: 3}
       propertyPath: m_StartMaterial
       value: 

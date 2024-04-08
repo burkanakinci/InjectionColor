@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: m_ObjectColor.r
       value: 0.81960785
       objectReference: {fileID: 0}
+    - target: {fileID: 2209259572440696153, guid: 4a6d23def69d24f4a804a4e577ee10e4, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.y
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 2815400005587400625, guid: 4a6d23def69d24f4a804a4e577ee10e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.8
@@ -478,6 +482,10 @@ PrefabInstance:
     - target: {fileID: 1086528742577909448, guid: 86742c1beb2be034a9ba95183b4f7c43, type: 3}
       propertyPath: m_ObjectColor.r
       value: 0.28627452
+      objectReference: {fileID: 0}
+    - target: {fileID: 1086528742577909448, guid: 86742c1beb2be034a9ba95183b4f7c43, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.y
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 3641944346391940468, guid: 86742c1beb2be034a9ba95183b4f7c43, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1162,6 +1170,10 @@ PrefabInstance:
       propertyPath: m_ObjectColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9217549131845800172, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.y
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1360,6 +1372,10 @@ PrefabInstance:
       propertyPath: m_ObjectColor.r
       value: 0.91764706
       objectReference: {fileID: 0}
+    - target: {fileID: 9217549131845800172, guid: 859da4c2ccd8b3e468c17b00f9cb1f2e, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.y
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1503,6 +1519,10 @@ PrefabInstance:
     - target: {fileID: 4178723822145699588, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
       propertyPath: m_ObjectColor.r
       value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178723822145699588, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
+      propertyPath: m_OnChangeColorfulJumpPos.y
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5147792802396756350, guid: cbe0f0e07ee945b43837e5aeb6059c04, type: 3}
       propertyPath: m_StartMaterial

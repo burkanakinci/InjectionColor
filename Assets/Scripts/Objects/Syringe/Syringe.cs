@@ -31,9 +31,10 @@ namespace Game.Object
             m_AudioManager.Play(AudioType.SyringeMoveToColored);
             m_CurrentColored = _colored;
             transform.SetParent(_colored.SyringeTargetParent);
-            ScaleTween(1.0f, m_SyringeData.OnMoveToColoredJumpDuration);
+            ScaleTween(1.0f, m_SyringeData.OnMoveToColoredJumpDuration)
+                .SetEase(Ease.Linear);
             LocalJumpTween(Vector3.up * m_SyringeData.OnMoveToColoredJumpFirstHeight, 
-                    m_SyringeData.OnMoveToColoredJumpPower + transform.localPosition.y,
+                    Mathf.Max(m_SyringeData.OnMoveToColoredJumpPower + transform.localPosition.y,m_SyringeData.OnMoveToColoredJumpPower),
                     m_SyringeData.OnMoveToColoredJumpDuration)
                 .SetEase(m_SyringeData.OnMoveToColoredJumpEase)
                 .OnComplete(() =>
@@ -66,10 +67,11 @@ namespace Game.Object
                     m_AudioManager.Play(AudioType.SyringeBackFromColored);
                     transform.SetParent(m_PouringCup.SyringePouringParent);
                     m_CurrentColored.SetSplashVFXEnabled(false);
-                    ScaleTween(1.0f, m_SyringeData.OnSyringePourMovementJumpDuration);
+                    ScaleTween(1.0f, m_SyringeData.OnSyringePourMovementJumpDuration)
+                        .SetEase(Ease.Linear);
                     LocalJumpTween(
                             Vector3.zero,
-                            m_SyringeData.OnSyringePourMovementJumpPower + transform.localPosition.y,
+                            Mathf.Max(m_SyringeData.OnSyringePourMovementJumpPower + transform.localPosition.y,m_SyringeData.OnSyringePourMovementJumpPower),
                             m_SyringeData.OnSyringePourMovementJumpDuration)
                         .SetEase(m_SyringeData.OnSyringePourMovementJumpEase)
                         .OnComplete(() =>
@@ -104,10 +106,11 @@ namespace Game.Object
             JumpDelayedTween(m_SyringeData.OnSyringeCompletedPouringStartDelay,
                 () =>
                 {
-                    ScaleTween(1.0f,m_SyringeData.OnSyringeCompletedPouringJumpDuration);
+                    ScaleTween(1.0f,m_SyringeData.OnSyringeCompletedPouringJumpDuration)
+                        .SetEase(Ease.Linear);
                     LocalJumpTween(
                             Vector3.zero,
-                            m_SyringeData.OnSyringeCompletedPouringJumpPower + transform.localPosition.y,
+                            Mathf.Max(m_SyringeData.OnSyringeCompletedPouringJumpPower + transform.localPosition.y,m_SyringeData.OnSyringeCompletedPouringJumpPower),
                             m_SyringeData.OnSyringeCompletedPouringJumpDuration
                         )
                         .SetEase(m_SyringeData.OnSyringeCompletedPouringJumpEase);
