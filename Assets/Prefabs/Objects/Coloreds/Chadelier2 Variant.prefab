@@ -64,6 +64,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7277483607751931695, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7277483607751931695, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.0070792045
+      objectReference: {fileID: 0}
+    - target: {fileID: -7277483607751931695, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.02590002
+      objectReference: {fileID: 0}
+    - target: {fileID: -7277483607751931695, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.011835549
+      objectReference: {fileID: 0}
+    - target: {fileID: -7277483607751931695, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.02590002
+      objectReference: {fileID: 0}
+    - target: {fileID: -7277483607751931695, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -5006530389123536497, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -134,6 +158,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 814172001358484468, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6685547748287509158}
+    - targetCorrespondingSourceObject: {fileID: -5743350618785959237, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8082763086451191992}
   m_SourcePrefab: {fileID: 100100000, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
 --- !u!4 &517111459311221913 stripped
 Transform:
@@ -158,6 +185,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShrinkingPieceData: {fileID: 11400000, guid: 881cbe36b071e864faeeca1848504165, type: 2}
+  m_StartMaterial: {fileID: 0}
+--- !u!1 &3525221565623183817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5743350618785959237, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
+  m_PrefabInstance: {fileID: 47181541133654898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8082763086451191992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3525221565623183817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71e85069e1e47328e74245c65fd9240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShrinkingPieceData: {fileID: 11400000, guid: 881cbe36b071e864faeeca1848504165, type: 2}
+  m_StartMaterial: {fileID: 0}
 --- !u!1 &4369850898701025140 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4324382951438869510, guid: 37c425bb540deaa40804451f85aa5c1d, type: 3}
@@ -176,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShrinkingPieceData: {fileID: 11400000, guid: 881cbe36b071e864faeeca1848504165, type: 2}
+  m_StartMaterial: {fileID: 0}
 --- !u!1001 &1572257896754956818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -184,6 +232,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158205257006795401, guid: e2efacc81148cca489460ff86e3b26c9, type: 3}
+      propertyPath: m_ShrinkingPiece.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 158205257006795401, guid: e2efacc81148cca489460ff86e3b26c9, type: 3}
+      propertyPath: m_ShrinkingPiece.Array.data[0]
+      value: 
+      objectReference: {fileID: 1178261729449837937}
+    - target: {fileID: 158205257006795401, guid: e2efacc81148cca489460ff86e3b26c9, type: 3}
+      propertyPath: m_ShrinkingPiece.Array.data[2]
+      value: 
+      objectReference: {fileID: 6685547748287509158}
     - target: {fileID: 3022017070811053035, guid: e2efacc81148cca489460ff86e3b26c9, type: 3}
       propertyPath: m_Name
       value: Chadelier2 Variant

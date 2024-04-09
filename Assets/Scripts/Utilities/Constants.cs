@@ -82,6 +82,7 @@ namespace Game.Utilities.Constants
     public enum ColoredObjectMaterialType
     {
         Colorless = 0,
+        LightColorless = 1,
     }
 
     public enum ManagerType

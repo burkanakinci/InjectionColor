@@ -11,13 +11,18 @@ namespace Game.Object
     {
         private SkinnedMeshRenderer m_ShrinkingPieceRenderer;
         [SerializeField] private ShrinkingPieceData m_ShrinkingPieceData; 
-        [SerializeField] private Material m_StartMaterial;
-        private Entities m_Entities;
+        [SerializeField] protected Material m_StartMaterial;
+        protected Entities m_Entities;
         public Action<float> OnChangeShrinkingValue;
 
         public override void Initialize(ColoredVisual _cachedComponent)
         {
             base.Initialize(_cachedComponent);
+            InitializeShrinkingObject();
+        }
+
+        protected virtual void InitializeShrinkingObject()
+        {
             m_ShrinkingPieceRenderer = GetComponent<SkinnedMeshRenderer>();
             m_Entities = GameManager.Instance.GetManager<Entities>();
             m_TargetTweenMaterial = m_Entities.GetColoredObjectsMaterial(ColoredObjectMaterialType.Colorless);
@@ -118,11 +123,11 @@ namespace Game.Object
 
         #region Tweens
 
-        private Tween m_ShrinkingDelayCallTween;
-        private Tween m_ShrinhkingBlendShapeTween;
-        private float m_StartShrinkingBlendShapeValue;
+        protected Tween m_ShrinkingDelayCallTween;
+        protected Tween m_ShrinhkingBlendShapeTween;
+        protected float m_StartShrinkingBlendShapeValue;
 
-        private Tween ShrinkingBlendShapeTween(float _target, float _duration)
+        protected virtual Tween ShrinkingBlendShapeTween(float _target, float _duration)
         {
             m_StartShrinkingBlendShapeValue = m_ShrinkingPieceRenderer.GetBlendShapeWeight(0);
             m_ShrinhkingBlendShapeTween?.Kill();
@@ -133,8 +138,8 @@ namespace Game.Object
             return m_ShrinhkingBlendShapeTween;
         }
         
-        private float m_TempMaterialLerp;
-        private void SetShrinkBlendShape(float _shapeValue)
+        protected float m_TempMaterialLerp;
+        protected virtual void SetShrinkBlendShape(float _shapeValue)
         {
             m_ShrinkingPieceRenderer.SetBlendShapeWeight(0, _shapeValue);
             m_TempMaterialLerp = _shapeValue * 0.01f;
@@ -143,8 +148,7 @@ namespace Game.Object
         }
 
         private Tween m_ChangeMaterialTween;
-        private Material m_StartTweenMaterial;
-        private Material m_TargetTweenMaterial;
+        protected Material m_TargetTweenMaterial;
 
         public Tween ShrinkingDelayCallTween(float _delay, Action _onComplete)
         {

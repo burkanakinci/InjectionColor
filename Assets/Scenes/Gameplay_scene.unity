@@ -835,6 +835,10 @@ PrefabInstance:
       value: PouringLiquid_CupEdited
       objectReference: {fileID: 0}
     - target: {fileID: 7221403548849477422, guid: 1cf40d297771870438254d5cbe3673b6, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7221403548849477422, guid: 1cf40d297771870438254d5cbe3673b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7707a00bbbae9154ab78f5ca6e1fd55e, type: 2}
@@ -1026,11 +1030,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[4912303640461705216].m_Audios.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148562062104330240].m_MaxLevelDataCount
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148561995980079107].m_UIPanels.Array.size
@@ -1059,6 +1063,10 @@ PrefabInstance:
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148562062104330240].m_AssetBundle.m_AssetGUID
       value: 42e6b37188f1eda43b263983d2ab17f4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[7148561995980079109].m_ObjectTextures.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148562062104330240].m_AssetReference.m_AssetGUID
@@ -1097,12 +1105,28 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[4912303640461705216].m_Audios.Array.data[4].m_AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b78126f655438f64a90d5003dd2de494, type: 3}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[4912303640461705216].m_Audios.Array.data[4].m_AudioType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[4912303640461705216].m_Audios.Array.data[5].m_AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e1e06b0087a76d147bd3cba940f21824, type: 3}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[4912303640461705216].m_Audios.Array.data[5].m_AudioType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148562062104330240].m_AssetLabelReference.m_LabelString
       value: default
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148561995980079109].m_ColoredObjectsMaterials.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[4912303640461705216].m_Audios.Array.data[0].m_AudioSourceType
@@ -1121,6 +1145,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[4912303640461705216].m_Audios.Array.data[4].m_AudioSourceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[4912303640461705216].m_Audios.Array.data[5].m_AudioSourceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[4912303640461705216].m_AudioSources.Array.data[0].m_AudioSource
       value: 
       objectReference: {fileID: 963194230}
@@ -1137,9 +1169,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[7148561995980079109].m_ObjectTextures.Array.data[0].m_ObjectTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: d61acd552b23ee1408a0b53c0240961c, type: 3}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: managedReferences[7148561995980079109].m_ColoredObjectsMaterials.Array.data[0].m_ColoredObjectMaterial
       value: 
       objectReference: {fileID: 2100000, guid: b8bbd67da598f6a42a6c9e8e30db5b36, type: 2}
+    - target: {fileID: 2614077703203001534, guid: d4cdde8654dcd504490f450d511db673, type: 3}
+      propertyPath: managedReferences[7148561995980079109].m_ColoredObjectsMaterials.Array.data[1].m_ColoredObjectMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: eefd37a18a3d188458b5be1d5f31f6f1, type: 2}
     - target: {fileID: 2744005677503783101, guid: d4cdde8654dcd504490f450d511db673, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

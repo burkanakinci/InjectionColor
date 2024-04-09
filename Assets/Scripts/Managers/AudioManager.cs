@@ -81,5 +81,7 @@ namespace Game.Manager
         SyringeMoveToColored = 1,
         SyringeBackFromColored = 2,
         SyringePouringLiquid = 3,
+        ClickedContinueInjectButton = 4,
+        ClickedNextLevelButton = 5,
     }
 }
